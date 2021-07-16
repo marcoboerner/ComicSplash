@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct ComicSplashApp: App {
+
+	init() {
+		// Download latest comics
+	}
+
     var body: some Scene {
         WindowGroup {
             ContentView()

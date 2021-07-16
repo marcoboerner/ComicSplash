@@ -1,0 +1,28 @@
+# By default, SwiftLint uses a set of sensible default rules you can adjust:
+disabled_rules: # rule identifiers turned on by default to exclude from running
+  - line_length
+  - todo
+  - large_tuple
+  - nesting
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - SameSame/Trash
+  - Carthage
+  - Pods
+  - bak.swift # Exclude files with a wildcard
+# naming rules can set warnings/errors for min_length and max_length
+# additionally they can set excluded names
+type_name:
+  min_length: 1 # only warning
+  max_length: # warning and error
+    warning: 50
+    error: 60
+  excluded: iPhone # excluded via string
+  allowed_symbols: ["_"] # these are allowed in type names
+identifier_name:
+  min_length: 1
+  #validates_start_with_lowercase: false
+function_parameter_count:
+  warning: 6
+type_body_length: 220
+cyclomatic_complexity:
+  ignores_case_statements: true

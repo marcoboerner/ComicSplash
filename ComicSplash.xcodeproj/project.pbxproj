@@ -13,6 +13,12 @@
 		20800CB426A1E71A00521FFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20800CB326A1E71A00521FFA /* Preview Assets.xcassets */; };
 		20800CBF26A1E71A00521FFA /* ComicSplashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CBE26A1E71A00521FFA /* ComicSplashTests.swift */; };
 		20800CCA26A1E71A00521FFA /* ComicSplashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CC926A1E71A00521FFA /* ComicSplashUITests.swift */; };
+		20800CD926A1E7A700521FFA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 20800CD826A1E7A700521FFA /* .swiftlint.yml */; };
+		20800CDB26A1E7B900521FFA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 20800CDA26A1E7B900521FFA /* README.md */; };
+		20800CDE26A1E9D100521FFA /* ComicParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CDD26A1E9D100521FFA /* ComicParser.swift */; };
+		20800CE026A1EF4D00521FFA /* ComicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CDF26A1EF4D00521FFA /* ComicData.swift */; };
+		20800CE526A1FC0200521FFA /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CE426A1FC0200521FFA /* Actions.swift */; };
+		20800CE826A1FD1600521FFA /* Workflows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CE726A1FD1600521FFA /* Workflows.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,12 @@
 		20800CC526A1E71A00521FFA /* ComicSplashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComicSplashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20800CC926A1E71A00521FFA /* ComicSplashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicSplashUITests.swift; sourceTree = "<group>"; };
 		20800CCB26A1E71A00521FFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20800CD826A1E7A700521FFA /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		20800CDA26A1E7B900521FFA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		20800CDD26A1E9D100521FFA /* ComicParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicParser.swift; sourceTree = "<group>"; };
+		20800CDF26A1EF4D00521FFA /* ComicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicData.swift; sourceTree = "<group>"; };
+		20800CE426A1FC0200521FFA /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		20800CE726A1FD1600521FFA /* Workflows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +87,8 @@
 		20800CA026A1E70F00521FFA = {
 			isa = PBXGroup;
 			children = (
+				20800CDA26A1E7B900521FFA /* README.md */,
+				20800CD826A1E7A700521FFA /* .swiftlint.yml */,
 				20800CAB26A1E70F00521FFA /* ComicSplash */,
 				20800CBD26A1E71A00521FFA /* ComicSplashTests */,
 				20800CC826A1E71A00521FFA /* ComicSplashUITests */,
@@ -95,10 +109,12 @@
 		20800CAB26A1E70F00521FFA /* ComicSplash */ = {
 			isa = PBXGroup;
 			children = (
-				20800CAC26A1E70F00521FFA /* ComicSplashApp.swift */,
-				20800CAE26A1E70F00521FFA /* ContentView.swift */,
-				20800CB026A1E71A00521FFA /* Assets.xcassets */,
+				20800CE626A1FCE200521FFA /* Workflows */,
+				20800CE326A1FBED00521FFA /* Actions */,
+				20800CE226A1FB4400521FFA /* Models */,
+				20800CE126A1FB2700521FFA /* Views */,
 				20800CB526A1E71A00521FFA /* Info.plist */,
+				20800CD726A1E73100521FFA /* Assets */,
 				20800CB226A1E71A00521FFA /* Preview Content */,
 			);
 			path = ComicSplash;
@@ -130,6 +146,48 @@
 			path = ComicSplashUITests;
 			sourceTree = "<group>";
 		};
+		20800CD726A1E73100521FFA /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				20800CB026A1E71A00521FFA /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		20800CE126A1FB2700521FFA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20800CAC26A1E70F00521FFA /* ComicSplashApp.swift */,
+				20800CAE26A1E70F00521FFA /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		20800CE226A1FB4400521FFA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				20800CDD26A1E9D100521FFA /* ComicParser.swift */,
+				20800CDF26A1EF4D00521FFA /* ComicData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		20800CE326A1FBED00521FFA /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				20800CE426A1FC0200521FFA /* Actions.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		20800CE626A1FCE200521FFA /* Workflows */ = {
+			isa = PBXGroup;
+			children = (
+				20800CE726A1FD1600521FFA /* Workflows.swift */,
+			);
+			path = Workflows;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,6 +198,7 @@
 				20800CA526A1E70F00521FFA /* Sources */,
 				20800CA626A1E70F00521FFA /* Frameworks */,
 				20800CA726A1E70F00521FFA /* Resources */,
+				20800CDC26A1E8A700521FFA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -233,7 +292,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20800CD926A1E7A700521FFA /* .swiftlint.yml in Resources */,
 				20800CB426A1E71A00521FFA /* Preview Assets.xcassets in Resources */,
+				20800CDB26A1E7B900521FFA /* README.md in Resources */,
 				20800CB126A1E71A00521FFA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,13 +315,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		20800CDC26A1E8A700521FFA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		20800CA526A1E70F00521FFA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20800CE826A1FD1600521FFA /* Workflows.swift in Sources */,
+				20800CE526A1FC0200521FFA /* Actions.swift in Sources */,
+				20800CDE26A1E9D100521FFA /* ComicParser.swift in Sources */,
 				20800CAF26A1E70F00521FFA /* ContentView.swift in Sources */,
 				20800CAD26A1E70F00521FFA /* ComicSplashApp.swift in Sources */,
+				20800CE026A1EF4D00521FFA /* ComicData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
