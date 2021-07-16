@@ -9,42 +9,33 @@ import Foundation
 
 class ComicParser {
 
-	let comicURL = "https://xkcd.com/info.0.json"
+	func fetchData(from urlStringComponents: [LosslessStringConvertible], completion: @escaping (Data?, Error?) -> Void) {
+		let urlString = urlStringComponents.map { $0.description }.joined()
+		fetchData(from: urlString, completion: completion)
+	}
 
-	func fetchComic(urlString: String) {
+	func fetchData(from urlString: String, completion: @escaping (Data?, Error?) -> Void) {
 
 		if let url = URL(string: urlString) {
 
 			let urlSession = URLSession(configuration: .default)
 
-			let dataTask = urlSession.dataTask(with: url) { data, urlResponse, error in
-
-				// TODO: - Need to run a request that fails and return the appropriate error to handle / skip an image.
-
-				// FIXME: - Need to handle errors correctly
-				if let error = error {
-					print("Error: \(error.localizedDescription)")
-				}
-
-				if let data = data {
-					self.parseJSON(data)
-				}
-
+			let dataTask = urlSession.dataTask(with: url) { data, _, error in
+				completion(data, error)
 			}
 
 			dataTask.resume()
 		}
 	}
 
-	func parseJSON(_ data: Data) { // FIXME: - Make generic, passing in type.
+	func parseJSON(_ data: Data) throws -> ComicData { // FIXME: - Make generic, passing in type.
 
 		let jsonDecoder = JSONDecoder()
 
 		do {
-			let comicData = try jsonDecoder.decode(ComicData.self, from: data)
-			print("comicData:\n \(comicData)")
+			return try jsonDecoder.decode(ComicData.self, from: data)
 		} catch {
-			print("Error: \(error.localizedDescription)")
+			throw error
 		}
 
 	}

@@ -1,5 +1,5 @@
 //
-//  Actions.swift
+//  K.swift
 //  ComicSplash
 //
 //  Created by Marco Boerner on 16.07.21.
@@ -7,8 +7,10 @@
 
 import Foundation
 
-enum Action {
-	case getLatestComics
+struct K {
 
-	case storeComic(ComicData)
+	struct ImageSets {
+		static let inAppLogo = "InAppLogo"
+	}
+
 }

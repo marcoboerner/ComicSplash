@@ -4,6 +4,7 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
   - todo
   - large_tuple
   - nesting
+  - statement_position
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - SameSame/Trash
   - Carthage

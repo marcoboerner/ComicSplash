@@ -12,7 +12,7 @@ struct ComicData: Decodable {
 	// FIXME: - Gonna check if it might be better to just assign empty values or strings as default initilizer.
 
 	let month: String?
-	let num: Int?
+	let num: Int
 	let link: String?
 	let year: String?
 	let news: String?

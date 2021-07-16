@@ -19,6 +19,10 @@
 		20800CE026A1EF4D00521FFA /* ComicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CDF26A1EF4D00521FFA /* ComicData.swift */; };
 		20800CE526A1FC0200521FFA /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CE426A1FC0200521FFA /* Actions.swift */; };
 		20800CE826A1FD1600521FFA /* Workflows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CE726A1FD1600521FFA /* Workflows.swift */; };
+		20800CEA26A1FDDA00521FFA /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CE926A1FDDA00521FFA /* State.swift */; };
+		20800CEE26A2038600521FFA /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CED26A2038600521FFA /* Reducers.swift */; };
+		20800CF026A2338000521FFA /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CEF26A2338000521FFA /* WelcomeView.swift */; };
+		20800CF326A233CF00521FFA /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CF226A233CF00521FFA /* K.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		20800CDF26A1EF4D00521FFA /* ComicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicData.swift; sourceTree = "<group>"; };
 		20800CE426A1FC0200521FFA /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		20800CE726A1FD1600521FFA /* Workflows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows.swift; sourceTree = "<group>"; };
+		20800CE926A1FDDA00521FFA /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		20800CED26A2038600521FFA /* Reducers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
+		20800CEF26A2338000521FFA /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		20800CF226A233CF00521FFA /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,9 @@
 		20800CAB26A1E70F00521FFA /* ComicSplash */ = {
 			isa = PBXGroup;
 			children = (
+				20800CF126A233C000521FFA /* Supporting Files */,
+				20800CEB26A1FDE000521FFA /* State */,
+				20800CEC26A2036F00521FFA /* Reducers */,
 				20800CE626A1FCE200521FFA /* Workflows */,
 				20800CE326A1FBED00521FFA /* Actions */,
 				20800CE226A1FB4400521FFA /* Models */,
@@ -159,6 +170,7 @@
 			children = (
 				20800CAC26A1E70F00521FFA /* ComicSplashApp.swift */,
 				20800CAE26A1E70F00521FFA /* ContentView.swift */,
+				20800CEF26A2338000521FFA /* WelcomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +198,30 @@
 				20800CE726A1FD1600521FFA /* Workflows.swift */,
 			);
 			path = Workflows;
+			sourceTree = "<group>";
+		};
+		20800CEB26A1FDE000521FFA /* State */ = {
+			isa = PBXGroup;
+			children = (
+				20800CE926A1FDDA00521FFA /* State.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		20800CEC26A2036F00521FFA /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				20800CED26A2038600521FFA /* Reducers.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		20800CF126A233C000521FFA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				20800CF226A233CF00521FFA /* K.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,10 +377,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				20800CE826A1FD1600521FFA /* Workflows.swift in Sources */,
+				20800CF326A233CF00521FFA /* K.swift in Sources */,
 				20800CE526A1FC0200521FFA /* Actions.swift in Sources */,
 				20800CDE26A1E9D100521FFA /* ComicParser.swift in Sources */,
 				20800CAF26A1E70F00521FFA /* ContentView.swift in Sources */,
+				20800CF026A2338000521FFA /* WelcomeView.swift in Sources */,
 				20800CAD26A1E70F00521FFA /* ComicSplashApp.swift in Sources */,
+				20800CEA26A1FDDA00521FFA /* State.swift in Sources */,
+				20800CEE26A2038600521FFA /* Reducers.swift in Sources */,
 				20800CE026A1EF4D00521FFA /* ComicData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

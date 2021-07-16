@@ -10,13 +10,16 @@ import SwiftUI
 @main
 struct ComicSplashApp: App {
 
+	let state: State = State()
+
 	init() {
-		// Download latest comics
+		Workflows(state: state).run(.getLatestComics)
 	}
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+				.environmentObject(state)
         }
     }
 }
