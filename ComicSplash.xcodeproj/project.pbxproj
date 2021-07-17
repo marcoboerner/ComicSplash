@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		207CBB2A26A3630800F59A9E /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 207CBB2926A3630800F59A9E /* SDWebImageSwiftUI */; };
 		207CBB2C26A36B9100F59A9E /* AltOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2B26A36B9100F59A9E /* AltOverlayView.swift */; };
+		207CBB2E26A3796C00F59A9E /* TalkAndLoveOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */; };
+		207CBB3126A382AD00F59A9E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 207CBB3026A382AD00F59A9E /* RealmSwift */; };
+		207CBB3326A382AD00F59A9E /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 207CBB3226A382AD00F59A9E /* Realm */; };
+		207CBB3526A3836C00F59A9E /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3426A3836C00F59A9E /* RealmModel.swift */; };
+		207CBB3726A3854500F59A9E /* RealmObjectModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3626A3854500F59A9E /* RealmObjectModels.swift */; };
+		207CBB3A26A38AD000F59A9E /* Workflows_ComicsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3926A38AD000F59A9E /* Workflows_ComicsAPI.swift */; };
+		207CBB3C26A38B0500F59A9E /* Workflows_Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3B26A38B0500F59A9E /* Workflows_Favorites.swift */; };
 		20800CAD26A1E70F00521FFA /* ComicSplashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CAC26A1E70F00521FFA /* ComicSplashApp.swift */; };
 		20800CAF26A1E70F00521FFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CAE26A1E70F00521FFA /* ContentView.swift */; };
 		20800CB126A1E71A00521FFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20800CB026A1E71A00521FFA /* Assets.xcassets */; };
@@ -50,6 +57,11 @@
 
 /* Begin PBXFileReference section */
 		207CBB2B26A36B9100F59A9E /* AltOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltOverlayView.swift; sourceTree = "<group>"; };
+		207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkAndLoveOverlayView.swift; sourceTree = "<group>"; };
+		207CBB3426A3836C00F59A9E /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		207CBB3626A3854500F59A9E /* RealmObjectModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObjectModels.swift; sourceTree = "<group>"; };
+		207CBB3926A38AD000F59A9E /* Workflows_ComicsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows_ComicsAPI.swift; sourceTree = "<group>"; };
+		207CBB3B26A38B0500F59A9E /* Workflows_Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows_Favorites.swift; sourceTree = "<group>"; };
 		20800CA926A1E70F00521FFA /* ComicSplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicSplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20800CAC26A1E70F00521FFA /* ComicSplashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicSplashApp.swift; sourceTree = "<group>"; };
 		20800CAE26A1E70F00521FFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				207CBB3326A382AD00F59A9E /* Realm in Frameworks */,
+				207CBB3126A382AD00F59A9E /* RealmSwift in Frameworks */,
 				207CBB2A26A3630800F59A9E /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +118,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		207CBB3826A38A8000F59A9E /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				207CBB3426A3836C00F59A9E /* RealmModel.swift */,
+				207CBB3626A3854500F59A9E /* RealmObjectModels.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		20800CA026A1E70F00521FFA = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +152,7 @@
 		20800CAB26A1E70F00521FFA /* ComicSplash */ = {
 			isa = PBXGroup;
 			children = (
+				207CBB3826A38A8000F59A9E /* Database */,
 				20800CF126A233C000521FFA /* Supporting Files */,
 				20800CEB26A1FDE000521FFA /* State */,
 				20800CEC26A2036F00521FFA /* Reducers */,
@@ -186,6 +210,7 @@
 				20800CF426A2F3DC00521FFA /* ComicSubTabView.swift */,
 				20800CFA26A35C2000521FFA /* ComicView.swift */,
 				207CBB2B26A36B9100F59A9E /* AltOverlayView.swift */,
+				207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */,
 				20800CEF26A2338000521FFA /* WelcomeView.swift */,
 				20800CF826A32FCB00521FFA /* SwiftUIView.swift */,
 			);
@@ -213,6 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				20800CE726A1FD1600521FFA /* Workflows.swift */,
+				207CBB3B26A38B0500F59A9E /* Workflows_Favorites.swift */,
+				207CBB3926A38AD000F59A9E /* Workflows_ComicsAPI.swift */,
 			);
 			path = Workflows;
 			sourceTree = "<group>";
@@ -260,6 +287,8 @@
 			name = ComicSplash;
 			packageProductDependencies = (
 				207CBB2926A3630800F59A9E /* SDWebImageSwiftUI */,
+				207CBB3026A382AD00F59A9E /* RealmSwift */,
+				207CBB3226A382AD00F59A9E /* Realm */,
 			);
 			productName = ComicSplash;
 			productReference = 20800CA926A1E70F00521FFA /* ComicSplash.app */;
@@ -334,6 +363,7 @@
 			mainGroup = 20800CA026A1E70F00521FFA;
 			packageReferences = (
 				207CBB2826A3630800F59A9E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				207CBB2F26A382AD00F59A9E /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 20800CAA26A1E70F00521FFA /* Products */;
 			projectDirPath = "";
@@ -402,16 +432,21 @@
 				20800CF926A32FCB00521FFA /* SwiftUIView.swift in Sources */,
 				20800CE826A1FD1600521FFA /* Workflows.swift in Sources */,
 				207CBB2C26A36B9100F59A9E /* AltOverlayView.swift in Sources */,
+				207CBB3526A3836C00F59A9E /* RealmModel.swift in Sources */,
 				20800CF326A233CF00521FFA /* K.swift in Sources */,
 				20800CE526A1FC0200521FFA /* Actions.swift in Sources */,
 				20800CDE26A1E9D100521FFA /* ComicParser.swift in Sources */,
 				20800CAF26A1E70F00521FFA /* ContentView.swift in Sources */,
 				20800CFB26A35C2000521FFA /* ComicView.swift in Sources */,
 				20800CF526A2F3DC00521FFA /* ComicSubTabView.swift in Sources */,
+				207CBB2E26A3796C00F59A9E /* TalkAndLoveOverlayView.swift in Sources */,
 				20800CF026A2338000521FFA /* WelcomeView.swift in Sources */,
 				20800CAD26A1E70F00521FFA /* ComicSplashApp.swift in Sources */,
+				207CBB3C26A38B0500F59A9E /* Workflows_Favorites.swift in Sources */,
 				20800CEA26A1FDDA00521FFA /* AppState.swift in Sources */,
+				207CBB3726A3854500F59A9E /* RealmObjectModels.swift in Sources */,
 				20800CEE26A2038600521FFA /* Reducers.swift in Sources */,
+				207CBB3A26A38AD000F59A9E /* Workflows_ComicsAPI.swift in Sources */,
 				20800CE026A1EF4D00521FFA /* ComicData.swift in Sources */,
 				20800CF726A2F4DB00521FFA /* MainTabView.swift in Sources */,
 			);
@@ -743,6 +778,14 @@
 				minimumVersion = 2.0.2;
 			};
 		};
+		207CBB2F26A382AD00F59A9E /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.10.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -750,6 +793,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 207CBB2826A3630800F59A9E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		207CBB3026A382AD00F59A9E /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207CBB2F26A382AD00F59A9E /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		207CBB3226A382AD00F59A9E /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207CBB2F26A382AD00F59A9E /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

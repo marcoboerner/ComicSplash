@@ -16,9 +16,12 @@ enum Action {
 
 	case clearComics
 
+	case toggleHeartForComic(_ num: Int)
+
 	case previous
 	case next
 	case gotoComic(_ num: Int)
+	case heartComic(_ num: Int)
 
 	case storePreviousComic(ComicData)
 	case storeNextComic(ComicData)

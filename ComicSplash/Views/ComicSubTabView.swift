@@ -21,6 +21,7 @@ struct ComicSubTabView: View {
 				WelcomeView()
 			default:
 				ComicView(comicNum: $state.currentComic)
+					.navigationBarTitleDisplayMode(.inline)
 					.navigationBarItems(
 						leading:
 							Button(
@@ -52,6 +53,7 @@ struct ComicSubTabView: View {
 								)
 							}
 					)
+
 			}
 		}
 	}

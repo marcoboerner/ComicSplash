@@ -44,6 +44,9 @@ class Reducers {
 			}
 			// TODO: - maybe use a max method here again
 
+		case .heartComic(let num):
+			state.favoriteComics.insert(num)
+
 		default:
 			return
 		}

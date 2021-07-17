@@ -17,9 +17,9 @@ struct ComicView: View {
 // FIXME: - want to pass on only the current comic. Not all of it. Might make current comic available as a state variable.
 
     var body: some View {
+		ZStack {
 		VStack {
 			Spacer()
-			ZStack {
 				WebImage(
 					url: URL(string: state.comicsData[comicNum]?.img ?? "/"),
 					options: [.highPriority, .retryFailed])
@@ -40,8 +40,6 @@ struct ComicView: View {
 					.onLongPressGesture {
 						showOverlay = true
 					}
-			}
-
 			Spacer()
 			VStack {
 				Text("\"\(state.comicsData[comicNum]?.title ?? "Untitled")\"")
@@ -51,7 +49,10 @@ struct ComicView: View {
 				}
 			}
 
-    }
+		}
+			TalkAndLoveOverlayView(comicNum: $state.currentComic)
+				.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+		}
 	}
 }
 
