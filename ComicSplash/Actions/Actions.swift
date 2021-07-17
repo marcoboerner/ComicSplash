@@ -25,4 +25,6 @@ enum Action {
 
 	case storePreviousComic(ComicData)
 	case storeNextComic(ComicData)
+
+	case speak(_ transcript: String)
 }

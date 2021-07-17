@@ -27,6 +27,8 @@ class Workflows {
 			getRandomComics(state: state)
 		case .toggleHeartForComic(let num):
 			addOrRemoveToFavoritesComic(num, state: state)
+		case .speak(let transcript):
+			speak(transcript)
 		default:
 			return
 		}

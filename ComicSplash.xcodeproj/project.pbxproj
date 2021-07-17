@@ -16,6 +16,8 @@
 		207CBB3726A3854500F59A9E /* RealmObjectModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3626A3854500F59A9E /* RealmObjectModels.swift */; };
 		207CBB3A26A38AD000F59A9E /* Workflows_ComicsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3926A38AD000F59A9E /* Workflows_ComicsAPI.swift */; };
 		207CBB3C26A38B0500F59A9E /* Workflows_Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3B26A38B0500F59A9E /* Workflows_Favorites.swift */; };
+		207CBB3F26A3931B00F59A9E /* TextToSpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3E26A3931B00F59A9E /* TextToSpeechModel.swift */; };
+		207CBB4126A3949B00F59A9E /* Workflows_Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB4026A3949B00F59A9E /* Workflows_Speech.swift */; };
 		20800CAD26A1E70F00521FFA /* ComicSplashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CAC26A1E70F00521FFA /* ComicSplashApp.swift */; };
 		20800CAF26A1E70F00521FFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CAE26A1E70F00521FFA /* ContentView.swift */; };
 		20800CB126A1E71A00521FFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20800CB026A1E71A00521FFA /* Assets.xcassets */; };
@@ -62,6 +64,8 @@
 		207CBB3626A3854500F59A9E /* RealmObjectModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObjectModels.swift; sourceTree = "<group>"; };
 		207CBB3926A38AD000F59A9E /* Workflows_ComicsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows_ComicsAPI.swift; sourceTree = "<group>"; };
 		207CBB3B26A38B0500F59A9E /* Workflows_Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows_Favorites.swift; sourceTree = "<group>"; };
+		207CBB3E26A3931B00F59A9E /* TextToSpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechModel.swift; sourceTree = "<group>"; };
+		207CBB4026A3949B00F59A9E /* Workflows_Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows_Speech.swift; sourceTree = "<group>"; };
 		20800CA926A1E70F00521FFA /* ComicSplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicSplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20800CAC26A1E70F00521FFA /* ComicSplashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicSplashApp.swift; sourceTree = "<group>"; };
 		20800CAE26A1E70F00521FFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,6 +131,14 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		207CBB3D26A3930500F59A9E /* TextToSpeach */ = {
+			isa = PBXGroup;
+			children = (
+				207CBB3E26A3931B00F59A9E /* TextToSpeechModel.swift */,
+			);
+			path = TextToSpeach;
+			sourceTree = "<group>";
+		};
 		20800CA026A1E70F00521FFA = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +164,7 @@
 		20800CAB26A1E70F00521FFA /* ComicSplash */ = {
 			isa = PBXGroup;
 			children = (
+				207CBB3D26A3930500F59A9E /* TextToSpeach */,
 				207CBB3826A38A8000F59A9E /* Database */,
 				20800CF126A233C000521FFA /* Supporting Files */,
 				20800CEB26A1FDE000521FFA /* State */,
@@ -240,6 +253,7 @@
 				20800CE726A1FD1600521FFA /* Workflows.swift */,
 				207CBB3B26A38B0500F59A9E /* Workflows_Favorites.swift */,
 				207CBB3926A38AD000F59A9E /* Workflows_ComicsAPI.swift */,
+				207CBB4026A3949B00F59A9E /* Workflows_Speech.swift */,
 			);
 			path = Workflows;
 			sourceTree = "<group>";
@@ -437,6 +451,7 @@
 				20800CE526A1FC0200521FFA /* Actions.swift in Sources */,
 				20800CDE26A1E9D100521FFA /* ComicParser.swift in Sources */,
 				20800CAF26A1E70F00521FFA /* ContentView.swift in Sources */,
+				207CBB3F26A3931B00F59A9E /* TextToSpeechModel.swift in Sources */,
 				20800CFB26A35C2000521FFA /* ComicView.swift in Sources */,
 				20800CF526A2F3DC00521FFA /* ComicSubTabView.swift in Sources */,
 				207CBB2E26A3796C00F59A9E /* TalkAndLoveOverlayView.swift in Sources */,
@@ -448,6 +463,7 @@
 				20800CEE26A2038600521FFA /* Reducers.swift in Sources */,
 				207CBB3A26A38AD000F59A9E /* Workflows_ComicsAPI.swift in Sources */,
 				20800CE026A1EF4D00521FFA /* ComicData.swift in Sources */,
+				207CBB4126A3949B00F59A9E /* Workflows_Speech.swift in Sources */,
 				20800CF726A2F4DB00521FFA /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

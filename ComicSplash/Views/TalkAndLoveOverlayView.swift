@@ -16,12 +16,13 @@ struct TalkAndLoveOverlayView: View {
 		HStack {
 			Button(
 				action: {
-					// speak
+					Workflows(state: state).run(.speak(state.comicsData[comicNum]?.transcript ?? "Nothing to say"))
 				},
 				label: {
 					Image(systemName: "waveform")
 						.resizable()
 						.scaledToFit()
+						.accentColor(state.comicsData[comicNum]?.transcript?.isEmpty ?? true ? .clear : .blue)
 						.frame(minWidth: 15, idealWidth: 20, maxWidth: 30)
 				}
 			)
