@@ -7,13 +7,10 @@
 
 import Foundation
 
-class State: ObservableObject {
+class AppState: ObservableObject {
 
-	var latestComicNum: Int {
-		comicsData.keys.max() ?? 0
-	}
-
-	@Published var comicsData: [Int: ComicData] = [:]
+	@Published var latestComicNum: Int = 0
+	@Published var comicsData: [ComicData] = []
 
 	struct Settings {
 		static let requiredComicAmount = 10 // I'd not set it much lower than 10 so the user doesn't have to wait too long.

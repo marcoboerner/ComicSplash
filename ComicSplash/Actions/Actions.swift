@@ -8,7 +8,10 @@
 import Foundation
 
 enum Action {
+
 	case getLatestComics
+	case getPreviousComic
+	case getNextComic
 
 	case storeComic(ComicData)
 }

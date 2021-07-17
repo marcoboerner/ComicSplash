@@ -9,18 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
 
-	@EnvironmentObject var state: State
+	@EnvironmentObject var state: AppState
 
     var body: some View {
 
 		switch state.comicsData.count {
 		case 0:
 			WelcomeView()
-				.onAppear {
-					print("appear")
-				}
 		default:
-			Text(state.comicsData.first!.value.num.description)
+			MainTabView()
 		}
     }
 }
@@ -28,6 +25,7 @@ struct ContentView: View {
 // FIXME: - Need to create preview content.
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+		ContentView()
+			.environmentObject(AppState())
     }
 }

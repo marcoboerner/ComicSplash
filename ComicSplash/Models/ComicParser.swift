@@ -20,6 +20,19 @@ class ComicParser {
 
 			let urlSession = URLSession(configuration: .default)
 
+			let request = URLRequest(url: url)
+
+// TODO: - Would like to figure out how to use combine here instead of the regular completion. Also because to publish on the right thread.
+
+//			let xxx = URLSession.shared.dataTaskPublisher(for: request)
+//				.map { response in  }
+//				.receive(on: RunLoop.main)
+//				.sink { something in
+//
+//				} receiveValue: { value in
+//
+//				}
+
 			let dataTask = urlSession.dataTask(with: url) { data, _, error in
 				completion(data, error)
 			}

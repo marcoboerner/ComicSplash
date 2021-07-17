@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct ComicSplashApp: App {
 
-	let state: State = State()
+	let state: AppState = AppState()
 
 	init() {
 		Workflows(state: state).run(.getLatestComics)

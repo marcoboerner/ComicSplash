@@ -19,10 +19,12 @@
 		20800CE026A1EF4D00521FFA /* ComicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CDF26A1EF4D00521FFA /* ComicData.swift */; };
 		20800CE526A1FC0200521FFA /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CE426A1FC0200521FFA /* Actions.swift */; };
 		20800CE826A1FD1600521FFA /* Workflows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CE726A1FD1600521FFA /* Workflows.swift */; };
-		20800CEA26A1FDDA00521FFA /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CE926A1FDDA00521FFA /* State.swift */; };
+		20800CEA26A1FDDA00521FFA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CE926A1FDDA00521FFA /* AppState.swift */; };
 		20800CEE26A2038600521FFA /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CED26A2038600521FFA /* Reducers.swift */; };
 		20800CF026A2338000521FFA /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CEF26A2338000521FFA /* WelcomeView.swift */; };
 		20800CF326A233CF00521FFA /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CF226A233CF00521FFA /* K.swift */; };
+		20800CF526A2F3DC00521FFA /* ComicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CF426A2F3DC00521FFA /* ComicView.swift */; };
+		20800CF726A2F4DB00521FFA /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CF626A2F4DB00521FFA /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +63,12 @@
 		20800CDF26A1EF4D00521FFA /* ComicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicData.swift; sourceTree = "<group>"; };
 		20800CE426A1FC0200521FFA /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		20800CE726A1FD1600521FFA /* Workflows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows.swift; sourceTree = "<group>"; };
-		20800CE926A1FDDA00521FFA /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		20800CE926A1FDDA00521FFA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		20800CED26A2038600521FFA /* Reducers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
 		20800CEF26A2338000521FFA /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		20800CF226A233CF00521FFA /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		20800CF426A2F3DC00521FFA /* ComicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicView.swift; sourceTree = "<group>"; };
+		20800CF626A2F4DB00521FFA /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +174,8 @@
 			children = (
 				20800CAC26A1E70F00521FFA /* ComicSplashApp.swift */,
 				20800CAE26A1E70F00521FFA /* ContentView.swift */,
+				20800CF626A2F4DB00521FFA /* MainTabView.swift */,
+				20800CF426A2F3DC00521FFA /* ComicView.swift */,
 				20800CEF26A2338000521FFA /* WelcomeView.swift */,
 			);
 			path = Views;
@@ -203,7 +209,7 @@
 		20800CEB26A1FDE000521FFA /* State */ = {
 			isa = PBXGroup;
 			children = (
-				20800CE926A1FDDA00521FFA /* State.swift */,
+				20800CE926A1FDDA00521FFA /* AppState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -381,11 +387,13 @@
 				20800CE526A1FC0200521FFA /* Actions.swift in Sources */,
 				20800CDE26A1E9D100521FFA /* ComicParser.swift in Sources */,
 				20800CAF26A1E70F00521FFA /* ContentView.swift in Sources */,
+				20800CF526A2F3DC00521FFA /* ComicView.swift in Sources */,
 				20800CF026A2338000521FFA /* WelcomeView.swift in Sources */,
 				20800CAD26A1E70F00521FFA /* ComicSplashApp.swift in Sources */,
-				20800CEA26A1FDDA00521FFA /* State.swift in Sources */,
+				20800CEA26A1FDDA00521FFA /* AppState.swift in Sources */,
 				20800CEE26A2038600521FFA /* Reducers.swift in Sources */,
 				20800CE026A1EF4D00521FFA /* ComicData.swift in Sources */,
+				20800CF726A2F4DB00521FFA /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
