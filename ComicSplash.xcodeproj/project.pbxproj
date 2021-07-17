@@ -23,8 +23,10 @@
 		20800CEE26A2038600521FFA /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CED26A2038600521FFA /* Reducers.swift */; };
 		20800CF026A2338000521FFA /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CEF26A2338000521FFA /* WelcomeView.swift */; };
 		20800CF326A233CF00521FFA /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CF226A233CF00521FFA /* K.swift */; };
-		20800CF526A2F3DC00521FFA /* ComicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CF426A2F3DC00521FFA /* ComicView.swift */; };
+		20800CF526A2F3DC00521FFA /* ComicSubTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CF426A2F3DC00521FFA /* ComicSubTabView.swift */; };
 		20800CF726A2F4DB00521FFA /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CF626A2F4DB00521FFA /* MainTabView.swift */; };
+		20800CF926A32FCB00521FFA /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CF826A32FCB00521FFA /* SwiftUIView.swift */; };
+		20800CFB26A35C2000521FFA /* ComicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CFA26A35C2000521FFA /* ComicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +69,10 @@
 		20800CED26A2038600521FFA /* Reducers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
 		20800CEF26A2338000521FFA /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		20800CF226A233CF00521FFA /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
-		20800CF426A2F3DC00521FFA /* ComicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicView.swift; sourceTree = "<group>"; };
+		20800CF426A2F3DC00521FFA /* ComicSubTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicSubTabView.swift; sourceTree = "<group>"; };
 		20800CF626A2F4DB00521FFA /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		20800CF826A32FCB00521FFA /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		20800CFA26A35C2000521FFA /* ComicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,8 +179,10 @@
 				20800CAC26A1E70F00521FFA /* ComicSplashApp.swift */,
 				20800CAE26A1E70F00521FFA /* ContentView.swift */,
 				20800CF626A2F4DB00521FFA /* MainTabView.swift */,
-				20800CF426A2F3DC00521FFA /* ComicView.swift */,
+				20800CF426A2F3DC00521FFA /* ComicSubTabView.swift */,
+				20800CFA26A35C2000521FFA /* ComicView.swift */,
 				20800CEF26A2338000521FFA /* WelcomeView.swift */,
+				20800CF826A32FCB00521FFA /* SwiftUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -382,12 +388,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20800CF926A32FCB00521FFA /* SwiftUIView.swift in Sources */,
 				20800CE826A1FD1600521FFA /* Workflows.swift in Sources */,
 				20800CF326A233CF00521FFA /* K.swift in Sources */,
 				20800CE526A1FC0200521FFA /* Actions.swift in Sources */,
 				20800CDE26A1E9D100521FFA /* ComicParser.swift in Sources */,
 				20800CAF26A1E70F00521FFA /* ContentView.swift in Sources */,
-				20800CF526A2F3DC00521FFA /* ComicView.swift in Sources */,
+				20800CFB26A35C2000521FFA /* ComicView.swift in Sources */,
+				20800CF526A2F3DC00521FFA /* ComicSubTabView.swift in Sources */,
 				20800CF026A2338000521FFA /* WelcomeView.swift in Sources */,
 				20800CAD26A1E70F00521FFA /* ComicSplashApp.swift in Sources */,
 				20800CEA26A1FDDA00521FFA /* AppState.swift in Sources */,

@@ -13,7 +13,7 @@ struct MainTabView: View {
 
     var body: some View {
 		TabView {
-			ComicView(currentComic: state.latestComicNum)
+			ComicSubTabView()
 				.tabItem {
 					Image(systemName: "book.fill")
 				}

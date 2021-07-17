@@ -7,6 +7,9 @@
 
 import Foundation
 
+// TODO: - Implement caching like here: https://developer.apple.com/documentation/foundation/url_loading_system/accessing_cached_data
+
+
 class ComicParser {
 
 	func fetchData(from urlStringComponents: [LosslessStringConvertible], completion: @escaping (Data?, Error?) -> Void) {
