@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		207CBB2A26A3630800F59A9E /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 207CBB2926A3630800F59A9E /* SDWebImageSwiftUI */; };
+		207CBB2C26A36B9100F59A9E /* AltOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2B26A36B9100F59A9E /* AltOverlayView.swift */; };
 		20800CAD26A1E70F00521FFA /* ComicSplashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CAC26A1E70F00521FFA /* ComicSplashApp.swift */; };
 		20800CAF26A1E70F00521FFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CAE26A1E70F00521FFA /* ContentView.swift */; };
 		20800CB126A1E71A00521FFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20800CB026A1E71A00521FFA /* Assets.xcassets */; };
@@ -47,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		207CBB2B26A36B9100F59A9E /* AltOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltOverlayView.swift; sourceTree = "<group>"; };
 		20800CA926A1E70F00521FFA /* ComicSplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicSplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20800CAC26A1E70F00521FFA /* ComicSplashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicSplashApp.swift; sourceTree = "<group>"; };
 		20800CAE26A1E70F00521FFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				207CBB2A26A3630800F59A9E /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +185,7 @@
 				20800CF626A2F4DB00521FFA /* MainTabView.swift */,
 				20800CF426A2F3DC00521FFA /* ComicSubTabView.swift */,
 				20800CFA26A35C2000521FFA /* ComicView.swift */,
+				207CBB2B26A36B9100F59A9E /* AltOverlayView.swift */,
 				20800CEF26A2338000521FFA /* WelcomeView.swift */,
 				20800CF826A32FCB00521FFA /* SwiftUIView.swift */,
 			);
@@ -253,6 +258,9 @@
 			dependencies = (
 			);
 			name = ComicSplash;
+			packageProductDependencies = (
+				207CBB2926A3630800F59A9E /* SDWebImageSwiftUI */,
+			);
 			productName = ComicSplash;
 			productReference = 20800CA926A1E70F00521FFA /* ComicSplash.app */;
 			productType = "com.apple.product-type.application";
@@ -324,6 +332,9 @@
 				Base,
 			);
 			mainGroup = 20800CA026A1E70F00521FFA;
+			packageReferences = (
+				207CBB2826A3630800F59A9E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 20800CAA26A1E70F00521FFA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -390,6 +401,7 @@
 			files = (
 				20800CF926A32FCB00521FFA /* SwiftUIView.swift in Sources */,
 				20800CE826A1FD1600521FFA /* Workflows.swift in Sources */,
+				207CBB2C26A36B9100F59A9E /* AltOverlayView.swift in Sources */,
 				20800CF326A233CF00521FFA /* K.swift in Sources */,
 				20800CE526A1FC0200521FFA /* Actions.swift in Sources */,
 				20800CDE26A1E9D100521FFA /* ComicParser.swift in Sources */,
@@ -721,6 +733,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		207CBB2826A3630800F59A9E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		207CBB2926A3630800F59A9E /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207CBB2826A3630800F59A9E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 20800CA126A1E70F00521FFA /* Project object */;
 }

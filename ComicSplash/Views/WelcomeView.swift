@@ -13,6 +13,8 @@ struct WelcomeView: View {
 			.resizable()
 			.aspectRatio(contentMode: .fit)
 		// TODO: - Create animation that slightly pumps the image to animate loading.
+
+		// TODO: - If there is time create a tv with static as waiting image
     }
 }
 

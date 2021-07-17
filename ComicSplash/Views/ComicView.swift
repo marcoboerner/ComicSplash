@@ -6,15 +6,53 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ComicView: View {
 
 	@EnvironmentObject var state: AppState
 	@Binding var comicNum: Int
+	@State var showOverlay = false
+
+// FIXME: - want to pass on only the current comic. Not all of it. Might make current comic available as a state variable.
 
     var body: some View {
-		Text("\(state.comicsData[comicNum]?.title ?? "no title")")
+		VStack {
+			Spacer()
+			ZStack {
+				WebImage(
+					url: URL(string: state.comicsData[comicNum]?.img ?? "/"),
+					options: [.highPriority, .retryFailed])
+					.onSuccess { image, data, cacheType in
+					}
+					.resizable()
+					.placeholder(Image(systemName: "photo"))
+					.placeholder {
+						WelcomeView()
+					}
+					.indicator(.activity) // Activity Indicator
+					.transition(.fade(duration: 0.5)) // Fade Transition with duration
+					.scaledToFit()
+					.frame(alignment: .center)
+					.overlay(
+						AltOverlayView(altText: state.comicsData[comicNum]?.alt ?? "Without words", show: $showOverlay)
+					)
+					.onLongPressGesture {
+						showOverlay = true
+					}
+			}
+
+			Spacer()
+			VStack {
+				Text("\"\(state.comicsData[comicNum]?.title ?? "Untitled")\"")
+				HStack {
+					Text("Issue #\(state.comicsData[comicNum]?.num ?? 0)")
+					Text("\(state.comicsData[comicNum]?.day ?? "29").\(state.comicsData[comicNum]?.month ?? "08").\(state.comicsData[comicNum]?.year ?? "1997")")
+				}
+			}
+
     }
+	}
 }
 
 struct ComicView_Previews: PreviewProvider {
