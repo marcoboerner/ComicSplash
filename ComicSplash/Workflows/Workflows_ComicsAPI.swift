@@ -44,62 +44,56 @@ extension Workflows {
 
 				dispatchGroup.enter()
 
-				comicParser.fetchData(from: urlStringComponents) { data, error in
+				comicParser.fetchData(from: urlStringComponents) { comicData, error in
 					if let error = error {
 						print("Error: \(error.localizedDescription)")
 					}
 
-					else if let data = data {
-						do {
-							let comicData = try comicParser.parseJSON(data) // FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
+					else if let comicData = comicData {
 
-							DispatchQueue.main.async {
-								reducer.run(.storeComic(comicData))
-								reducer.run(.gotoComic(randomComicNum))
-							}
+						// FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
 
-							successPreviousCount += 1
-						} catch {
+						DispatchQueue.main.async {
+							reducer.run(.storeComic(comicData))
+							reducer.run(.gotoComic(randomComicNum))
+						}
+						successPreviousCount += 1
+
+						dispatchSemaphore.signal()
+						dispatchGroup.leave()
+					}
+					dispatchSemaphore.wait()
+				}
+				var currentId = randomComicNum
+				while successNextCount <= requiredComicAmount && currentId < latestComicNum {
+					currentId += 1
+					urlStringComponents[1] = currentId
+
+					dispatchGroup.enter()
+
+					comicParser.fetchData(from: urlStringComponents) { comicData, error in
+						if let error = error {
 							print("Error: \(error.localizedDescription)")
 						}
-					}
-					dispatchSemaphore.signal()
-					dispatchGroup.leave()
-				}
-				dispatchSemaphore.wait()
-			}
-			var currentId = randomComicNum
-			while successNextCount <= requiredComicAmount && currentId < latestComicNum {
-				currentId += 1
-				urlStringComponents[1] = currentId
 
-				dispatchGroup.enter()
+						else if let comicData = comicData {
 
-				comicParser.fetchData(from: urlStringComponents) { data, error in
-					if let error = error {
-						print("Error: \(error.localizedDescription)")
-					}
-
-					else if let data = data {
-						do {
-							let comicData = try comicParser.parseJSON(data) // FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
-							let reducer = Reducers(state: state)
+							// FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
 							DispatchQueue.main.async {
-								reducer.run(.storeComic(comicData))
+								Reducers(state: state).run(.storeComic(comicData))
 							}
-
 							successNextCount += 1
-						} catch {
-							print("Error: \(error.localizedDescription)")
+
+
+							dispatchSemaphore.signal()
+							dispatchGroup.leave()
 						}
+						dispatchSemaphore.wait()
 					}
-					dispatchSemaphore.signal()
-					dispatchGroup.leave()
 				}
-				dispatchSemaphore.wait()
+
 			}
 		}
-
 	}
 
 	// FIXME: - None of those individual comic methods react to failed requests yet.
@@ -117,20 +111,15 @@ extension Workflows {
 		var urlStringComponents = AppState.Settings.previousComicURLComponents
 		urlStringComponents[1] = state.comicsData.max { $0.key < $1.key }?.value.num ?? 2 - 1
 
-		comicParser.fetchData(from: urlStringComponents) { data, error in
+		comicParser.fetchData(from: urlStringComponents) { comicData, error in
 			if let error = error {
 				print("Error: \(error.localizedDescription)")
 			}
 
-			else if let data = data {
-				do {
-					let comicData = try comicParser.parseJSON(data) // FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
+			else if let comicData = comicData {
 
-					DispatchQueue.main.async {
-						reducer.run(.storeComic(comicData))
-					}
-				} catch {
-					print("Error: \(error.localizedDescription)")
+				DispatchQueue.main.async {
+					reducer.run(.storeComic(comicData))
 				}
 			}
 
@@ -141,7 +130,7 @@ extension Workflows {
 	func getLatestComics(state: AppState) {
 		// MARK: - Getting the latest comic.
 		let comicParser = ComicParser()
-		comicParser.fetchData(from: AppState.Settings.currentComicURL) { data, error in
+		comicParser.fetchData(from: AppState.Settings.currentComicURL) { comicData, error in
 
 			// TODO: - Need to run a request that fails and return the appropriate error to handle / skip an image. Maybe if there is no current image we just start from the last one.
 
@@ -151,19 +140,12 @@ extension Workflows {
 				return
 			}
 
-			else if let data = data {
-				do {
-					let comicData = try comicParser.parseJSON(data) // FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
-					let reducer = Reducers(state: state)
-					//		DispatchQueue.main.async {
-					reducer.run(.storeComic(comicData))
-					reducer.run(.gotoComic(comicData.num))
-					//		}
-					// FIXME: - Need to figure out what is happening on what queue.
-				} catch {
-					print("Error: \(error.localizedDescription)")
-					return
-				}
+			else if let comicData = comicData {
+				// FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
+				let reducer = Reducers(state: state)
+				//		DispatchQueue.main.async {
+				reducer.run(.storeComic(comicData))
+				reducer.run(.gotoComic(comicData.num))
 			}
 
 			// MARK: - Getting previous comics
@@ -184,23 +166,17 @@ extension Workflows {
 
 					dispatchGroup.enter()
 
-					comicParser.fetchData(from: urlStringComponents) { data, error in
+					comicParser.fetchData(from: urlStringComponents) { comicData, error in
 						if let error = error {
 							print("Error: \(error.localizedDescription)")
 						}
 
-						else if let data = data {
-							do {
-								let comicData = try comicParser.parseJSON(data) // FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
-								let reducer = Reducers(state: state)
-								DispatchQueue.main.async {
-									reducer.run(.storeComic(comicData))
-								}
-
-								successCount += 1
-							} catch {
-								print("Error: \(error.localizedDescription)")
+						else if let comicData = comicData {
+							// FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
+							DispatchQueue.main.async {
+								Reducers(state: state).run(.storeComic(comicData))
 							}
+							successCount += 1
 						}
 						dispatchSemaphore.signal()
 						dispatchGroup.leave()
@@ -208,12 +184,8 @@ extension Workflows {
 					dispatchSemaphore.wait()
 				}
 			}
-			//				dispatchGroup.notify(queue: dispatchQueue) {
-			//					DispatchQueue.main.async {
-			//
-			//					}
-			//				}
 		}
 	}
 
 }
+

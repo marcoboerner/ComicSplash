@@ -48,6 +48,9 @@ extension Workflows {
 		print("Subscribing")
 
 		return publisher
+			.map { response in
+				return response.compactMap { $0 as? ComicData }
+			}
 			.sink(receiveCompletion: { completion in
 				switch completion {
 				case .finished:
@@ -60,11 +63,7 @@ extension Workflows {
 				}
 			}, receiveValue: { dataTypes in
 
-				print("Received value")
-
-				let mappedData = dataTypes.compactMap { $0 as? ComicData }
-
-				mappedData.forEach {
+				dataTypes.forEach {
 					Reducers(state: state).run(.storeComic($0))
 				}
 			})

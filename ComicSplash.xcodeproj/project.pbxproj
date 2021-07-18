@@ -42,6 +42,7 @@
 		20C8C12A26A45FAF00510A6D /* EnumKit in Frameworks */ = {isa = PBXBuildFile; productRef = 20C8C12926A45FAF00510A6D /* EnumKit */; };
 		20C8C12C26A4662A00510A6D /* FavoritesSubTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8C12B26A4662A00510A6D /* FavoritesSubTabView.swift */; };
 		20C8C12E26A4731400510A6D /* ComicImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8C12D26A4731400510A6D /* ComicImageView.swift */; };
+		20C8C13026A48C1600510A6D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8C12F26A48C1600510A6D /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		20C8C12626A45B9C00510A6D /* RealmObjectModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObjectModels.swift; sourceTree = "<group>"; };
 		20C8C12B26A4662A00510A6D /* FavoritesSubTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSubTabView.swift; sourceTree = "<group>"; };
 		20C8C12D26A4731400510A6D /* ComicImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicImageView.swift; sourceTree = "<group>"; };
+		20C8C12F26A48C1600510A6D /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 				20800CEF26A2338000521FFA /* WelcomeView.swift */,
 				20800CF826A32FCB00521FFA /* SwiftUIView.swift */,
 				20C8C12B26A4662A00510A6D /* FavoritesSubTabView.swift */,
+				20C8C12F26A48C1600510A6D /* CalendarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				207CBB3526A3836C00F59A9E /* RealmModel.swift in Sources */,
 				20800CF326A233CF00521FFA /* K.swift in Sources */,
 				20800CE526A1FC0200521FFA /* Actions.swift in Sources */,
+				20C8C13026A48C1600510A6D /* CalendarView.swift in Sources */,
 				20800CDE26A1E9D100521FFA /* ComicParser.swift in Sources */,
 				20800CAF26A1E70F00521FFA /* ContentView.swift in Sources */,
 				207CBB3F26A3931B00F59A9E /* TextToSpeechModel.swift in Sources */,
