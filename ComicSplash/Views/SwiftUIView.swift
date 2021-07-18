@@ -9,20 +9,25 @@ import SwiftUI
 
 struct SwiftUIView: View {
 
-	@State var myArray: [String] = ["C", "D", "E", "F", "G"]
+	@State private var selectedTab = 5
+	@State var myArray: [Int: String] = [1: "B", 5: "C", 7: "D"]
 
 	var body: some View {
 
 		VStack {
 			Button("Insert before", action: {
-				myArray.insert("A", at: 0)
+				myArray[0] = "A"
 			})
-			TabView {
-				ForEach(myArray, id: \.self) { value in
+			TabView(selection: $selectedTab) {
+				ForEach(myArray.sorted(by: <), id: \.key) { key, value in
 					Text("\(value)")
+						.onTapGesture {
+							self.selectedTab = 5
+						}
 				}
 			}
 			.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+			.id(myArray.count)      // << here !!
 		}
 	}
 }
