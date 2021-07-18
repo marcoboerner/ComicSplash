@@ -16,16 +16,19 @@ struct MainTabView: View {
 			ComicSubTabView()
 				.tabItem {
 					Image(systemName: "book.fill")
+						.resizable()
+						.scaledToFit()
+						.frame(minWidth: 20, idealWidth: 30, maxWidth: 40)
 				}
 			FavoritesSubTabView()
 				.tabItem {
 					Image(systemName: "heart.fill")
-				}
-			Text("History")
-				.tabItem {
-					Image(systemName: "calendar")
+						.resizable()
+						.scaledToFit()
+						.frame(minWidth: 20, idealWidth: 30, maxWidth: 40)
 				}
 		}
+		.accentColor(.white)
 		.font(.headline)
     }
 }

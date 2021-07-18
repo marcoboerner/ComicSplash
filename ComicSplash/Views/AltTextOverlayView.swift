@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AltOverlayView: View {
+struct AltTextOverlayView: View {
 
 	let altText: String
 	@Binding var show: Bool
@@ -44,6 +44,6 @@ struct AltOverlayView: View {
 
 struct AltOverlayView_Previews: PreviewProvider {
 	static var previews: some View {
-		AltOverlayView(altText: "Funny little image", show: .constant(true))
+		AltTextOverlayView(altText: "Funny little image", show: .constant(true))
 	}
 }

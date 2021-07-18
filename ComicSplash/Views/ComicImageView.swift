@@ -60,7 +60,7 @@ struct ComicImageView: View {
 			.scaledToFit()
 			.frame(alignment: .center)
 			.overlay(
-				AltOverlayView(altText: state.comicsData[comicNum]?.alt ?? "Without words", show: $showOverlay)
+				AltTextOverlayView(altText: state.comicsData[comicNum]?.alt ?? "Without words", show: $showOverlay)
 			)
 			.offset(offset)
 			.scaleEffect(scale)

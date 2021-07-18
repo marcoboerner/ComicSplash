@@ -45,7 +45,6 @@ struct ComicSubTabView: View {
 								Button(
 									action: {
 										Workflows(state: state).run(.getPreviousComic)
-
 									},
 									label: {
 										Image(systemName: "arrowtriangle.right.fill")
@@ -53,7 +52,6 @@ struct ComicSubTabView: View {
 								)
 							}
 					)
-
 			}
 		}
 	}

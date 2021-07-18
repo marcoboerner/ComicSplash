@@ -7,10 +7,11 @@
 
 import Foundation
 import os
+import EnumKit
 
 class Workflows {
 
-	enum ComicSelector {
+	enum ComicSelector: CaseAccessible {
 		case previous
 		case newer
 		case latest
@@ -78,7 +79,8 @@ class Workflows {
 			createOrRemoveFavoriteComicInDatabase(num, state: state)
 
 		case .getFavoriteComics:
-			readFavoriteComicsFromDatabase(state: state)
+			let subscriber = readFavoriteComicsFromDatabase(state: state)
+			reducer.run(.listenToFavoritesInDatabase(subscriber))
 
 		case .speak(let transcript):
 			speak(transcript)

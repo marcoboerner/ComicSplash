@@ -34,6 +34,7 @@ struct ComicView: View {
 			TalkAndLoveOverlayView(comicNum: $state.currentComic)
 				.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
 		}
+		.colorScheme(.light)
 	}
 }
 

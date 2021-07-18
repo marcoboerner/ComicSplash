@@ -99,17 +99,15 @@ extension Workflows {
 		switch selection {
 		case .previous:
 			urlStringComponents[1] = (state.comicsData.min { $0.key < $1.key }?.value.num ?? 2) - 1
-			print("previous num: \(urlStringComponents[1])")
 		case .newer:
 			urlStringComponents[1] = (state.comicsData.max { $0.key < $1.key }?.value.num ?? 2) + 1
-			print("next num: \(urlStringComponents[1])")
 		case .latest:
 			urlStringComponents = [AppState.Settings.latestComicURL]
-			print("latest no num")
 		case .number(let num):
 			urlStringComponents[1] = num
-			print("random num: \(urlStringComponents[1])")
 		}
+
+		log.info("Attempting to fetch \(selection.label) from \(urlStringComponents.map{$0.description}.joined())")
 
 		// Getting the comic.
 		comicParser.fetchData(from: urlStringComponents) { error in

@@ -30,7 +30,8 @@ class ComicAPI {
 
 		guard let url = URL(string: urlString) else {
 			errorCompletion(ComicAPIError.invalidURLString)
-			return }
+			return
+		}
 
 		let request = URLRequest(url: url)
 

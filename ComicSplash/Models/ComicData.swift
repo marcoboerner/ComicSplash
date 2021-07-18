@@ -29,6 +29,4 @@ struct ComicData: DataType, Decodable {
 	let title: String?
 	let day: String?
 
-
-
 }
