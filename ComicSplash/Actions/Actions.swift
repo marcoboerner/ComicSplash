@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import Combine
+
+// TODO: - separate reducer and workflow actions.
 
 enum Action {
 
@@ -16,15 +19,18 @@ enum Action {
 
 	case clearComics
 
-	case toggleHeartForComic(_ num: Int)
+	// DB Actions
+	case addComicToFavorites(_ num: Int)
+	case getFavoriteComics
 
+	// Reducer Actions
+	case listenToFavoritesInDatabase(AnyCancellable)
 	case previous
 	case next
 	case gotoComic(_ num: Int)
 	case heartComic(_ num: Int)
 
-	case storePreviousComic(ComicData)
-	case storeNextComic(ComicData)
+	case storeComic(ComicData)
 
 	case speak(_ transcript: String)
 }

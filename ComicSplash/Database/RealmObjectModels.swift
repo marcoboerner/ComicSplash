@@ -25,6 +25,7 @@ class _ComicData: Object {
 	dynamic var img: String?
 	dynamic var title: String?
 	dynamic var day: String?
+	dynamic var heart: Bool = false
 
 	override static func primaryKey() -> String? {
 		return "_id"
@@ -41,7 +42,8 @@ class _ComicData: Object {
 		alt: String?,
 		img: String?,
 		title: String?,
-		day: String?
+		day: String?,
+		heart: Bool
 	) {
 		self.init()
 		self.months = months
@@ -55,6 +57,7 @@ class _ComicData: Object {
 		self.img = img
 		self.title = title
 		self.day = day
+		self.heart = heart
 	}
 }
 
@@ -80,7 +83,8 @@ extension RealmModel {
 							 alt: comicData.alt,
 							 img: comicData.img,
 							 title: comicData.title,
-							 day: comicData.day)
+							 day: comicData.day,
+							 heart: comicData.heart)
 		default:
 			return nil
 		}
@@ -100,7 +104,8 @@ extension RealmModel {
 							  alt: comicData.alt,
 							  img: comicData.img,
 							  title: comicData.title,
-							  day: comicData.day
+							  day: comicData.day,
+							  heart: comicData.heart
 			)
 		default:
 			return nil

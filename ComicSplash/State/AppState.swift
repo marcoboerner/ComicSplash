@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 class AppState: ObservableObject {
+
+	var databaseSubscriber: AnyCancellable?
 
 	@Published var latestComicNum: Int = 0
 	@Published var currentComic: Int = 0

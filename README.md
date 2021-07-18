@@ -12,6 +12,10 @@ Marco Boerner
 
 
 ### Modules
+Realm
+RealmDatabase
+SDWebImage
+SDWebImageSwiftUI
 
 ### API
 https://xkcd.com (License: https://creativecommons.org/licenses/by-nc/2.5/)

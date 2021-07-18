@@ -19,13 +19,10 @@ class Reducers {
 
 		switch action {
 
-		case .storePreviousComic(let comicData):
+		case .storeComic(let comicData):
 			self.state.comicsData[comicData.num] = comicData
 			self.state.latestComicNum = max(comicData.num, self.state.latestComicNum)
 			print("Comic: \(comicData.num)")
-
-		case .storeNextComic(let comicData):
-			self.state.comicsData[comicData.num] = comicData
 
 		case .gotoComic(let num):
 			self.state.currentComic = num

@@ -19,16 +19,25 @@ class Workflows {
 	func run(_ action: Action) {
 
 		switch action {
+
 		case .getLatestComics:
 			getLatestComics(state: state)
+
 		case .getPreviousComic:
 			getPreviousComic()
+
 		case .getRandomComics:
 			getRandomComics(state: state)
-		case .toggleHeartForComic(let num):
+
+		case .addComicToFavorites(let num):
 			addOrRemoveToFavoritesComic(num, state: state)
+
+		case .getFavoriteComics:
+			getFavoriteComicsFromDatabase(state: state)
+
 		case .speak(let transcript):
 			speak(transcript)
+
 		default:
 			return
 		}
@@ -36,6 +45,3 @@ class Workflows {
 	}
 
 }
-
-
-

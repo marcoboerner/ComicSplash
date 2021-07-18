@@ -101,7 +101,9 @@ class RealmModel {
 
 	// MARK: - Write to realm
 
-	func writeToRealm(_ object: Object?, completion: @escaping (Error?) -> Void) {
+	func writeToRealm(_ data: DataType, completion: @escaping (Error?) -> Void) {
+
+		let object = mapToRealmObject(data)
 
 		guard let object = object else {
 			completion(MongoDBRealmError.objectIsNilOrNotValid)
@@ -135,7 +137,6 @@ class RealmModel {
 		} catch {
 			completion(error)
 		}
-
 
 	}
 }

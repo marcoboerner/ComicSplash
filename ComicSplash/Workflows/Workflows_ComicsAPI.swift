@@ -54,7 +54,7 @@ extension Workflows {
 							let comicData = try comicParser.parseJSON(data) // FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
 
 							DispatchQueue.main.async {
-								reducer.run(.storePreviousComic(comicData))
+								reducer.run(.storeComic(comicData))
 								reducer.run(.gotoComic(randomComicNum))
 							}
 
@@ -85,7 +85,7 @@ extension Workflows {
 							let comicData = try comicParser.parseJSON(data) // FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
 							let reducer = Reducers(state: state)
 							DispatchQueue.main.async {
-								reducer.run(.storeNextComic(comicData))
+								reducer.run(.storeComic(comicData))
 							}
 
 							successNextCount += 1
@@ -127,7 +127,7 @@ extension Workflows {
 					let comicData = try comicParser.parseJSON(data) // FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
 
 					DispatchQueue.main.async {
-						reducer.run(.storePreviousComic(comicData))
+						reducer.run(.storeComic(comicData))
 					}
 				} catch {
 					print("Error: \(error.localizedDescription)")
@@ -156,7 +156,7 @@ extension Workflows {
 					let comicData = try comicParser.parseJSON(data) // FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
 					let reducer = Reducers(state: state)
 					//		DispatchQueue.main.async {
-					reducer.run(.storePreviousComic(comicData))
+					reducer.run(.storeComic(comicData))
 					reducer.run(.gotoComic(comicData.num))
 					//		}
 					// FIXME: - Need to figure out what is happening on what queue.
@@ -194,7 +194,7 @@ extension Workflows {
 								let comicData = try comicParser.parseJSON(data) // FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
 								let reducer = Reducers(state: state)
 								DispatchQueue.main.async {
-									reducer.run(.storePreviousComic(comicData))
+									reducer.run(.storeComic(comicData))
 								}
 
 								successCount += 1
