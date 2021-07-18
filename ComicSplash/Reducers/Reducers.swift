@@ -34,12 +34,12 @@ class Reducers {
 		case .clearComics:
 			self.state.comicsData = [:]
 
-		case .previous:
+		case .turnToPreviousComic:
 			if state.currentComic > 1 {
 				state.currentComic -= 1
 			}
 
-		case .next:
+		case .turnToNewerComic:
 			if state.currentComic < state.latestComicNum {
 				state.currentComic += 1
 			}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2049C58226A4BAB9002C3AF9 /* LoggerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58126A4BAB9002C3AF9 /* LoggerExtension.swift */; };
 		207CBB2C26A36B9100F59A9E /* AltOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2B26A36B9100F59A9E /* AltOverlayView.swift */; };
 		207CBB2E26A3796C00F59A9E /* TalkAndLoveOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */; };
 		207CBB3526A3836C00F59A9E /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3426A3836C00F59A9E /* RealmModel.swift */; };
@@ -23,7 +24,7 @@
 		20800CCA26A1E71A00521FFA /* ComicSplashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CC926A1E71A00521FFA /* ComicSplashUITests.swift */; };
 		20800CD926A1E7A700521FFA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 20800CD826A1E7A700521FFA /* .swiftlint.yml */; };
 		20800CDB26A1E7B900521FFA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 20800CDA26A1E7B900521FFA /* README.md */; };
-		20800CDE26A1E9D100521FFA /* ComicParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CDD26A1E9D100521FFA /* ComicParser.swift */; };
+		20800CDE26A1E9D100521FFA /* ComicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CDD26A1E9D100521FFA /* ComicAPI.swift */; };
 		20800CE026A1EF4D00521FFA /* ComicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CDF26A1EF4D00521FFA /* ComicData.swift */; };
 		20800CE526A1FC0200521FFA /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CE426A1FC0200521FFA /* Actions.swift */; };
 		20800CE826A1FD1600521FFA /* Workflows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CE726A1FD1600521FFA /* Workflows.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2049C58126A4BAB9002C3AF9 /* LoggerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerExtension.swift; sourceTree = "<group>"; };
 		207CBB2B26A36B9100F59A9E /* AltOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltOverlayView.swift; sourceTree = "<group>"; };
 		207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkAndLoveOverlayView.swift; sourceTree = "<group>"; };
 		207CBB3426A3836C00F59A9E /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
@@ -85,7 +87,7 @@
 		20800CCB26A1E71A00521FFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20800CD826A1E7A700521FFA /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		20800CDA26A1E7B900521FFA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		20800CDD26A1E9D100521FFA /* ComicParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicParser.swift; sourceTree = "<group>"; };
+		20800CDD26A1E9D100521FFA /* ComicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicAPI.swift; sourceTree = "<group>"; };
 		20800CDF26A1EF4D00521FFA /* ComicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicData.swift; sourceTree = "<group>"; };
 		20800CE426A1FC0200521FFA /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		20800CE726A1FD1600521FFA /* Workflows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		207CBB4226A42C5A00F59A9E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2049C58126A4BAB9002C3AF9 /* LoggerExtension.swift */,
 				207CBB4326A42C7C00F59A9E /* ArrayExtension.swift */,
 			);
 			path = Extensions;
@@ -255,7 +258,7 @@
 		20800CE226A1FB4400521FFA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				20800CDD26A1E9D100521FFA /* ComicParser.swift */,
+				20800CDD26A1E9D100521FFA /* ComicAPI.swift */,
 				20800CDF26A1EF4D00521FFA /* ComicData.swift */,
 			);
 			path = Models;
@@ -474,9 +477,10 @@
 				20800CF326A233CF00521FFA /* K.swift in Sources */,
 				20800CE526A1FC0200521FFA /* Actions.swift in Sources */,
 				20C8C13026A48C1600510A6D /* CalendarView.swift in Sources */,
-				20800CDE26A1E9D100521FFA /* ComicParser.swift in Sources */,
+				20800CDE26A1E9D100521FFA /* ComicAPI.swift in Sources */,
 				20800CAF26A1E70F00521FFA /* ContentView.swift in Sources */,
 				207CBB3F26A3931B00F59A9E /* TextToSpeechModel.swift in Sources */,
+				2049C58226A4BAB9002C3AF9 /* LoggerExtension.swift in Sources */,
 				20C8C12726A45B9C00510A6D /* RealmObjectModels.swift in Sources */,
 				20C8C12E26A4731400510A6D /* ComicImageView.swift in Sources */,
 				20800CFB26A35C2000521FFA /* ComicView.swift in Sources */,

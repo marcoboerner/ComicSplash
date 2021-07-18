@@ -7,6 +7,7 @@ Marco Boerner
 ### Description
 
 ### Notes
+The apps shows the latest comic first. When going to the next page what is shows is actually the previous comic. Throughout the code this is also handled like that.
 
 ### Dependencies
 

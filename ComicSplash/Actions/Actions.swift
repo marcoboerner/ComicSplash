@@ -15,7 +15,7 @@ enum WorkflowAction: CaseAccessible {
 
 	case getLatestComics
 	case getPreviousComic
-	case getNextComic
+	case getNeverComic
 	case getRandomComics
 
 	// DB Actions
@@ -32,8 +32,8 @@ enum ReducerAction: CaseAccessible {
 	case clearComics
 
 	case listenToFavoritesInDatabase(AnyCancellable)
-	case previous
-	case next
+	case turnToPreviousComic
+	case turnToNewerComic
 	case gotoComic(_ num: Int)
 
 	case storeComic(ComicData)

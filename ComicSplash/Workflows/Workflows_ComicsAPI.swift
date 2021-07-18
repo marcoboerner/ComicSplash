@@ -11,6 +11,13 @@ extension Workflows {
 
 	func getRandomComics(state: AppState) {
 
+		/* Ideally - (reusing the other methods)
+		- random number
+		- get one random comic
+		- get all previous
+		- get all next
+		*/
+
 		let reducer = Reducers(state: state)
 		reducer.run(.clearComics)
 		reducer.run(.gotoComic(0))
@@ -24,7 +31,7 @@ extension Workflows {
 		let randomComicNum = Int.random(in: range)
 
 		// MARK: - Getting the random comic.
-		let comicParser = ComicParser()
+		let comicParser = ComicAPI()
 
 		// MARK: - Getting previous comics
 		var currentId = randomComicNum + 1
@@ -44,148 +51,137 @@ extension Workflows {
 
 				dispatchGroup.enter()
 
-				comicParser.fetchData(from: urlStringComponents) { comicData, error in
-					if let error = error {
-						print("Error: \(error.localizedDescription)")
-					}
+				// Getting the comic.
+				comicParser.fetchData(from: urlStringComponents) { error in
+					self.log.error("\(error.localizedDescription)")
+					dispatchSemaphore.signal()
+					dispatchGroup.leave()
+				} success: { comicData in
+					// Updating the store with the comic.
+					reducer.run(.storeComic(comicData))
+					reducer.run(.gotoComic(randomComicNum))
+					successPreviousCount += 1
 
-					else if let comicData = comicData {
-
-						// FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
-
-						DispatchQueue.main.async {
-							reducer.run(.storeComic(comicData))
-							reducer.run(.gotoComic(randomComicNum))
-						}
-						successPreviousCount += 1
-
-						dispatchSemaphore.signal()
-						dispatchGroup.leave()
-					}
-					dispatchSemaphore.wait()
+					dispatchSemaphore.signal()
+					dispatchGroup.leave()
 				}
-				var currentId = randomComicNum
-				while successNextCount <= requiredComicAmount && currentId < latestComicNum {
-					currentId += 1
-					urlStringComponents[1] = currentId
+				dispatchSemaphore.wait()
+			}
 
-					dispatchGroup.enter()
+			var currentId = randomComicNum
+			while successNextCount <= requiredComicAmount && currentId < latestComicNum {
+				currentId += 1
+				urlStringComponents[1] = currentId
 
-					comicParser.fetchData(from: urlStringComponents) { comicData, error in
-						if let error = error {
-							print("Error: \(error.localizedDescription)")
-						}
+				dispatchGroup.enter()
 
-						else if let comicData = comicData {
+				// Getting the comic.
+				comicParser.fetchData(from: urlStringComponents) { error in
+					self.log.error("\(error.localizedDescription)")
+					dispatchSemaphore.signal()
+					dispatchGroup.leave()
+				} success: { comicData in
+					// Updating the store with the comic.
+					reducer.run(.storeComic(comicData))
+					successNextCount += 1
 
-							// FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
-							DispatchQueue.main.async {
-								Reducers(state: state).run(.storeComic(comicData))
-							}
-							successNextCount += 1
-
-
-							dispatchSemaphore.signal()
-							dispatchGroup.leave()
-						}
-						dispatchSemaphore.wait()
-					}
+					dispatchSemaphore.signal()
+					dispatchGroup.leave()
 				}
-
+				dispatchSemaphore.wait()
 			}
 		}
 	}
 
+	// Getting a defined amount of previous comics.
+	func getPreviousComics(state: AppState) {
+
+		let comicAPI = ComicAPI()
+
+		// Assigning the settings and state variables
+		var currentNum = state.latestComicNum
+		var urlStringComponents = AppState.Settings.previousComicURLComponents
+		let requiredComicAmount = AppState.Settings.requiredComicAmount
+		var successCount = 0
+
+		// Creating a dispatchGroup and Semaphore to run each task asynchronous but finishing in order on the background thread.
+		let dispatchGroup = DispatchGroup()
+		let dispatchQueue = DispatchQueue.global(qos: .background)
+		let dispatchSemaphore = DispatchSemaphore(value: 0)
+
+		dispatchQueue.async {
+
+			// Downloading until required amount of comics or first comic reached.
+			while successCount <= requiredComicAmount && currentNum > 1 {
+				currentNum -= 1
+				urlStringComponents[1] = currentNum
+
+				dispatchGroup.enter()
+
+				// Getting the comic.
+				comicAPI.fetchData(from: urlStringComponents) { error in
+					self.log.error("\(error.localizedDescription)")
+					dispatchSemaphore.signal()
+					dispatchGroup.leave()
+				} success: { comicData in
+
+					// Updating the store with the comic.
+					Reducers(state: state).run(.storeComic(comicData)) // FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
+					successCount += 1
+
+					// Async task has finished. Informing the group and semaphore.
+					dispatchSemaphore.signal()
+					dispatchGroup.leave()
+				}
+
+				// The loop waits here until it receives the signal.
+				dispatchSemaphore.wait()
+			}
+		}
+	}
+
+	// MARK: - Getting individual comics
+
 	// FIXME: - None of those individual comic methods react to failed requests yet.
 
-	func getPreviousComic() {
+	func getComic(fromPage turning: TurnDirection, state: AppState) {
 
-		let reducer = Reducers(state: self.state)
-
-		reducer.run(.previous)
-
-		// Note that the previous comic is codewise in the array handled as the next comic. As it is the next one available at the end of the pages
-
-		let comicParser = ComicParser()
-
+		let reducer = Reducers(state: state)
+		let comicParser = ComicAPI()
 		var urlStringComponents = AppState.Settings.previousComicURLComponents
-		urlStringComponents[1] = state.comicsData.max { $0.key < $1.key }?.value.num ?? 2 - 1
 
-		comicParser.fetchData(from: urlStringComponents) { comicData, error in
-			if let error = error {
-				print("Error: \(error.localizedDescription)")
-			}
+		// Updating current page state to trigger page turn
+		reducer.run(.turnToPreviousComic)
 
-			else if let comicData = comicData {
+		// Getting the comic's number before to the lowest already cached comic's number
+		urlStringComponents[1] = state.comicsData.min { $0.key < $1.key }?.value.num ?? 2 - 1
 
-				DispatchQueue.main.async {
-					reducer.run(.storeComic(comicData))
-				}
-			}
-
+		// Getting the comic.
+		comicParser.fetchData(from: urlStringComponents) { error in
+			self.log.error("\(error.localizedDescription)")
+			return
+		} success: { comicData in
+			// Updating the store with the comic.
+			reducer.run(.storeComic(comicData))
 		}
 	}
 
 	// FIXME: - Need to refactor and make testable
-	func getLatestComics(state: AppState) {
-		// MARK: - Getting the latest comic.
-		let comicParser = ComicParser()
-		comicParser.fetchData(from: AppState.Settings.currentComicURL) { comicData, error in
+	func getLatestComic(state: AppState) {
 
-			// TODO: - Need to run a request that fails and return the appropriate error to handle / skip an image. Maybe if there is no current image we just start from the last one.
+		let comicAPI = ComicAPI()
 
-			// FIXME: - Need to handle errors correctly
-			if let error = error {
-				print("Error: \(error.localizedDescription)")
-				return
-			}
-
-			else if let comicData = comicData {
-				// FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
-				let reducer = Reducers(state: state)
-				//		DispatchQueue.main.async {
-				reducer.run(.storeComic(comicData))
-				reducer.run(.gotoComic(comicData.num))
-			}
-
-			// MARK: - Getting previous comics
-			var currentId = state.latestComicNum
-			var urlStringComponents = AppState.Settings.previousComicURLComponents
-			let requiredComicAmount = AppState.Settings.requiredComicAmount
-			var successCount = 0
-
-			let dispatchGroup = DispatchGroup() // TODO: - Unless I refactor all of this I might be able to move this further up and get this code out of the completion handler.
-			let dispatchQueue = DispatchQueue(label: "URL-JSON-CALLS")
-			let dispatchSemaphore = DispatchSemaphore(value: 0)
-
-			dispatchQueue.async {
-
-				while successCount <= requiredComicAmount && currentId > 1 {
-					currentId -= 1
-					urlStringComponents[1] = currentId
-
-					dispatchGroup.enter()
-
-					comicParser.fetchData(from: urlStringComponents) { comicData, error in
-						if let error = error {
-							print("Error: \(error.localizedDescription)")
-						}
-
-						else if let comicData = comicData {
-							// FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
-							DispatchQueue.main.async {
-								Reducers(state: state).run(.storeComic(comicData))
-							}
-							successCount += 1
-						}
-						dispatchSemaphore.signal()
-						dispatchGroup.leave()
-					}
-					dispatchSemaphore.wait()
-				}
-			}
+		// Getting the comic.
+		comicAPI.fetchData(from: AppState.Settings.currentComicURL) { error in
+			self.log.error("\(error.localizedDescription)")	// TODO: - Need to run a request that fails and return the appropriate error to handle / skip an image. Maybe if there is no current image we just start from the last one.
+			return
+		} success: { comicData in
+			// ...updating the store with the latest comic...
+			let reducer = Reducers(state: state) // FIXME: - Need to get this a bit more redux like. I don't like creating the instances all the time. I think that's what happens when the store is initialized once. It adds all the dependencies and creates all the pbjects. gonna try. And maybe that's why middle ware has a getstate method instead of access to state.
+			reducer.run(.storeComic(comicData))
+			// ...and going to this comic.
+			reducer.run(.gotoComic(comicData.num))
 		}
 	}
 
 }
-

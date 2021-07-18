@@ -6,8 +6,17 @@
 //
 
 import Foundation
+import os
 
 class Workflows {
+
+	enum TurnDirection {
+		case previous
+		case newer
+	}
+
+	let log = Logger(category: "Workflows")
+
 	internal init(state: AppState) {
 		self.state = state
 	}
@@ -23,10 +32,14 @@ class Workflows {
 		switch action {
 
 		case .getLatestComics:
-			getLatestComics(state: state)
+			getLatestComic(state: state)
+			getPreviousComics(state: state)
 
 		case .getPreviousComic:
-			getPreviousComic()
+			getComic(fromPage: .previous, state: state)
+
+		case .getNeverComic:
+			getComic(fromPage: .newer, state: state)
 
 		case .getRandomComics:
 			getRandomComics(state: state)
@@ -39,10 +52,6 @@ class Workflows {
 
 		case .speak(let transcript):
 			speak(transcript)
-
-		case .getNextComic:
-// TODO: - need to setup
-			break
 		}
 
 	}
