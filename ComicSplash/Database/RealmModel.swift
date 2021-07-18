@@ -39,7 +39,8 @@ class RealmModel {
 	func openLocal(read objectTypes: [DataType.Type]) -> DatabasePublisher {
 
 		let objectTypes = objectTypes.compactMap { mapToRealmObjectType($0) }
-		let results: [Results<Object>]?
+
+		var results: [Results<Object>]?
 
 		do {
 			results = try readFromRealm(objectTypes)
@@ -53,13 +54,17 @@ class RealmModel {
 
 	// MARK: - Creating a realm config
 
-	func readFromRealm(_ objectTypes: [Object.Type]) throws -> [Results<Object>]? {
+	func readFromRealm(_ objectTypes: [Object.Type]) throws -> [Results<Object>] {
 
-		var objects: [Results<Object>]?
+// FIXME: - error handling and maybe combining with the above method. Because it can fail if the realm objects have been changed.
+
+		var objects: [Results<Object>] = []
 
 		let realm = try? Realm()
 
-		objects?.append(contentsOf: objectTypes.compactMap { realm?.objects($0) })
+		print("Opened realm: \(realm!.configuration.fileURL!)")
+
+		objects.append(contentsOf: objectTypes.compactMap { realm?.objects($0) })
 
 		return objects
 	}
@@ -103,9 +108,7 @@ class RealmModel {
 
 	func writeToRealm(_ data: DataType, completion: @escaping (Error?) -> Void) {
 
-		let object = mapToRealmObject(data)
-
-		guard let object = object else {
+		guard let object = mapToRealmObject(data) else {
 			completion(MongoDBRealmError.objectIsNilOrNotValid)
 			return
 		}

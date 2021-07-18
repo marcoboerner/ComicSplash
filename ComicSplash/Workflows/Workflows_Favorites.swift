@@ -28,23 +28,24 @@ extension Workflows {
 
 		let realmModel = RealmModel()
 
-		if var comicData = state.comicsData[num] {  // FIXME: - need error handling
+		guard var comicData = state.comicsData[num] else { return }  // FIXME: - need error handling
 
-			comicData.heart = true
-
+		if comicData.favorite == true {
+			comicData.favorite = false
+			// remove from realm
+		} else {
+			comicData.favorite = true
 			realmModel.writeToRealm(comicData) { error in
 				if let error = error {
 					print(error.localizedDescription)
-				} else {
-					//Reducers(state: state).run(.heartComic(num))
 				}
 			}
-
 		}
-
 	}
 
 	private func subscribe(to publisher: DatabasePublisher, state: AppState) -> AnyCancellable {
+
+		print("Subscribing")
 
 		return publisher
 			.sink(receiveCompletion: { completion in
@@ -58,6 +59,8 @@ extension Workflows {
 					}
 				}
 			}, receiveValue: { dataTypes in
+
+				print("Received value")
 
 				let mappedData = dataTypes.compactMap { $0 as? ComicData }
 

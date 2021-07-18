@@ -10,7 +10,6 @@
 		207CBB2C26A36B9100F59A9E /* AltOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2B26A36B9100F59A9E /* AltOverlayView.swift */; };
 		207CBB2E26A3796C00F59A9E /* TalkAndLoveOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */; };
 		207CBB3526A3836C00F59A9E /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3426A3836C00F59A9E /* RealmModel.swift */; };
-		207CBB3726A3854500F59A9E /* RealmObjectModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3626A3854500F59A9E /* RealmObjectModels.swift */; };
 		207CBB3A26A38AD000F59A9E /* Workflows_ComicsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3926A38AD000F59A9E /* Workflows_ComicsAPI.swift */; };
 		207CBB3C26A38B0500F59A9E /* Workflows_Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3B26A38B0500F59A9E /* Workflows_Favorites.swift */; };
 		207CBB3F26A3931B00F59A9E /* TextToSpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3E26A3931B00F59A9E /* TextToSpeechModel.swift */; };
@@ -39,6 +38,10 @@
 		20C8C12026A440F600510A6D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 20C8C11F26A440F600510A6D /* RealmSwift */; };
 		20C8C12226A440F600510A6D /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 20C8C12126A440F600510A6D /* Realm */; };
 		20C8C12526A4410E00510A6D /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 20C8C12426A4410E00510A6D /* SDWebImageSwiftUI */; };
+		20C8C12726A45B9C00510A6D /* RealmObjectModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8C12626A45B9C00510A6D /* RealmObjectModels.swift */; };
+		20C8C12A26A45FAF00510A6D /* EnumKit in Frameworks */ = {isa = PBXBuildFile; productRef = 20C8C12926A45FAF00510A6D /* EnumKit */; };
+		20C8C12C26A4662A00510A6D /* FavoritesSubTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8C12B26A4662A00510A6D /* FavoritesSubTabView.swift */; };
+		20C8C12E26A4731400510A6D /* ComicImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8C12D26A4731400510A6D /* ComicImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +65,6 @@
 		207CBB2B26A36B9100F59A9E /* AltOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltOverlayView.swift; sourceTree = "<group>"; };
 		207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkAndLoveOverlayView.swift; sourceTree = "<group>"; };
 		207CBB3426A3836C00F59A9E /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
-		207CBB3626A3854500F59A9E /* RealmObjectModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObjectModels.swift; sourceTree = "<group>"; };
 		207CBB3926A38AD000F59A9E /* Workflows_ComicsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows_ComicsAPI.swift; sourceTree = "<group>"; };
 		207CBB3B26A38B0500F59A9E /* Workflows_Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows_Favorites.swift; sourceTree = "<group>"; };
 		207CBB3E26A3931B00F59A9E /* TextToSpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechModel.swift; sourceTree = "<group>"; };
@@ -94,6 +96,9 @@
 		20800CF626A2F4DB00521FFA /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		20800CF826A32FCB00521FFA /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		20800CFA26A35C2000521FFA /* ComicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicView.swift; sourceTree = "<group>"; };
+		20C8C12626A45B9C00510A6D /* RealmObjectModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObjectModels.swift; sourceTree = "<group>"; };
+		20C8C12B26A4662A00510A6D /* FavoritesSubTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSubTabView.swift; sourceTree = "<group>"; };
+		20C8C12D26A4731400510A6D /* ComicImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C8C12A26A45FAF00510A6D /* EnumKit in Frameworks */,
 				20C8C12526A4410E00510A6D /* SDWebImageSwiftUI in Frameworks */,
 				20C8C12226A440F600510A6D /* Realm in Frameworks */,
 				20C8C12026A440F600510A6D /* RealmSwift in Frameworks */,
@@ -128,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				207CBB3426A3836C00F59A9E /* RealmModel.swift */,
-				207CBB3626A3854500F59A9E /* RealmObjectModels.swift */,
+				20C8C12626A45B9C00510A6D /* RealmObjectModels.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -233,10 +239,12 @@
 				20800CF626A2F4DB00521FFA /* MainTabView.swift */,
 				20800CF426A2F3DC00521FFA /* ComicSubTabView.swift */,
 				20800CFA26A35C2000521FFA /* ComicView.swift */,
+				20C8C12D26A4731400510A6D /* ComicImageView.swift */,
 				207CBB2B26A36B9100F59A9E /* AltOverlayView.swift */,
 				207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */,
 				20800CEF26A2338000521FFA /* WelcomeView.swift */,
 				20800CF826A32FCB00521FFA /* SwiftUIView.swift */,
+				20C8C12B26A4662A00510A6D /* FavoritesSubTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -314,6 +322,7 @@
 				20C8C11F26A440F600510A6D /* RealmSwift */,
 				20C8C12126A440F600510A6D /* Realm */,
 				20C8C12426A4410E00510A6D /* SDWebImageSwiftUI */,
+				20C8C12926A45FAF00510A6D /* EnumKit */,
 			);
 			productName = ComicSplash;
 			productReference = 20800CA926A1E70F00521FFA /* ComicSplash.app */;
@@ -389,6 +398,7 @@
 			packageReferences = (
 				20C8C11E26A440F600510A6D /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				20C8C12326A4410E00510A6D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				20C8C12826A45FAF00510A6D /* XCRemoteSwiftPackageReference "EnumKit" */,
 			);
 			productRefGroup = 20800CAA26A1E70F00521FFA /* Products */;
 			projectDirPath = "";
@@ -463,6 +473,8 @@
 				20800CDE26A1E9D100521FFA /* ComicParser.swift in Sources */,
 				20800CAF26A1E70F00521FFA /* ContentView.swift in Sources */,
 				207CBB3F26A3931B00F59A9E /* TextToSpeechModel.swift in Sources */,
+				20C8C12726A45B9C00510A6D /* RealmObjectModels.swift in Sources */,
+				20C8C12E26A4731400510A6D /* ComicImageView.swift in Sources */,
 				20800CFB26A35C2000521FFA /* ComicView.swift in Sources */,
 				207CBB4426A42C7C00F59A9E /* ArrayExtension.swift in Sources */,
 				20800CF526A2F3DC00521FFA /* ComicSubTabView.swift in Sources */,
@@ -471,8 +483,8 @@
 				20800CAD26A1E70F00521FFA /* ComicSplashApp.swift in Sources */,
 				207CBB3C26A38B0500F59A9E /* Workflows_Favorites.swift in Sources */,
 				20800CEA26A1FDDA00521FFA /* AppState.swift in Sources */,
-				207CBB3726A3854500F59A9E /* RealmObjectModels.swift in Sources */,
 				20800CEE26A2038600521FFA /* Reducers.swift in Sources */,
+				20C8C12C26A4662A00510A6D /* FavoritesSubTabView.swift in Sources */,
 				207CBB3A26A38AD000F59A9E /* Workflows_ComicsAPI.swift in Sources */,
 				20800CE026A1EF4D00521FFA /* ComicData.swift in Sources */,
 				207CBB4126A3949B00F59A9E /* Workflows_Speech.swift in Sources */,
@@ -815,6 +827,14 @@
 				minimumVersion = 2.0.2;
 			};
 		};
+		20C8C12826A45FAF00510A6D /* XCRemoteSwiftPackageReference "EnumKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gringoireDM/EnumKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -832,6 +852,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 20C8C12326A4410E00510A6D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		20C8C12926A45FAF00510A6D /* EnumKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20C8C12826A45FAF00510A6D /* XCRemoteSwiftPackageReference "EnumKit" */;
+			productName = EnumKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

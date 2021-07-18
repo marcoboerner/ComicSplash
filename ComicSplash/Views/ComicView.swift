@@ -12,7 +12,7 @@ struct ComicView: View {
 
 	@EnvironmentObject var state: AppState
 	@Binding var comicNum: Int
-	@State var showOverlay = false
+	@State var scale = 1.0
 
 // FIXME: - want to pass on only the current comic. Not all of it. Might make current comic available as a state variable.
 
@@ -20,26 +20,7 @@ struct ComicView: View {
 		ZStack {
 		VStack {
 			Spacer()
-				WebImage(
-					url: URL(string: state.comicsData[comicNum]?.img ?? "/"),
-					options: [.highPriority, .retryFailed])
-					.onSuccess { image, data, cacheType in
-					}
-					.resizable()
-					.placeholder(Image(systemName: "photo"))
-					.placeholder {
-						WelcomeView()
-					}
-					.indicator(.activity) // Activity Indicator
-					.transition(.fade(duration: 0.5)) // Fade Transition with duration
-					.scaledToFit()
-					.frame(alignment: .center)
-					.overlay(
-						AltOverlayView(altText: state.comicsData[comicNum]?.alt ?? "Without words", show: $showOverlay)
-					)
-					.onLongPressGesture {
-						showOverlay = true
-					}
+			ComicImageView(comicNum: $comicNum)
 			Spacer()
 			VStack {
 				Text("\"\(state.comicsData[comicNum]?.title ?? "Untitled")\"")

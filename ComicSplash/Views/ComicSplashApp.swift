@@ -13,6 +13,7 @@ struct ComicSplashApp: App {
 	let state: AppState = AppState()
 
 	init() {
+		Workflows(state: state).run(.getFavoriteComics)
 		Workflows(state: state).run(.getLatestComics)
 	}
 

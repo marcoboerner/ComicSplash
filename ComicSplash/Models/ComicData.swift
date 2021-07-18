@@ -13,8 +13,10 @@ struct ComicData: DataType, Decodable {
 
 	// FIXME: - Gonna check if it might be better to just assign empty values or strings as default initilizer.
 
-	//JSON Relevant values
+	// Additional values
+	var favorite: Bool?
 
+	// JSON Relevant values
 	let month: String?
 	let num: Int
 	let link: String?
@@ -27,7 +29,6 @@ struct ComicData: DataType, Decodable {
 	let title: String?
 	let day: String?
 
-	// Additional values
-	var heart: Bool = false
+
 
 }

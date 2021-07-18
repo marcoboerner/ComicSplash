@@ -7,6 +7,8 @@
 
 import Foundation
 
+// It is encouraged to not to use a default in the switch statement so no actions are forgotten.
+
 class Reducers {
 
 	init(state: AppState) {
@@ -15,7 +17,9 @@ class Reducers {
 
 	let state: AppState
 
-	func run(_ action: Action) {
+	func run(_ action: ReducerAction) {
+
+		print("Reducer: \(action.label)")
 
 		switch action {
 
@@ -41,11 +45,9 @@ class Reducers {
 			}
 			// TODO: - maybe use a max method here again
 
-		case .heartComic(let num):
-			state.favoriteComics.insert(num)
+		case .listenToFavoritesInDatabase(let subscriber):
+			state.databaseSubscriber = subscriber
 
-		default:
-			return
 		}
 
 	}

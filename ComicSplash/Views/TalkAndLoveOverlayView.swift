@@ -34,7 +34,7 @@ struct TalkAndLoveOverlayView: View {
 					Image(systemName: "heart.fill")
 						.resizable()
 						.scaledToFit()
-						.accentColor(state.favoriteComics.contains(comicNum) ? .red.opacity(1.0) : .gray.opacity(0.5))
+						.accentColor(state.comicsData[comicNum]?.favorite == true ? .red.opacity(1.0) : .gray.opacity(0.5))
 						.frame(minWidth: 15, idealWidth: 20, maxWidth: 30)
 				}
 			)

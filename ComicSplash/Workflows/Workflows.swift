@@ -16,7 +16,9 @@ class Workflows {
 
 	// MARK: - Action receiver and workflow router.
 
-	func run(_ action: Action) {
+	func run(_ action: WorkflowAction) {
+
+		print("Workflow: \(action.label)")
 
 		switch action {
 
@@ -38,8 +40,9 @@ class Workflows {
 		case .speak(let transcript):
 			speak(transcript)
 
-		default:
-			return
+		case .getNextComic:
+// TODO: - need to setup
+			break
 		}
 
 	}

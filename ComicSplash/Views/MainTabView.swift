@@ -17,7 +17,7 @@ struct MainTabView: View {
 				.tabItem {
 					Image(systemName: "book.fill")
 				}
-			Text("Favorites")
+			FavoritesSubTabView()
 				.tabItem {
 					Image(systemName: "heart.fill")
 				}

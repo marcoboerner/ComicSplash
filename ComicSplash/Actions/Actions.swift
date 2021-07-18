@@ -7,30 +7,35 @@
 
 import Foundation
 import Combine
+import EnumKit
 
-// TODO: - separate reducer and workflow actions.
+enum WorkflowAction: CaseAccessible {
 
-enum Action {
+	// Workflow actions have side effects and usually end with a reducer action.
 
 	case getLatestComics
 	case getPreviousComic
 	case getNextComic
 	case getRandomComics
 
-	case clearComics
-
 	// DB Actions
 	case addComicToFavorites(_ num: Int)
 	case getFavoriteComics
 
-	// Reducer Actions
+	case speak(_ transcript: String)
+}
+
+enum ReducerAction: CaseAccessible {
+
+	// Reducer actions trigger pure functions only that change the AppState.
+
+	case clearComics
+
 	case listenToFavoritesInDatabase(AnyCancellable)
 	case previous
 	case next
 	case gotoComic(_ num: Int)
-	case heartComic(_ num: Int)
 
 	case storeComic(ComicData)
 
-	case speak(_ transcript: String)
 }
