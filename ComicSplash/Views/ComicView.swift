@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 struct ComicView: View {
 
 	@EnvironmentObject var state: AppState
-	@Binding var comicNum: Int
+	var comicNum: Int
 	@State var scale = 1.0
 
 // FIXME: - want to pass on only the current comic. Not all of it. Might make current comic available as a state variable.
@@ -20,7 +20,7 @@ struct ComicView: View {
 		ZStack {
 		VStack {
 			Spacer()
-			ComicImageView(comicNum: $comicNum)
+			ComicImageView(comicNum: comicNum)
 			Spacer()
 			VStack {
 				Text("\"\(state.comicsData[comicNum]?.title ?? "Untitled")\"")
@@ -54,7 +54,7 @@ struct ComicView_Previews: PreviewProvider {
 			img: "https://imgs.xkcd.com/comics/family_circus.jpg",
 			title: "Family Circus",
 			day: "10")
-		return ComicView(comicNum: .constant(100))
+		return ComicView(comicNum: 100)
 			.environmentObject(state)
     }
 }

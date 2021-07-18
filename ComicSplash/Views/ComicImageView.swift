@@ -12,7 +12,7 @@ struct ComicImageView: View {
 
 	@EnvironmentObject var state: AppState
 	@State var showOverlay = false
-	@Binding var comicNum: Int
+	var comicNum: Int
 	@State var lastScale: CGFloat = 1.0
 	@State var scale: CGFloat = 1.0
 	@State var offset: CGSize = .zero
@@ -30,6 +30,8 @@ struct ComicImageView: View {
 			self.lastScale = 1.0
 		}
 
+		let tapGesture = LongPressGesture(minimumDuration: 1, maximumDistance: 1)
+
 		let dragGesture = DragGesture(minimumDistance: 5.1)
 			.onChanged { value in
 				withAnimation {
@@ -42,7 +44,11 @@ struct ComicImageView: View {
 				}
 			}
 
-		let magnificationANDDragGesture = magnificationGesture.simultaneously(with: dragGesture)
+// FIXME: - Either I get those gesture working together quick or I'll just use a double tap for zoom and only then add a high priority gesture.
+
+		let sequencedGesture = tapGesture.sequenced(before: dragGesture)
+
+		let magnificationANDDragGesture = magnificationGesture.simultaneously(with: sequencedGesture)
 
 		return
 			WebImage(
@@ -91,7 +97,7 @@ struct ComicImageView_Previews: PreviewProvider {
 			title: "Family Circus",
 			day: "10")
 
-		return ComicImageView(comicNum: .constant(100))
+		return ComicImageView(comicNum: 100)
 			.environmentObject(state)
 	}
 }

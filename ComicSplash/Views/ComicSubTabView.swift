@@ -10,6 +10,7 @@ import SwiftUI
 struct ComicSubTabView: View {
 
 	@EnvironmentObject var state: AppState
+	@State private var currentComicNum = 0
 
 	// TODO: - maybe it's better to store the comics in an array in case one is missing?
 
@@ -20,7 +21,16 @@ struct ComicSubTabView: View {
 			case 0:
 				WelcomeView()
 			default:
-				ComicView(comicNum: $state.currentComic)
+				TabView(selection: $currentComicNum) {
+					ForEach(state.comicsData.sorted(by: { $0.key > $1.key }), id: \.key) { key, _ in
+						ComicView(comicNum: key)
+					}
+						}
+				.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+				.id(state.comicsData.count)
+				.onAppear {
+					currentComicNum = state.latestComicNum
+				}
 					.navigationBarTitleDisplayMode(.inline)
 					.navigationBarItems(
 						leading:
