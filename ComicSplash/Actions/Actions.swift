@@ -15,7 +15,7 @@ enum WorkflowAction: CaseAccessible {
 
 	case getLatestComics
 	case getPreviousComic
-	case getNeverComic
+	case getNewerComic
 	case getRandomComics
 
 	// DB Actions

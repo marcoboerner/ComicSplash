@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import os
 
 // It is encouraged to not to use a default in the switch statement so no actions are forgotten.
 
 class Reducers {
+
+	let log = Logger(category: "Reducers")
 
 	init(state: AppState) {
 		self.state = state
@@ -19,7 +22,7 @@ class Reducers {
 
 	func run(_ action: ReducerAction) {
 
-		print("Reducer: \(action.label)")
+		log.info("\(action.label)")
 
 		switch action {
 

@@ -18,7 +18,7 @@ class AppState: ObservableObject {
 
 	struct Settings {
 		static let requiredComicAmount = 3 // I'd not set it much lower than 10 so the user doesn't have to wait too long.
-		static let currentComicURL = "https://xkcd.com/info.0.json"
+		static let latestComicURL = "https://xkcd.com/info.0.json"
 		static let previousComicURLComponents: [LosslessStringConvertible] = ["https://xkcd.com/", 1, "/info.0.json"]
 	}
 }

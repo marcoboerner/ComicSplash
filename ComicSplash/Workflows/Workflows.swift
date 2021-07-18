@@ -10,9 +10,11 @@ import os
 
 class Workflows {
 
-	enum TurnDirection {
+	enum ComicSelector {
 		case previous
 		case newer
+		case latest
+		case number(Int)
 	}
 
 	let log = Logger(category: "Workflows")
@@ -27,28 +29,56 @@ class Workflows {
 
 	func run(_ action: WorkflowAction) {
 
-		print("Workflow: \(action.label)")
+		let reducer = Reducers(state: state)
+		log.info("\(action.label)")
 
 		switch action {
 
 		case .getLatestComics:
-			getLatestComic(state: state)
-			getPreviousComics(state: state)
+			cacheComic(.latest, state: state) { comicData in
+				// ...updating the store with the latest comic...
+				reducer.run(.storeComic(comicData))
+				// ...and going to this comic.
+				reducer.run(.gotoComic(comicData.num))
+
+				self.cachingComics(.latest, state: self.state) { comicData in
+					reducer.run(.storeComic(comicData))
+				}
+			}
 
 		case .getPreviousComic:
-			getComic(fromPage: .previous, state: state)
+			reducer.run(.turnToPreviousComic)
+			cacheComic(.previous, state: state) { comicData in
+				reducer.run(.storeComic(comicData))
+			}
 
-		case .getNeverComic:
-			getComic(fromPage: .newer, state: state)
+		case .getNewerComic:
+			reducer.run(.turnToNewerComic)
+			cacheComic(.newer, state: state) { comicData in
+				reducer.run(.storeComic(comicData))
+			}
 
 		case .getRandomComics:
-			getRandomComics(state: state)
+			reducer.run(.gotoComic(0))
+			reducer.run(.clearComics)
+			let num = generateRandomNum(below: state.latestComicNum)
+			cacheComic(.number(num), state: state) { comicData in
+				reducer.run(.storeComic(comicData))
+				reducer.run(.gotoComic(comicData.num))
+
+				self.cachingComics(.previous, from: num, state: self.state) { comicData in
+					reducer.run(.storeComic(comicData))
+				}
+				self.cachingComics(.newer, from: num, state: self.state) { comicData in
+					reducer.run(.storeComic(comicData))
+				}
+			}
 
 		case .addComicToFavorites(let num):
-			addOrRemoveToFavoritesComic(num, state: state)
+			createOrRemoveFavoriteComicInDatabase(num, state: state)
 
 		case .getFavoriteComics:
-			getFavoriteComicsFromDatabase(state: state)
+			readFavoriteComicsFromDatabase(state: state)
 
 		case .speak(let transcript):
 			speak(transcript)

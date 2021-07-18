@@ -12,7 +12,7 @@ extension Workflows {
 
 	// FIXME: - I might have all the reducer actions be defined in the workflow router. with completions. that way they are not hidden in here?
 
-	func getFavoriteComicsFromDatabase(state: AppState) {
+	func readFavoriteComicsFromDatabase(state: AppState) {
 
 		let realmModel = RealmModel()
 
@@ -24,7 +24,7 @@ extension Workflows {
 
 	}
 
-	func addOrRemoveToFavoritesComic(_ num: Int, state: AppState) {
+	func createOrRemoveFavoriteComicInDatabase(_ num: Int, state: AppState) {
 
 		let realmModel = RealmModel()
 

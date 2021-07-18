@@ -36,7 +36,7 @@ struct ComicSubTabView: View {
 							HStack {
 								Button(
 									action: {
-										Workflows(state: state).run(.getNeverComic)
+										Workflows(state: state).run(.getNewerComic)
 									},
 									label: {
 										Image(systemName: "arrowtriangle.left.fill")

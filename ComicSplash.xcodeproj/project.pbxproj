@@ -11,7 +11,7 @@
 		207CBB2C26A36B9100F59A9E /* AltOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2B26A36B9100F59A9E /* AltOverlayView.swift */; };
 		207CBB2E26A3796C00F59A9E /* TalkAndLoveOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */; };
 		207CBB3526A3836C00F59A9E /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3426A3836C00F59A9E /* RealmModel.swift */; };
-		207CBB3A26A38AD000F59A9E /* Workflows_ComicsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3926A38AD000F59A9E /* Workflows_ComicsAPI.swift */; };
+		207CBB3A26A38AD000F59A9E /* Workflows_Comics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3926A38AD000F59A9E /* Workflows_Comics.swift */; };
 		207CBB3C26A38B0500F59A9E /* Workflows_Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3B26A38B0500F59A9E /* Workflows_Favorites.swift */; };
 		207CBB3F26A3931B00F59A9E /* TextToSpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3E26A3931B00F59A9E /* TextToSpeechModel.swift */; };
 		207CBB4126A3949B00F59A9E /* Workflows_Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB4026A3949B00F59A9E /* Workflows_Speech.swift */; };
@@ -68,7 +68,7 @@
 		207CBB2B26A36B9100F59A9E /* AltOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltOverlayView.swift; sourceTree = "<group>"; };
 		207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkAndLoveOverlayView.swift; sourceTree = "<group>"; };
 		207CBB3426A3836C00F59A9E /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
-		207CBB3926A38AD000F59A9E /* Workflows_ComicsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows_ComicsAPI.swift; sourceTree = "<group>"; };
+		207CBB3926A38AD000F59A9E /* Workflows_Comics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows_Comics.swift; sourceTree = "<group>"; };
 		207CBB3B26A38B0500F59A9E /* Workflows_Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows_Favorites.swift; sourceTree = "<group>"; };
 		207CBB3E26A3931B00F59A9E /* TextToSpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechModel.swift; sourceTree = "<group>"; };
 		207CBB4026A3949B00F59A9E /* Workflows_Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows_Speech.swift; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 			children = (
 				20800CE726A1FD1600521FFA /* Workflows.swift */,
 				207CBB3B26A38B0500F59A9E /* Workflows_Favorites.swift */,
-				207CBB3926A38AD000F59A9E /* Workflows_ComicsAPI.swift */,
+				207CBB3926A38AD000F59A9E /* Workflows_Comics.swift */,
 				207CBB4026A3949B00F59A9E /* Workflows_Speech.swift */,
 			);
 			path = Workflows;
@@ -493,7 +493,7 @@
 				20800CEA26A1FDDA00521FFA /* AppState.swift in Sources */,
 				20800CEE26A2038600521FFA /* Reducers.swift in Sources */,
 				20C8C12C26A4662A00510A6D /* FavoritesSubTabView.swift in Sources */,
-				207CBB3A26A38AD000F59A9E /* Workflows_ComicsAPI.swift in Sources */,
+				207CBB3A26A38AD000F59A9E /* Workflows_Comics.swift in Sources */,
 				20800CE026A1EF4D00521FFA /* ComicData.swift in Sources */,
 				207CBB4126A3949B00F59A9E /* Workflows_Speech.swift in Sources */,
 				20800CF726A2F4DB00521FFA /* MainTabView.swift in Sources */,
