@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2049C58226A4BAB9002C3AF9 /* LoggerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58126A4BAB9002C3AF9 /* LoggerExtension.swift */; };
 		2049C58626A5C964002C3AF9 /* ImageStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58526A5C964002C3AF9 /* ImageStorageModel.swift */; };
+		2049C58826A60956002C3AF9 /* ComicImageZoomedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58726A60956002C3AF9 /* ComicImageZoomedView.swift */; };
 		207CBB2C26A36B9100F59A9E /* AltTextOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2B26A36B9100F59A9E /* AltTextOverlayView.swift */; };
 		207CBB2E26A3796C00F59A9E /* TalkAndLoveOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */; };
 		207CBB3526A3836C00F59A9E /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3426A3836C00F59A9E /* RealmModel.swift */; };
@@ -66,6 +67,7 @@
 /* Begin PBXFileReference section */
 		2049C58126A4BAB9002C3AF9 /* LoggerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerExtension.swift; sourceTree = "<group>"; };
 		2049C58526A5C964002C3AF9 /* ImageStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageModel.swift; sourceTree = "<group>"; };
+		2049C58726A60956002C3AF9 /* ComicImageZoomedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicImageZoomedView.swift; sourceTree = "<group>"; };
 		207CBB2B26A36B9100F59A9E /* AltTextOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltTextOverlayView.swift; sourceTree = "<group>"; };
 		207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkAndLoveOverlayView.swift; sourceTree = "<group>"; };
 		207CBB3426A3836C00F59A9E /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				20800CF426A2F3DC00521FFA /* ComicSubTabView.swift */,
 				20800CFA26A35C2000521FFA /* ComicView.swift */,
 				20C8C12D26A4731400510A6D /* ComicImageView.swift */,
+				2049C58726A60956002C3AF9 /* ComicImageZoomedView.swift */,
 				207CBB2B26A36B9100F59A9E /* AltTextOverlayView.swift */,
 				207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */,
 				20800CEF26A2338000521FFA /* LogoView.swift */,
@@ -512,6 +515,7 @@
 				207CBB4426A42C7C00F59A9E /* ArrayExtension.swift in Sources */,
 				20800CF526A2F3DC00521FFA /* ComicSubTabView.swift in Sources */,
 				207CBB2E26A3796C00F59A9E /* TalkAndLoveOverlayView.swift in Sources */,
+				2049C58826A60956002C3AF9 /* ComicImageZoomedView.swift in Sources */,
 				2049C58626A5C964002C3AF9 /* ImageStorageModel.swift in Sources */,
 				20800CF026A2338000521FFA /* LogoView.swift in Sources */,
 				20800CAD26A1E70F00521FFA /* ComicSplashApp.swift in Sources */,

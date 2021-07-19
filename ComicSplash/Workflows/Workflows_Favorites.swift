@@ -46,7 +46,7 @@ extension Workflows {
 		return subscribe(to: publisher, state: state, completion: completion)
 	}
 
-	func createFavoriteComicInDatabase(_ num: Int, state: AppState, completion: @escaping (ComicData) -> Void) {
+	func createFavoriteComicInDatabase(_ num: Int, state: AppState, completion: @escaping (ComicData) -> Void ) {
 
 		let realmModel = RealmModel()
 		guard let comicData = state.comicsData[num] else { return }

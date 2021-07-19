@@ -10,6 +10,8 @@ import SDWebImageSwiftUI
 
 struct ComicImageView: View {
 
+	@State var showComicZoomView = false
+
 	@EnvironmentObject var state: AppState
 	@State var showOverlay = false
 	var comicNum: Int
@@ -19,38 +21,44 @@ struct ComicImageView: View {
 
 	var body: some View {
 
-		let magnificationGesture = MagnificationGesture(minimumScaleDelta: 0.1).onChanged { value in
-			withAnimation {
-				let delta = value / self.lastScale
-				self.lastScale = value
-				let newScale = self.scale * delta
-				self.scale = min(max(newScale, 0.5), 2)
-			}
-		}.onEnded { _ in
-			self.lastScale = 1.0
-		}
-
-		let tapGesture = LongPressGesture(minimumDuration: 1, maximumDistance: 1)
-
-		let dragGesture = DragGesture(minimumDistance: 5.1)
-			.onChanged { value in
-				withAnimation {
-					offset = value.translation
-				}
-			}
-			.onEnded { _ in
-				withAnimation {
-					offset = .zero
-				}
-			}
-
-// FIXME: - Either I get those gesture working together quick or I'll just use a double tap for zoom and only then add a high priority gesture.
-
-		let sequencedGesture = tapGesture.sequenced(before: dragGesture)
-
-		let magnificationANDDragGesture = magnificationGesture.simultaneously(with: sequencedGesture)
+//		let magnificationGesture = MagnificationGesture(minimumScaleDelta: 0.1).onChanged { value in
+//			withAnimation {
+//				let delta = value / self.lastScale
+//				self.lastScale = value
+//				let newScale = self.scale * delta
+//				self.scale = min(max(newScale, 0.5), 2)
+//			}
+//		}.onEnded { _ in
+//			self.lastScale = 1.0
+//		}
+//
+//		let tapGesture = LongPressGesture(minimumDuration: 1, maximumDistance: 1)
+//
+//		let dragGesture = DragGesture(minimumDistance: 5.1)
+//			.onChanged { value in
+//				withAnimation {
+//					offset = value.translation
+//				}
+//			}
+//			.onEnded { _ in
+//				withAnimation {
+//					offset = .zero
+//				}
+//			}
+//
+//		let sequencedGesture = tapGesture.sequenced(before: dragGesture)
+//
+//		let magnificationANDDragGesture = magnificationGesture.simultaneously(with: sequencedGesture)
 
 		return
+			ZStack {
+			AltTextOverlayView(altText: state.comicsData[comicNum]?.alt ?? "Without words", show: $showOverlay)
+
+			.zIndex(99)
+		ComicImageZoomedView(comicNum: comicNum, show: $showComicZoomView)
+			.edgesIgnoringSafeArea(.all)
+			.zIndex(98)
+
 			WebImage(
 				url: URL(string: state.comicsData[comicNum]?.img ?? "/"),
 				options: [.retryFailed, .continueInBackground])
@@ -62,11 +70,16 @@ struct ComicImageView: View {
 			.transition(.fade(duration: 0.5)) // Fade Transition with duration
 			.scaledToFit()
 			.frame(alignment: .center)
-			.overlay(
-				AltTextOverlayView(altText: state.comicsData[comicNum]?.alt ?? "Without words", show: $showOverlay)
-			)
+//			.overlay(
+//				ZStack {
+//
+//			)
 			.offset(offset)
 			.scaleEffect(scale)
+			.onTapGesture(count: 2) {
+				print("does it")
+				showComicZoomView.toggle()
+			}
 			.onLongPressGesture { // FIXME: - Want this as a variable, but didn't manage yet to get the right order of gestures in combination with the ones below.
 				withAnimation {
 					offset = .zero
@@ -74,7 +87,8 @@ struct ComicImageView: View {
 					showOverlay = true
 				}
 			}
-			.gesture(magnificationANDDragGesture)
+			}
+			//.gesture(magnificationANDDragGesture)
 	}
 }
 
