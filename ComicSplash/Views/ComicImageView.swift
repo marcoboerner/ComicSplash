@@ -53,11 +53,11 @@ struct ComicImageView: View {
 		return
 			WebImage(
 				url: URL(string: state.comicsData[comicNum]?.img ?? "/"),
-				options: [.highPriority, .retryFailed])
+				options: [.highPriority, .retryFailed, .preloadAllFrames, .continueInBackground])
 			.onSuccess { image, data, cacheType in
+				
 			}
 			.resizable()
-			.placeholder(Image(systemName: "photo"))
 			.placeholder {
 				LogoView(scale: 0.4, animated: true)
 			}

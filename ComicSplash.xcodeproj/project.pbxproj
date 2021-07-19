@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2049C58226A4BAB9002C3AF9 /* LoggerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58126A4BAB9002C3AF9 /* LoggerExtension.swift */; };
+		2049C58626A5C964002C3AF9 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58526A5C964002C3AF9 /* ImageStorage.swift */; };
 		207CBB2C26A36B9100F59A9E /* AltTextOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2B26A36B9100F59A9E /* AltTextOverlayView.swift */; };
 		207CBB2E26A3796C00F59A9E /* TalkAndLoveOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */; };
 		207CBB3526A3836C00F59A9E /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3426A3836C00F59A9E /* RealmModel.swift */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		2049C58126A4BAB9002C3AF9 /* LoggerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerExtension.swift; sourceTree = "<group>"; };
+		2049C58526A5C964002C3AF9 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		207CBB2B26A36B9100F59A9E /* AltTextOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltTextOverlayView.swift; sourceTree = "<group>"; };
 		207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkAndLoveOverlayView.swift; sourceTree = "<group>"; };
 		207CBB3426A3836C00F59A9E /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2049C58426A5C949002C3AF9 /* ImageStorage */ = {
+			isa = PBXGroup;
+			children = (
+				2049C58526A5C964002C3AF9 /* ImageStorage.swift */,
+			);
+			path = ImageStorage;
+			sourceTree = "<group>";
+		};
 		207CBB3826A38A8000F59A9E /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +193,7 @@
 		20800CAB26A1E70F00521FFA /* ComicSplash */ = {
 			isa = PBXGroup;
 			children = (
+				2049C58426A5C949002C3AF9 /* ImageStorage */,
 				207CBB4226A42C5A00F59A9E /* Extensions */,
 				207CBB3D26A3930500F59A9E /* TextToSpeach */,
 				207CBB3826A38A8000F59A9E /* Database */,
@@ -501,6 +512,7 @@
 				207CBB4426A42C7C00F59A9E /* ArrayExtension.swift in Sources */,
 				20800CF526A2F3DC00521FFA /* ComicSubTabView.swift in Sources */,
 				207CBB2E26A3796C00F59A9E /* TalkAndLoveOverlayView.swift in Sources */,
+				2049C58626A5C964002C3AF9 /* ImageStorage.swift in Sources */,
 				20800CF026A2338000521FFA /* LogoView.swift in Sources */,
 				20800CAD26A1E70F00521FFA /* ComicSplashApp.swift in Sources */,
 				207CBB3C26A38B0500F59A9E /* Workflows_Favorites.swift in Sources */,

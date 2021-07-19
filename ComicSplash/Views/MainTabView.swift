@@ -28,7 +28,7 @@ struct MainTabView: View {
 						.frame(minWidth: 20, idealWidth: 30, maxWidth: 40)
 				}
 		}
-		.accentColor(.white)
+		//.accentColor(.white)
 		.font(.headline)
     }
 }

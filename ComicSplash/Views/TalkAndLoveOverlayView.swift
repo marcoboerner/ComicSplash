@@ -38,7 +38,6 @@ struct TalkAndLoveOverlayView: View {
 						.frame(minWidth: 15, idealWidth: 20, maxWidth: 30)
 				}
 			)
-
 		}
 		.padding(10)
     }

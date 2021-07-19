@@ -27,7 +27,9 @@ struct ComicSubTabView: View {
 			.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
 			.id(state.comicsData.count)
 			.onAppear {
-				currentComicNum = state.latestComicNum
+				if currentComicNum == 0 {
+					currentComicNum = state.latestComicNum
+				}
 			}
 			.onChange(of: state.comicsData) { _ in
 				currentComicNum = state.currentComic
