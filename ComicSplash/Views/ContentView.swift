@@ -13,9 +13,9 @@ struct ContentView: View {
 
     var body: some View {
 
-		switch state.comicsData.count {
+		switch state.latestComicNum {
 		case 0:
-			WelcomeView()
+			LogoView()
 		default:
 			MainTabView()
 		}

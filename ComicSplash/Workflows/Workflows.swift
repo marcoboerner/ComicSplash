@@ -63,9 +63,10 @@ class Workflows {
 			reducer.run(.gotoComic(0))
 			reducer.run(.clearComics)
 			let num = generateRandomNum(below: state.latestComicNum)
+			reducer.run(.gotoComic(num))
+
 			cacheComic(.number(num), state: state) { comicData in
 				reducer.run(.storeComic(comicData))
-				reducer.run(.gotoComic(comicData.num))
 
 				self.cachingComics(.previous, from: num, state: self.state) { comicData in
 					reducer.run(.storeComic(comicData))
@@ -75,7 +76,7 @@ class Workflows {
 				}
 			}
 
-		case .addComicToFavorites(let num):
+		case .addOrRemoveComicAsFavorite(let num):
 			createOrRemoveFavoriteComicInDatabase(num, state: state)
 
 		case .getFavoriteComics:

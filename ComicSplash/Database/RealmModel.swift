@@ -18,10 +18,8 @@ enum DatabaseServiceError: Error {
 class RealmModel {
 
 	enum MongoDBRealmError: Error {
-		case noCurrentAppUser
+		case objectForDeletionNotFound
 		case objectIsNilOrNotValid
-		case signInWithAppleTokenError
-		case unknownAuthenticationService
 	}
 
 	// MARK: - Realm properties
@@ -116,7 +114,7 @@ class RealmModel {
 		do {
 			let realm = try Realm()
 			try realm.write {
-				realm.add(object)
+				realm.add(object, update: .modified)
 				completion(nil)
 			}
 		} catch {
@@ -124,22 +122,19 @@ class RealmModel {
 		}
 	}
 
-	func deleteFromRealm(_ object: Object?, completion: @escaping (Error?) -> Void) {
-
-		guard let object = object else {
-			completion(MongoDBRealmError.objectIsNilOrNotValid)
-			return
-		}
+	func deleteFromRealm(_ primaryKey: Int, completion: @escaping (Error?) -> Void) {
 
 		do {
 			let realm = try Realm()
+			guard let objectToDelete = realm.object(ofType: _ComicData.self, forPrimaryKey: primaryKey) else {
+				throw MongoDBRealmError.objectForDeletionNotFound
+			}
 			try realm.write {
-				realm.delete(object)
+				realm.delete(objectToDelete)
 				completion(nil)
 			}
 		} catch {
 			completion(error)
 		}
-
 	}
 }

@@ -19,6 +19,9 @@ extension Workflows {
 
 		let requiredComicAmount = AppState.Settings.requiredComicAmount
 
+		// FIXME: - Remove after development
+		let maxNum = max(maxNum, 100)
+
 		// Offsetting the min and max value to not immediately hit an end or previously viewed comic
 		let range = (requiredComicAmount*2...maxNum-requiredComicAmount*5)
 
@@ -63,6 +66,8 @@ extension Workflows {
 				urlStringComponents[1] = currentNum
 
 				dispatchGroup.enter()
+
+				self.log.info("Attempting to fetch \(selection.label) from \(urlStringComponents.map{$0.description}.joined())")
 
 				// Getting the comic.
 				comicAPI.fetchData(from: urlStringComponents) { error in
@@ -112,7 +117,6 @@ extension Workflows {
 		// Getting the comic.
 		comicParser.fetchData(from: urlStringComponents) { error in
 			self.log.error("\(error.localizedDescription)") // TODO: - Need to run a request that fails and return the appropriate error to handle / skip an image. Maybe if there is no current image we just start from the last one.
-			return
 		} success: { comicData in
 			// Will trigger the reducers in the workflow router.
 			completion(comicData)

@@ -9,7 +9,7 @@ import Foundation
 
 protocol DataType {}
 
-struct ComicData: DataType, Decodable {
+struct ComicData: DataType, Decodable, Equatable {
 
 	// FIXME: - Gonna check if it might be better to just assign empty values or strings as default initilizer.
 

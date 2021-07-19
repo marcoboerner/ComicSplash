@@ -28,7 +28,7 @@ struct TalkAndLoveOverlayView: View {
 			)
 			Button(
 				action: {
-					Workflows(state: state).run(.addComicToFavorites(comicNum))
+					Workflows(state: state).run(.addOrRemoveComicAsFavorite(comicNum))
 				},
 				label: {
 					Image(systemName: "heart.fill")

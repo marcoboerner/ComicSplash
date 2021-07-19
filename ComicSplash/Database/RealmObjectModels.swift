@@ -13,7 +13,7 @@ import RealmSwift
 @objcMembers
 class _ComicData: Object {
 
-	dynamic var _id: ObjectId? = ObjectId.generate()
+	dynamic var _id: Int = 0 // For simplicity, using the comic's num as DB id instead of an object ID.
 	dynamic var favorite: Bool = true // Note: optional booleans cannot be represented in objc. Hence the default.
 	dynamic var months: String?
 	dynamic var num: Int = 0
@@ -46,6 +46,7 @@ class _ComicData: Object {
 		day: String?
 	) {
 		self.init()
+		self._id = num
 		self.favorite = favorite
 		self.months = months
 		self.num = num

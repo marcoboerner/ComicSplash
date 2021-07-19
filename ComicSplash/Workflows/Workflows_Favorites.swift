@@ -29,10 +29,14 @@ extension Workflows {
 		guard var comicData = state.comicsData[num] else { return }  // FIXME: - need error handling
 
 		if comicData.favorite == true {
-			comicData.favorite = false
-			// remove from realm
+			realmModel.deleteFromRealm(num) { error in
+				if let error = error {
+					self.log.error("\(error.localizedDescription)")
+				} else {
+					Reducers(state: state).run(.removeFavoriteComic(num))
+				}
+			}
 		} else {
-			comicData.favorite = true
 			realmModel.writeToRealm(comicData) { error in
 				if let error = error {
 					self.log.error("\(error.localizedDescription)")
@@ -60,7 +64,7 @@ extension Workflows {
 			}, receiveValue: { dataTypes in
 
 				dataTypes.forEach {
-					Reducers(state: state).run(.storeComic($0))
+					Reducers(state: state).run(.storeFavoriteComic($0))
 				}
 			})
 	}

@@ -33,9 +33,10 @@ class ComicAPI {
 			return
 		}
 
-		let request = URLRequest(url: url)
+		var request = URLRequest(url: url)
 
 		subscriber = URLSession.shared.dataTaskPublisher(for: request)
+			.retry(1)
 			.map { $0.data }
 			.decode(type: ComicData.self, decoder: JSONDecoder())
 			.receive(on: RunLoop.main)

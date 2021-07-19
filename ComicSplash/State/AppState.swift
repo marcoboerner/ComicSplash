@@ -8,13 +8,20 @@
 import Foundation
 import Combine
 
-class AppState: ObservableObject {
+class AppState: ObservableObject, Equatable {
+	static func == (lhs: AppState, rhs: AppState) -> Bool {
+		lhs.databaseSubscriber == rhs.databaseSubscriber &&
+			lhs.latestComicNum == rhs.latestComicNum &&
+			lhs.comicsData == rhs.comicsData &&
+			lhs.favoriteComicsData == rhs.favoriteComicsData
+	}
 
 	var databaseSubscriber: AnyCancellable?
 
 	@Published var latestComicNum: Int = 0
 	@Published var currentComic: Int = 0
 	@Published var comicsData: [Int: ComicData] = [:]
+	@Published var favoriteComicsData: [Int: ComicData] = [:]
 
 	struct Settings {
 		static let requiredComicAmount = 3 // I'd not set it much lower than 10 so the user doesn't have to wait too long.

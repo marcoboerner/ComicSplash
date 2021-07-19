@@ -59,7 +59,7 @@ struct ComicImageView: View {
 			.resizable()
 			.placeholder(Image(systemName: "photo"))
 			.placeholder {
-				WelcomeView()
+				LogoView(scale: 0.4, animated: true)
 			}
 			.indicator(.activity) // Activity Indicator
 			.transition(.fade(duration: 0.5)) // Fade Transition with duration
