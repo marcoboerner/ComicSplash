@@ -10,42 +10,71 @@ import Combine
 
 extension Workflows {
 
-	// FIXME: - I might have all the reducer actions be defined in the workflow router. with completions. that way they are not hidden in here?
+	func downloadFavoriteComicImage(_ num: Int, state: AppState, completion: @escaping (Int) -> Void ) {
 
-	func readFavoriteComicsFromDatabase(state: AppState) -> AnyCancellable {
+		let imageStorageModel = ImageStorageModel()
+		guard let comicData = state.comicsData[num] else { return }
 
-		let realmModel = RealmModel()
-
-		let publisher = realmModel.openLocal(read: [ComicData.self])
-
-		return subscribe(to: publisher, state: state)
-
-	}
-
-	func createOrRemoveFavoriteComicInDatabase(_ num: Int, state: AppState) {
-
-		let realmModel = RealmModel()
-
-		guard var comicData = state.comicsData[num] else { return }  // FIXME: - need error handling
-
-		if comicData.favorite == true {
-			realmModel.deleteFromRealm(num) { error in
-				if let error = error {
-					self.log.error("\(error.localizedDescription)")
-				} else {
-					Reducers(state: state).run(.removeFavoriteComic(num))
-				}
-			}
-		} else {
-			realmModel.writeToRealm(comicData) { error in
-				if let error = error {
-					self.log.error("\(error.localizedDescription)")
-				}
+		imageStorageModel.downloadImageFor(comicData) { error in
+			if let error = error {
+				self.log.error("\(error.localizedDescription)")
+			} else {
+				completion(num)
 			}
 		}
 	}
 
-	private func subscribe(to publisher: DatabasePublisher, state: AppState) -> AnyCancellable {
+	func deleteFavoriteComicImage(_ num: Int, state: AppState) {
+
+		let imageStorageModel = ImageStorageModel()
+		guard let comicData = state.comicsData[num] else { return }
+
+		do {
+			try imageStorageModel.deleteImageFor(comicData)
+		} catch {
+			log.error("\(error.localizedDescription)")
+		}
+	}
+
+	// FIXME: - I might have all the reducer actions be defined in the workflow router. with completions. that way they are not hidden in here?
+
+	func readFavoriteComicsFromDatabase(state: AppState, completion: @escaping (ComicData) -> Void) -> AnyCancellable {
+		let realmModel = RealmModel()
+
+		let publisher = realmModel.openLocal(read: [ComicData.self])
+
+		return subscribe(to: publisher, state: state, completion: completion)
+	}
+
+	func createFavoriteComicInDatabase(_ num: Int, state: AppState, completion: @escaping (ComicData) -> Void) {
+
+		let realmModel = RealmModel()
+		guard let comicData = state.comicsData[num] else { return }
+
+		realmModel.writeToRealm(comicData) { error in
+			if let error = error {
+				self.log.error("\(error.localizedDescription)")
+			} else {
+				completion(comicData)
+			}
+		}
+
+	}
+
+	func deleteFavoriteComicInDatabase(_ num: Int, state: AppState) {
+
+		let realmModel = RealmModel()
+
+		realmModel.deleteFromRealm(num) { error in
+			if let error = error {
+				self.log.error("\(error.localizedDescription)")
+			} else {
+				Reducers(state: state).run(.removeFavoriteComic(num))
+			}
+		}
+	}
+
+	private func subscribe(to publisher: DatabasePublisher, state: AppState, completion: @escaping (ComicData) -> Void) -> AnyCancellable {
 
 		return publisher
 			.map { response in
@@ -61,12 +90,10 @@ extension Workflows {
 						self.log.error("Database Service undefinedError: \(error.localizedDescription)")
 					}
 				}
-			}, receiveValue: { dataTypes in
-
-				dataTypes.forEach {
-					Reducers(state: state).run(.storeFavoriteComic($0))
+			}, receiveValue: { comicData in
+				comicData.forEach {
+					completion($0)
 				}
 			})
 	}
-
 }

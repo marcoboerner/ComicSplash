@@ -33,7 +33,7 @@ class ComicAPI {
 			return
 		}
 
-		var request = URLRequest(url: url)
+		let request = URLRequest(url: url)
 
 		subscriber = URLSession.shared.dataTaskPublisher(for: request)
 			.retry(1)

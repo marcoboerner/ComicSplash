@@ -32,6 +32,8 @@ https://xkcd.com (License: https://creativecommons.org/licenses/by-nc/2.5/)
 ### Credits
 Modified scale effect taken from the SDWebImageSwiftUI Example 
 
+Image Download:
+https://stackoverflow.com/a/50082267/12764795
 
 https://stackoverflow.com/a/46852224/12764795
 (License: https://creativecommons.org/licenses/by-sa/4.0/ Changes: Yes)

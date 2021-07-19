@@ -19,7 +19,8 @@ enum WorkflowAction: CaseAccessible {
 	case getRandomComics
 
 	// DB Actions
-	case addOrRemoveComicAsFavorite(_ num: Int)
+	case addComicAsFavorite(_ num: Int)
+	case removeComicFromFavorites(_ num: Int)
 	case getFavoriteComics
 
 	case speak(_ transcript: String)
@@ -39,4 +40,5 @@ enum ReducerAction: CaseAccessible {
 	case storeComic(ComicData)
 	case storeFavoriteComic(ComicData)
 	case removeFavoriteComic(_ num: Int)
+
 }

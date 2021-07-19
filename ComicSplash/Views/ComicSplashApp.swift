@@ -11,8 +11,6 @@ import SwiftUI
 struct ComicSplashApp: App {
 
 	let state: AppState = AppState()
-	let cache: ImageStorage = ImageStorage()
-
 
 	init() {
 		Workflows(state: state).run(.getFavoriteComics)
@@ -22,9 +20,6 @@ struct ComicSplashApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-				.onAppear {
-					cache.printInfo()
-				}
 				.environmentObject(state)
         }
     }

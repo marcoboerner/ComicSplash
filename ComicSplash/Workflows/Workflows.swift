@@ -76,11 +76,24 @@ class Workflows {
 				}
 			}
 
-		case .addOrRemoveComicAsFavorite(let num):
-			createOrRemoveFavoriteComicInDatabase(num, state: state)
+		case .addComicAsFavorite(let num):
+			createFavoriteComicInDatabase(num, state: state) { comicData in
+
+			}
+			downloadFavoriteComicImage(num, state: self.state) { num in
+
+			}
+
+		case .removeComicFromFavorites(let num):
+			deleteFavoriteComicInDatabase(num, state: state)
+			deleteFavoriteComicImage(num, state: state)
+			reducer.run(.removeFavoriteComic(num))
 
 		case .getFavoriteComics:
-			let subscriber = readFavoriteComicsFromDatabase(state: state)
+			let subscriber = readFavoriteComicsFromDatabase(state: state) { comicData in
+				print("is this always triggered?")
+				reducer.run(.storeFavoriteComic(comicData))
+			}
 			reducer.run(.listenToFavoritesInDatabase(subscriber))
 
 		case .speak(let transcript):

@@ -58,11 +58,16 @@ class RealmModel {
 
 		var objects: [Results<Object>] = []
 
-		let realm = try? Realm()
+		do {
+			let realm = try Realm()
 
-		print("Opened realm: \(realm!.configuration.fileURL!)")
+			print("Opened realm: \(realm.configuration.fileURL!)")
 
-		objects.append(contentsOf: objectTypes.compactMap { realm?.objects($0) })
+			objects.append(contentsOf: objectTypes.compactMap { realm.objects($0) })
+		} catch {
+			// TODO: - Need to set up migration in case the data changes through an app update.
+			throw error
+		}
 
 		return objects
 	}
