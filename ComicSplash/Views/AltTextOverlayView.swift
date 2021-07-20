@@ -41,9 +41,3 @@ struct AltTextOverlayView: View {
 		}
 	}
 }
-
-struct AltOverlayView_Previews: PreviewProvider {
-	static var previews: some View {
-		AltTextOverlayView(altText: "Funny little image", show: .constant(true))
-	}
-}

@@ -9,6 +9,38 @@ Marco Boerner
 ### Notes
 The apps shows the latest comic first. When going to the next page what is shows is actually the previous comic. Throughout the code this is also handled like that.
 
+The app tries to implement the following data flow:
+
+View
+runs
+WorkflowAction
+OR
+ReducerActions (if no side effects and only a state update is required.)
+
+WorkflowAction
+triggers
+Workflow
+
+Workflow
+uses Models, Protocols etc. with side effects, Async tasks etc.
+finished Workflow
+optionally runs
+ReducerAction
+
+ReducerAction
+triggers
+Reducer
+
+Reducer
+changes State using pure functions.
+
+State
+is an ObservableObject
+and publishes its changes
+
+View
+listens and reacts to state changes.
+
 
 ### Modules & Dependencies
 Database for favorites:

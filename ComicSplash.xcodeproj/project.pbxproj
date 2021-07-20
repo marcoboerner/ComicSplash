@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2049C58226A4BAB9002C3AF9 /* LoggerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58126A4BAB9002C3AF9 /* LoggerExtension.swift */; };
 		2049C58626A5C964002C3AF9 /* ImageStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58526A5C964002C3AF9 /* ImageStorageModel.swift */; };
-		2049C58826A60956002C3AF9 /* ComicImageZoomedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58726A60956002C3AF9 /* ComicImageZoomedView.swift */; };
+		2049C58A26A64BCC002C3AF9 /* ComicSubNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58926A64BCC002C3AF9 /* ComicSubNavigationView.swift */; };
 		207CBB2C26A36B9100F59A9E /* AltTextOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2B26A36B9100F59A9E /* AltTextOverlayView.swift */; };
 		207CBB2E26A3796C00F59A9E /* TalkAndLoveOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */; };
 		207CBB3526A3836C00F59A9E /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3426A3836C00F59A9E /* RealmModel.swift */; };
@@ -32,11 +32,10 @@
 		20800CE826A1FD1600521FFA /* Workflows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CE726A1FD1600521FFA /* Workflows.swift */; };
 		20800CEA26A1FDDA00521FFA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CE926A1FDDA00521FFA /* AppState.swift */; };
 		20800CEE26A2038600521FFA /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CED26A2038600521FFA /* Reducers.swift */; };
-		20800CF026A2338000521FFA /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CEF26A2338000521FFA /* LogoView.swift */; };
+		20800CF026A2338000521FFA /* LogoAndLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CEF26A2338000521FFA /* LogoAndLoadingView.swift */; };
 		20800CF326A233CF00521FFA /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CF226A233CF00521FFA /* K.swift */; };
 		20800CF526A2F3DC00521FFA /* ComicSubTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CF426A2F3DC00521FFA /* ComicSubTabView.swift */; };
 		20800CF726A2F4DB00521FFA /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CF626A2F4DB00521FFA /* MainTabView.swift */; };
-		20800CF926A32FCB00521FFA /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CF826A32FCB00521FFA /* SwiftUIView.swift */; };
 		20800CFB26A35C2000521FFA /* ComicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20800CFA26A35C2000521FFA /* ComicView.swift */; };
 		20C8C12026A440F600510A6D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 20C8C11F26A440F600510A6D /* RealmSwift */; };
 		20C8C12226A440F600510A6D /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 20C8C12126A440F600510A6D /* Realm */; };
@@ -67,7 +66,7 @@
 /* Begin PBXFileReference section */
 		2049C58126A4BAB9002C3AF9 /* LoggerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerExtension.swift; sourceTree = "<group>"; };
 		2049C58526A5C964002C3AF9 /* ImageStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageModel.swift; sourceTree = "<group>"; };
-		2049C58726A60956002C3AF9 /* ComicImageZoomedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicImageZoomedView.swift; sourceTree = "<group>"; };
+		2049C58926A64BCC002C3AF9 /* ComicSubNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicSubNavigationView.swift; sourceTree = "<group>"; };
 		207CBB2B26A36B9100F59A9E /* AltTextOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltTextOverlayView.swift; sourceTree = "<group>"; };
 		207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkAndLoveOverlayView.swift; sourceTree = "<group>"; };
 		207CBB3426A3836C00F59A9E /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
@@ -96,11 +95,10 @@
 		20800CE726A1FD1600521FFA /* Workflows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflows.swift; sourceTree = "<group>"; };
 		20800CE926A1FDDA00521FFA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		20800CED26A2038600521FFA /* Reducers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
-		20800CEF26A2338000521FFA /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		20800CEF26A2338000521FFA /* LogoAndLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAndLoadingView.swift; sourceTree = "<group>"; };
 		20800CF226A233CF00521FFA /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		20800CF426A2F3DC00521FFA /* ComicSubTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicSubTabView.swift; sourceTree = "<group>"; };
 		20800CF626A2F4DB00521FFA /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
-		20800CF826A32FCB00521FFA /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		20800CFA26A35C2000521FFA /* ComicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicView.swift; sourceTree = "<group>"; };
 		20C8C12626A45B9C00510A6D /* RealmObjectModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObjectModels.swift; sourceTree = "<group>"; };
 		20C8C12B26A4662A00510A6D /* FavoritesSubTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSubTabView.swift; sourceTree = "<group>"; };
@@ -142,6 +140,17 @@
 				2049C58526A5C964002C3AF9 /* ImageStorageModel.swift */,
 			);
 			path = ImageStorage;
+			sourceTree = "<group>";
+		};
+		2049C58B26A65078002C3AF9 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				207CBB3826A38A8000F59A9E /* Database */,
+				2049C58426A5C949002C3AF9 /* ImageStorage */,
+				207CBB3D26A3930500F59A9E /* TextToSpeach */,
+				20800CE226A1FB4400521FFA /* ComicData */,
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 		207CBB3826A38A8000F59A9E /* Database */ = {
@@ -195,16 +204,13 @@
 		20800CAB26A1E70F00521FFA /* ComicSplash */ = {
 			isa = PBXGroup;
 			children = (
-				2049C58426A5C949002C3AF9 /* ImageStorage */,
-				207CBB4226A42C5A00F59A9E /* Extensions */,
-				207CBB3D26A3930500F59A9E /* TextToSpeach */,
-				207CBB3826A38A8000F59A9E /* Database */,
 				20800CF126A233C000521FFA /* Supporting Files */,
-				20800CEB26A1FDE000521FFA /* State */,
-				20800CEC26A2036F00521FFA /* Reducers */,
-				20800CE626A1FCE200521FFA /* Workflows */,
+				207CBB4226A42C5A00F59A9E /* Extensions */,
+				2049C58B26A65078002C3AF9 /* Features */,
 				20800CE326A1FBED00521FFA /* Actions */,
-				20800CE226A1FB4400521FFA /* Models */,
+				20800CE626A1FCE200521FFA /* Workflows */,
+				20800CEC26A2036F00521FFA /* Reducers */,
+				20800CEB26A1FDE000521FFA /* State */,
 				20800CE126A1FB2700521FFA /* Views */,
 				20800CB526A1E71A00521FFA /* Info.plist */,
 				20800CD726A1E73100521FFA /* Assets */,
@@ -251,28 +257,27 @@
 			isa = PBXGroup;
 			children = (
 				20800CAC26A1E70F00521FFA /* ComicSplashApp.swift */,
+				20800CEF26A2338000521FFA /* LogoAndLoadingView.swift */,
 				20800CAE26A1E70F00521FFA /* ContentView.swift */,
 				20800CF626A2F4DB00521FFA /* MainTabView.swift */,
+				2049C58926A64BCC002C3AF9 /* ComicSubNavigationView.swift */,
 				20800CF426A2F3DC00521FFA /* ComicSubTabView.swift */,
 				20800CFA26A35C2000521FFA /* ComicView.swift */,
 				20C8C12D26A4731400510A6D /* ComicImageView.swift */,
-				2049C58726A60956002C3AF9 /* ComicImageZoomedView.swift */,
 				207CBB2B26A36B9100F59A9E /* AltTextOverlayView.swift */,
 				207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */,
-				20800CEF26A2338000521FFA /* LogoView.swift */,
-				20800CF826A32FCB00521FFA /* SwiftUIView.swift */,
 				20C8C12B26A4662A00510A6D /* FavoritesSubTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		20800CE226A1FB4400521FFA /* Models */ = {
+		20800CE226A1FB4400521FFA /* ComicData */ = {
 			isa = PBXGroup;
 			children = (
 				20800CDD26A1E9D100521FFA /* ComicAPI.swift */,
 				20800CDF26A1EF4D00521FFA /* ComicDataType.swift */,
 			);
-			path = Models;
+			path = ComicData;
 			sourceTree = "<group>";
 		};
 		20800CE326A1FBED00521FFA /* Actions */ = {
@@ -499,7 +504,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20800CF926A32FCB00521FFA /* SwiftUIView.swift in Sources */,
 				20800CE826A1FD1600521FFA /* Workflows.swift in Sources */,
 				207CBB2C26A36B9100F59A9E /* AltTextOverlayView.swift in Sources */,
 				207CBB3526A3836C00F59A9E /* RealmModel.swift in Sources */,
@@ -515,10 +519,10 @@
 				207CBB4426A42C7C00F59A9E /* ArrayExtension.swift in Sources */,
 				20800CF526A2F3DC00521FFA /* ComicSubTabView.swift in Sources */,
 				207CBB2E26A3796C00F59A9E /* TalkAndLoveOverlayView.swift in Sources */,
-				2049C58826A60956002C3AF9 /* ComicImageZoomedView.swift in Sources */,
 				2049C58626A5C964002C3AF9 /* ImageStorageModel.swift in Sources */,
-				20800CF026A2338000521FFA /* LogoView.swift in Sources */,
+				20800CF026A2338000521FFA /* LogoAndLoadingView.swift in Sources */,
 				20800CAD26A1E70F00521FFA /* ComicSplashApp.swift in Sources */,
+				2049C58A26A64BCC002C3AF9 /* ComicSubNavigationView.swift in Sources */,
 				207CBB3C26A38B0500F59A9E /* Workflows_Favorites.swift in Sources */,
 				20800CEA26A1FDDA00521FFA /* AppState.swift in Sources */,
 				20800CEE26A2038600521FFA /* Reducers.swift in Sources */,
@@ -697,7 +701,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = blue.same.ComicSplash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -719,7 +723,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = blue.same.ComicSplash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

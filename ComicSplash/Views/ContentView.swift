@@ -15,17 +15,9 @@ struct ContentView: View {
 
 		switch state.latestComicNum {
 		case 0:
-			LogoView()
+			LogoAndLoadingView()
 		default:
 			MainTabView()
 		}
-    }
-}
-
-// FIXME: - Need to create preview content.
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-		ContentView()
-			.environmentObject(AppState())
     }
 }

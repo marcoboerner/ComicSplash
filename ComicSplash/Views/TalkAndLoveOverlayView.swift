@@ -46,9 +46,3 @@ struct TalkAndLoveOverlayView: View {
 		.padding(10)
     }
 }
-
-struct TalkAndLoveOverlayView_Previews: PreviewProvider {
-    static var previews: some View {
-		TalkAndLoveOverlayView(comicNum: .constant(100))
-    }
-}

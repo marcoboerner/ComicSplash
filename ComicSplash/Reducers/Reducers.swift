@@ -45,7 +45,6 @@ class Reducers {
 			if state.currentComic < state.latestComicNum {
 				state.currentComic += 1
 			}
-			// TODO: - maybe use a max method here again
 
 		case .listenToFavoritesInDatabase(let subscriber):
 			state.databaseSubscriber = subscriber

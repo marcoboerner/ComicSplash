@@ -67,7 +67,7 @@ extension Workflows {
 
 				dispatchGroup.enter()
 
-				self.log.info("Attempting to fetch \(selection.label) from \(urlStringComponents.map{$0.description}.joined())")
+				self.log.info("Attempting to fetch \(selection.label) from \(urlStringComponents.map{ $0.description }.joined())")
 
 				// Getting the comic.
 				comicAPI.fetchData(from: urlStringComponents) { error in

@@ -10,8 +10,6 @@ import SDWebImageSwiftUI
 
 struct FavoritesSubTabView: View {
 
-	// FIXME: - Need to check if this might actually not refresh correctly. Delete all and add a few pics and try again.
-
 	@EnvironmentObject var state: AppState
 
 		let items = 1...50
@@ -34,7 +32,7 @@ struct FavoritesSubTabView: View {
 							.resizable()
 							.placeholder(Image(systemName: "photo"))
 							.placeholder {
-								LogoView()
+								LogoAndLoadingView()
 							}
 							.indicator(.activity) // Activity Indicator
 							.transition(.fade(duration: 0.5)) // Fade Transition with duration
@@ -48,10 +46,4 @@ struct FavoritesSubTabView: View {
 				//.id(state.favoriteComicsData.count)
 			}
 		}
-}
-
-struct FavoritesSubTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        FavoritesSubTabView()
-    }
 }
