@@ -5,59 +5,29 @@
 //  Created by Marco Boerner on 19.07.21.
 //
 
+
+/*
+
+The image storage model used by the favorites workflows to either download and save or delete images.
+
+For testing purposes a ImageStorage protocol should be used throughout the app and not the image storage model directly as it is now.
+
+The methods could in the future be made more generic taking only url strings or filenames as input.
+
+URLSession.shared.downloadTask could be replaced by a combine method once it's available.
+
+*/
+
 import Foundation
 import SDWebImageSwiftUI
+import os
+
+enum ImageStorageError: Error {
+	case errorUnwrapping
+}
 
 class ImageStorageModel {
-
-	enum ImageStorageError: Error {
-		case errorUnwrapping
-	}
-
-	func downloadImageFor(_ comicData: ComicData, completion: @escaping (Error?) -> Void) {
-
-		guard let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first,
-			  let urlString = comicData.img,
-			  let url = URL(string: urlString)
-		else {
-			completion(ImageStorageError.errorUnwrapping)
-			return
-		}
-
-		URLSession.shared.downloadTask(with: url) { location, _, error in
-			if let error = error {
-				completion(error)
-			} else if let location = location {
-				do {
-					let fileName = comicData.num.description + "." + url.pathExtension
-					let destination = documents.appendingPathComponent(fileName)
-					try FileManager.default.moveItem(at: location, to: destination)
-					completion(nil)
-				} catch {
-					completion(error)
-				}
-			}
-		}.resume()
-	}
-
-	func deleteImageFor(_ comicData: ComicData) throws {
-
-		guard let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first,
-			  let urlString = comicData.img,
-			  let url = URL(string: urlString)
-		else {
-			throw ImageStorageError.errorUnwrapping
-		}
-
-		let fileName = comicData.num.description + "." + url.pathExtension
-		let destination = documents.appendingPathComponent(fileName)
-
-		do {
-			try FileManager.default.removeItem(at: destination)
-		} catch {
-			throw error
-		}
-
-	}
+	
+	let log = Logger(category: "ImageStorageModel")
 
 }

@@ -5,9 +5,13 @@
 //  Created by Marco Boerner on 18.07.21.
 //
 
-import Foundation
+/*
 
-// MARK: - Extension for convenience and readability
+Array extension for convenience and code readability only.
+
+*/
+
+import Foundation
 
 extension Array {
 
@@ -16,4 +20,3 @@ extension Array {
 		!self.isEmpty
 	}
 }
-

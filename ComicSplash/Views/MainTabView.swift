@@ -9,8 +9,6 @@ import SwiftUI
 
 struct MainTabView: View {
 
-	@EnvironmentObject var state: AppState
-
 	var body: some View {
 
 		TabView {
@@ -18,7 +16,7 @@ struct MainTabView: View {
 				.tabItem {
 					Image(systemName: "book.fill")
 				}
-			FavoritesSubTabView()
+			FavoritesNavigationView()
 				.tabItem {
 					Image(systemName: "heart.fill")
 				}

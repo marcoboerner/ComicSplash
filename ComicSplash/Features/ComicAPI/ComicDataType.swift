@@ -5,13 +5,21 @@
 //  Created by Marco Boerner on 16.07.21.
 //
 
+/*
+
+The data structure needed for decoding the json file.
+
+Needs to reflect the data structure of the json and should not be changed.
+
+Additional values not found in the json should be initialized properly to avoid decoding errors.
+
+*/
+
 import Foundation
 
 protocol DataType {}
 
 struct ComicData: DataType, Decodable, Equatable {
-
-	// FIXME: - Gonna check if it might be better to just assign empty values or strings as default initilizer.
 
 	// JSON Relevant values
 	let month: String?
@@ -25,5 +33,4 @@ struct ComicData: DataType, Decodable, Equatable {
 	let img: String?
 	let title: String?
 	let day: String?
-
 }

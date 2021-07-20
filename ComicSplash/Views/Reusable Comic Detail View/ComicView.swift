@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 struct ComicView: View {
 
 	@EnvironmentObject var state: AppState
-	var comicNum: Int
+	@State var comicNum: Int
 	@State var scale = 1.0
 
 	var body: some View {
@@ -27,8 +27,9 @@ struct ComicView: View {
 						Text("\(state.comicsData[comicNum]?.day ?? "29").\(state.comicsData[comicNum]?.month ?? "08").\(state.comicsData[comicNum]?.year ?? "1997")")
 					}
 				}
+				.foregroundColor(Color.black)
 			}
-			TalkAndLoveOverlayView(comicNum: $state.currentComic)
+			TalkAndLoveOverlayView(comicNum: $comicNum)
 				.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
 		}
 	}

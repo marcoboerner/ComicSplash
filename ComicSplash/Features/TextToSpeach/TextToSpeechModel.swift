@@ -8,11 +8,30 @@
 import Foundation
 import AVFoundation
 
+/*
+TextToSpeechModel setup as a singleton.
+
+ToDo in future version, using the AVSpeechSynthesizerDelegate to react to pause and end events.
+Currently the user can only start but not stop or interrupt.
+
+*/
+
 class TextToSpeechModel {
 
-	func speak(_ text: String) {
+	static private let speechSynthesizer = AVSpeechSynthesizer()
 
-		let speechSynthesizer = AVSpeechSynthesizer()
+	/**
+	Starts speaking the provided text and stops any previous sessions
+
+	- Parameter text: The text to be spoken.
+
+	# Notes: #
+	1. The language is set to en-ZA but might default to another.
+	*/
+	static func speak(_ text: String) {
+
+		// Stops previously started speaking session.
+		speechSynthesizer.stopSpeaking(at: .immediate)
 
 		let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: text)
 
@@ -25,7 +44,5 @@ class TextToSpeechModel {
 		// Starts the to speak.
 		speechSynthesizer.speak(speechUtterance)
 
-		//speechSynthesizer.stopSpeaking(at: .immediate)
 	}
-
 }

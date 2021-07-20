@@ -53,7 +53,7 @@ struct ComicImageView: View {
 				options: [.retryFailed, .continueInBackground])
 			.resizable()
 			.placeholder {
-				LogoAndLoadingView(scale: 0.4, animated: true)
+				LogoAndLoadingView(scale: 0.4, animated: true, light: true)
 			}
 			.transition(.fade(duration: 0.5))
 			.scaledToFit()

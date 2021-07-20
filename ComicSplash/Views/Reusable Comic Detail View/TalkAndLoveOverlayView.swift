@@ -10,13 +10,14 @@ import SwiftUI
 struct TalkAndLoveOverlayView: View {
 
 	@EnvironmentObject var state: AppState
+	@EnvironmentObject var workflows: Workflows
 	@Binding var comicNum: Int
 
     var body: some View {
 		HStack {
 			Button(
 				action: {
-					Workflows(state: state).run(.speak(state.comicsData[comicNum]?.transcript ?? "Nothing to say"))
+					workflows.run(.startSpeaking(state.comicsData[comicNum]?.transcript ?? "Nothing to say"))
 				},
 				label: {
 					Image(systemName: "waveform")
@@ -29,9 +30,9 @@ struct TalkAndLoveOverlayView: View {
 			Button(
 				action: {
 					if state.favoriteComicsData[comicNum] == nil {
-						Workflows(state: state).run(.addComicAsFavorite(comicNum))
+						workflows.run(.addComicAsFavorite(comicNum))
 					} else {
-						Workflows(state: state).run(.removeComicFromFavorites(comicNum))
+						workflows.run(.removeComicFromFavorites(comicNum))
 					}
 				},
 				label: {

@@ -5,6 +5,7 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
   - large_tuple
   - nesting
   - statement_position
+  - private_over_fileprivate
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - SameSame/Trash
   - Carthage

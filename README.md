@@ -41,6 +41,9 @@ and publishes its changes
 View
 listens and reacts to state changes.
 
+### Global ToDo
+Add reducers, workflows to state or a store.
+
 
 ### Modules & Dependencies
 Database for favorites:
@@ -71,12 +74,16 @@ https://stackoverflow.com/a/46852224/12764795
 (License: https://creativecommons.org/licenses/by-sa/4.0/ Changes: Yes)
 
 
-Image used in Logo 'Abstract vector' by macrovector
+Image used in Logo 'Abstract vector' by macrovector:
 https://www.freepik.com/vectors/abstract
 
+Launch screen workaround:
+https://danielbernal.co/stretched-launch-screen-images-in-swiftui-the-fix/
 
+Text to speech:
 https://medium.com/@WilliamJones/text-to-speech-in-swift-in-5-lines-e6f6c6139086
 
+ToDo's as warnings:
 https://bendodson.com/weblog/2014/10/02/showing-todo-as-warning-in-swift-xcode-project/
 
 ### Discussions

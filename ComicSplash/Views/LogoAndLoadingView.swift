@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-// TODO: - Create transitions for all changes in between screens and texts.
-
 struct LogoAndLoadingView: View {
 
 	var scale: CGFloat = 1.0
 	var animated: Bool = false
+	var light: Bool = false
 	@State var rotation: Angle = .zero
 
 	var body: some View {
@@ -21,6 +20,7 @@ struct LogoAndLoadingView: View {
 			.aspectRatio(contentMode: .fit)
 			.scaleEffect(scale)
 			.rotationEffect(rotation)
+			.background(light ? Color.white : Color.black)
 			.onAppear {
 				if animated {
 					withAnimation(Animation.spring(response: 0.3, dampingFraction: 0.2, blendDuration: 5.0).repeatForever().delay(0.5)) {

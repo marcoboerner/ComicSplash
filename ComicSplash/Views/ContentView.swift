@@ -15,7 +15,7 @@ struct ContentView: View {
 
 		switch state.latestComicNum {
 		case 0:
-			LogoAndLoadingView()
+			EmptyView()
 		default:
 			MainTabView()
 		}

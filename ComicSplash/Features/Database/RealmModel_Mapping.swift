@@ -1,68 +1,16 @@
 //
-//  RealmObjectModels.swift
+//  RealmModel_Mapping.swift
 //  ComicSplash
 //
-//  Created by Marco Boerner on 17.07.21.
+//  Created by Marco Boerner on 20.07.21.
 //
 
 import Foundation
 import RealmSwift
 
-// swiftlint:disable identifier_name
-
-@objcMembers
-class _ComicData: Object {
-
-	dynamic var _id: Int = 0 // For simplicity, using the comic's num as DB id instead of an object ID.
-	dynamic var months: String?
-	dynamic var num: Int = 0
-	dynamic var link: String?
-	dynamic var year: String?
-	dynamic var news: String?
-	dynamic var safeTitle: String?
-	dynamic var transcript: String?
-	dynamic var alt: String?
-	dynamic var img: String?
-	dynamic var title: String?
-	dynamic var day: String?
-
-	override static func primaryKey() -> String? {
-		return "_id"
-	}
-
-	convenience init(
-		months: String?,
-		num: Int,
-		link: String?,
-		year: String?,
-		news: String?,
-		safeTitle: String?,
-		transcript: String?,
-		alt: String?,
-		img: String?,
-		title: String?,
-		day: String?
-	) {
-		self.init()
-		self._id = num
-		self.months = months
-		self.num = num
-		self.link = link
-		self.year = year
-		self.news = news
-		self.safeTitle = safeTitle
-		self.transcript = transcript
-		self.alt = alt
-		self.img = img
-		self.title = title
-		self.day = day
-	}
-}
-
-// MARK: - Mapping the app / protocol objects to something realm understands
-
 extension RealmModel {
 
+	///	Converts a realm object to a DataType object.
 	func mapFromRealmObject(_ realmObject: Object?) -> DataType? {
 
 		guard let realmObject = realmObject else {
@@ -89,6 +37,7 @@ extension RealmModel {
 		}
 	}
 
+	/// Converts an object of type DataType to a realm object.
 	func mapToRealmObject(_ foreignObject: DataType) -> Object? {
 
 		switch foreignObject {
@@ -111,6 +60,7 @@ extension RealmModel {
 		}
 	}
 
+	/// Converts a Type conforming to DataType to the matching realm object Type
 	func mapToRealmObjectType(_ foreignType: DataType.Type) -> Object.Type? {
 
 		switch foreignType {
@@ -120,5 +70,4 @@ extension RealmModel {
 			return nil
 		}
 	}
-
 }

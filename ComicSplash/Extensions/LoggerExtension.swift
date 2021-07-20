@@ -5,6 +5,12 @@
 //  Created by Marco Boerner on 18.07.21.
 //
 
+/*
+
+Extension for the logger.
+
+*/
+
 import Foundation
 import os
 
