@@ -14,7 +14,7 @@ struct FavoritesOverviewView: View {
 	@Binding var favoriteToShow: Int
 	@Binding var showPages: Bool
 
-	let items = 1...50
+	@EnvironmentObject var reducers: Reducers
 
 	let cols = [
 		GridItem(.flexible(maximum: .infinity)),
@@ -33,11 +33,14 @@ struct FavoritesOverviewView: View {
 						.placeholder {
 							LogoAndLoadingView(light: true)
 						}
-						.transition(.fade(duration: 0.5)) // Fade Transition with duration
+						.transition(.fade(duration: 0.5))
 						.scaledToFit()
 						.frame(alignment: .center)
 						.simultaneousGesture(
 							TapGesture().onEnded {
+								reducers.run(.clearComics)
+								reducers.run(.overwriteComicsWithFavorites)
+								reducers.run(.gotoComic(comicData.key))
 								favoriteToShow = comicData.key
 								showPages = true
 							}

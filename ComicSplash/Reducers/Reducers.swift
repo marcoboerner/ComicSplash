@@ -62,6 +62,9 @@ class Reducers: ObservableObject {
 
 		case .removeFavoriteComic(let num):
 			removeFavoriteComic(num)
+
+		case .overwriteComicsWithFavorites:
+			state.comicsData = state.favoriteComicsData
 		}
 	}
 

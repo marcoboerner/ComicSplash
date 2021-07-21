@@ -17,9 +17,15 @@ extension ComicModel {
 		// Getting the number of the next comic to be fetched.
 		switch selection {
 		case .previous:
-			urlStringComponents[1] = (state.comicsData.min { $0.key < $1.key }?.value.num ?? 2) - 1
+			guard let newNum = state.comicsData.min(by: { $0.key < $1.key })?.value.num, newNum > 1 else {
+				return
+			}
+			urlStringComponents[1] = newNum - 1
 		case .newer:
-			urlStringComponents[1] = (state.comicsData.max { $0.key < $1.key }?.value.num ?? 2) + 1
+			guard let newNum = state.comicsData.max(by: { $0.key < $1.key })?.value.num, newNum < state.latestComicNum else {
+				return
+			}
+			urlStringComponents[1] = newNum + 1
 		case .latest:
 			urlStringComponents = [AppState.Settings.latestComicURL]
 		case .number(let num):

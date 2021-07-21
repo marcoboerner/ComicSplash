@@ -51,6 +51,9 @@ class Workflows: ObservableObject {
 		case .getRandomComics:
 			getRandomComics()
 
+		case .getComicsNear(let num):
+			getComicsNear(num)
+
 		case .addComicAsFavorite(let num):
 			addComicAsFavorite(num)
 
@@ -62,8 +65,7 @@ class Workflows: ObservableObject {
 
 		case .startSpeaking(let transcript):
 			startSpeaking(transcript)
+
 		}
-
 	}
-
 }

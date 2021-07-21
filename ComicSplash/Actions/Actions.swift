@@ -41,6 +41,9 @@ enum WorkflowAction: CaseAccessible {
 	/// Fetches a random comic and a few newer and earlier comics, depending on the comic cache setting in the settings state.
 	case getRandomComics
 
+	/// Fetches the comics before and after the comic number. When returning from favorites for example.
+	case getComicsNear(_ num: Int)
+
 	/// Sets a comic as a favorite and downloads its picture.
 	case addComicAsFavorite(_ num: Int)
 
@@ -69,6 +72,9 @@ enum ReducerAction: CaseAccessible {
 
 	/// Removes a comic from the favorites. Usually triggered by the Database / Favorites workflow.
 	case removeFavoriteComic(_ num: Int)
+
+	/// Copies the favorites dictionary to the comics dictionary so that other reducers find the correct numbers when searching
+	case overwriteComicsWithFavorites
 
 	/// Stores the database listener in the state to stay active as long as the app is running.
 	case listenToFavoritesInDatabase(AnyCancellable)

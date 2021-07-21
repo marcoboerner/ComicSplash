@@ -41,7 +41,7 @@ extension ComicModel {
 		dispatchQueue.async {
 
 			// Downloading until required amount of comics or first comic reached.
-			while successCount <= requiredComicAmount && currentNum > 1 {
+			while successCount <= requiredComicAmount && currentNum > 1 && currentNum <= state.latestComicNum {
 				currentNum = nextNumFrom(currentNum)
 				urlStringComponents[1] = currentNum
 
@@ -69,6 +69,4 @@ extension ComicModel {
 			}
 		}
 	}
-
-
 }

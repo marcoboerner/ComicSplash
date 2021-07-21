@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		2049C58226A4BAB9002C3AF9 /* LoggerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58126A4BAB9002C3AF9 /* LoggerExtension.swift */; };
 		2049C58626A5C964002C3AF9 /* ImageStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58526A5C964002C3AF9 /* ImageStorageModel.swift */; };
-		2049C58A26A64BCC002C3AF9 /* ComicSubNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58926A64BCC002C3AF9 /* ComicSubNavigationView.swift */; };
+		2049C58A26A64BCC002C3AF9 /* ComicNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C58926A64BCC002C3AF9 /* ComicNavigationView.swift */; };
 		2049C5CC26A6F04D002C3AF9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2049C5CB26A6F04D002C3AF9 /* Launch Screen.storyboard */; };
-		2049C5CE26A6F6C8002C3AF9 /* FavoritesPagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C5CD26A6F6C8002C3AF9 /* FavoritesPagesView.swift */; };
 		2049C5D026A6F900002C3AF9 /* FavoritesNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C5CF26A6F900002C3AF9 /* FavoritesNavigationView.swift */; };
 		2049C5D226A74112002C3AF9 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C5D126A74112002C3AF9 /* ToDo.swift */; };
 		2049C5D726A7467B002C3AF9 /* RealmModel_Read.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C5D626A7467B002C3AF9 /* RealmModel_Read.swift */; };
@@ -39,6 +38,7 @@
 		2049C60326A77796002C3AF9 /* FavoritesModel_createFavoriteComicInDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C60226A77796002C3AF9 /* FavoritesModel_createFavoriteComicInDatabase.swift */; };
 		2049C60526A777C9002C3AF9 /* FavoritesModel_deleteFavoriteInDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C60426A777C9002C3AF9 /* FavoritesModel_deleteFavoriteInDatabase.swift */; };
 		2049C60726A777F8002C3AF9 /* FavoritesModel_subscribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C60626A777F8002C3AF9 /* FavoritesModel_subscribe.swift */; };
+		2049C60B26A79282002C3AF9 /* Workflow_getComicsNear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049C60A26A79282002C3AF9 /* Workflow_getComicsNear.swift */; };
 		207CBB2C26A36B9100F59A9E /* AltTextOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2B26A36B9100F59A9E /* AltTextOverlayView.swift */; };
 		207CBB2E26A3796C00F59A9E /* TalkAndLoveOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */; };
 		207CBB3526A3836C00F59A9E /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207CBB3426A3836C00F59A9E /* RealmModel.swift */; };
@@ -94,9 +94,8 @@
 /* Begin PBXFileReference section */
 		2049C58126A4BAB9002C3AF9 /* LoggerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerExtension.swift; sourceTree = "<group>"; };
 		2049C58526A5C964002C3AF9 /* ImageStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageModel.swift; sourceTree = "<group>"; };
-		2049C58926A64BCC002C3AF9 /* ComicSubNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicSubNavigationView.swift; sourceTree = "<group>"; };
+		2049C58926A64BCC002C3AF9 /* ComicNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicNavigationView.swift; sourceTree = "<group>"; };
 		2049C5CB26A6F04D002C3AF9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		2049C5CD26A6F6C8002C3AF9 /* FavoritesPagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPagesView.swift; sourceTree = "<group>"; };
 		2049C5CF26A6F900002C3AF9 /* FavoritesNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesNavigationView.swift; sourceTree = "<group>"; };
 		2049C5D126A74112002C3AF9 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		2049C5D626A7467B002C3AF9 /* RealmModel_Read.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel_Read.swift; sourceTree = "<group>"; };
@@ -124,6 +123,7 @@
 		2049C60226A77796002C3AF9 /* FavoritesModel_createFavoriteComicInDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModel_createFavoriteComicInDatabase.swift; sourceTree = "<group>"; };
 		2049C60426A777C9002C3AF9 /* FavoritesModel_deleteFavoriteInDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModel_deleteFavoriteInDatabase.swift; sourceTree = "<group>"; };
 		2049C60626A777F8002C3AF9 /* FavoritesModel_subscribe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModel_subscribe.swift; sourceTree = "<group>"; };
+		2049C60A26A79282002C3AF9 /* Workflow_getComicsNear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflow_getComicsNear.swift; sourceTree = "<group>"; };
 		207CBB2B26A36B9100F59A9E /* AltTextOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltTextOverlayView.swift; sourceTree = "<group>"; };
 		207CBB2D26A3796C00F59A9E /* TalkAndLoveOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkAndLoveOverlayView.swift; sourceTree = "<group>"; };
 		207CBB3426A3836C00F59A9E /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
@@ -216,8 +216,7 @@
 		2049C5D326A742EF002C3AF9 /* Comic Tab */ = {
 			isa = PBXGroup;
 			children = (
-				2049C58926A64BCC002C3AF9 /* ComicSubNavigationView.swift */,
-				20800CF426A2F3DC00521FFA /* ComicPagesView.swift */,
+				2049C58926A64BCC002C3AF9 /* ComicNavigationView.swift */,
 			);
 			path = "Comic Tab";
 			sourceTree = "<group>";
@@ -227,7 +226,6 @@
 			children = (
 				2049C5CF26A6F900002C3AF9 /* FavoritesNavigationView.swift */,
 				20C8C12B26A4662A00510A6D /* FavoritesOverviewView.swift */,
-				2049C5CD26A6F6C8002C3AF9 /* FavoritesPagesView.swift */,
 			);
 			path = "Favorites Tab";
 			sourceTree = "<group>";
@@ -235,6 +233,7 @@
 		2049C5D526A7435B002C3AF9 /* Reusable Comic Detail View */ = {
 			isa = PBXGroup;
 			children = (
+				20800CF426A2F3DC00521FFA /* ComicPagesView.swift */,
 				20800CFA26A35C2000521FFA /* ComicView.swift */,
 				20C8C12D26A4731400510A6D /* ComicImageView.swift */,
 				207CBB2B26A36B9100F59A9E /* AltTextOverlayView.swift */,
@@ -411,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				20800CE726A1FD1600521FFA /* Workflows_Router.swift */,
+				2049C60A26A79282002C3AF9 /* Workflow_getComicsNear.swift */,
 				2049C5EE26A76E2A002C3AF9 /* Workflow_getNewerComic.swift */,
 				2049C5E626A76BCF002C3AF9 /* Workflow_getLatestComics.swift */,
 				2049C5EC26A76D9B002C3AF9 /* Workflow_getPreviousComic.swift */,
@@ -652,6 +652,7 @@
 				2049C5DB26A74A65002C3AF9 /* RealmModel_Delete.swift in Sources */,
 				2049C5F126A76EDB002C3AF9 /* Workflow_getRandomComics.swift in Sources */,
 				2049C5D026A6F900002C3AF9 /* FavoritesNavigationView.swift in Sources */,
+				2049C60B26A79282002C3AF9 /* Workflow_getComicsNear.swift in Sources */,
 				207CBB4426A42C7C00F59A9E /* ArrayExtension.swift in Sources */,
 				2049C5F526A77077002C3AF9 /* Workflow_removeComicFromFavorites.swift in Sources */,
 				2049C5E326A75A64002C3AF9 /* ImageStorageModel_Delete.swift in Sources */,
@@ -664,13 +665,12 @@
 				2049C58626A5C964002C3AF9 /* ImageStorageModel.swift in Sources */,
 				20800CF026A2338000521FFA /* LogoAndLoadingView.swift in Sources */,
 				20800CAD26A1E70F00521FFA /* ComicSplashApp.swift in Sources */,
-				2049C58A26A64BCC002C3AF9 /* ComicSubNavigationView.swift in Sources */,
+				2049C58A26A64BCC002C3AF9 /* ComicNavigationView.swift in Sources */,
 				207CBB3C26A38B0500F59A9E /* FavoritesModel_downloadFavoriteComicImage.swift in Sources */,
 				2049C5D226A74112002C3AF9 /* ToDo.swift in Sources */,
 				2049C5F726A770BE002C3AF9 /* Workflow_getFavoriteComics.swift in Sources */,
 				20800CEA26A1FDDA00521FFA /* AppState.swift in Sources */,
 				2049C60726A777F8002C3AF9 /* FavoritesModel_subscribe.swift in Sources */,
-				2049C5CE26A6F6C8002C3AF9 /* FavoritesPagesView.swift in Sources */,
 				20800CEE26A2038600521FFA /* Reducers.swift in Sources */,
 				20C8C12C26A4662A00510A6D /* FavoritesOverviewView.swift in Sources */,
 				2049C5F326A77029002C3AF9 /* Workflow_addComicAsFavorite.swift in Sources */,
