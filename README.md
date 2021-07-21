@@ -56,8 +56,7 @@ https://stackoverflow.com/a/68428787/12764795
 
 
 ### Screenshots
-
-![IMG_3358](https://user-images.githubusercontent.com/55633868/126512477-605b1dff-ac21-4612-a09a-3355ad4e4a80.PNG)
-![IMG_3359](https://user-images.githubusercontent.com/55633868/126512486-96721f86-f23f-40cf-a07f-a0033ccc7bfb.PNG)
-![IMG_3357](https://user-images.githubusercontent.com/55633868/126512488-fec51b9a-561e-48fe-bde4-79c1bae067d0.PNG)
-![IMG_3356](https://user-images.githubusercontent.com/55633868/126512494-dfdd0282-90e5-45e9-8cbe-6d28e6ee5f73.PNG)
+![IMG_3359](https://user-images.githubusercontent.com/55633868/126513562-bafc9efd-2468-4a59-801a-a31585a9090d.PNG)
+![IMG_3358](https://user-images.githubusercontent.com/55633868/126513566-9d25003d-7d21-46a3-ae03-7c93aa657fc3.PNG)
+![IMG_3356](https://user-images.githubusercontent.com/55633868/126513571-b41081d4-a6ed-423a-a502-c4fdb7d8782e.PNG)
+![IMG_3357](https://user-images.githubusercontent.com/55633868/126513575-90cf7226-4651-4c3a-a86c-9b3ed4be5caa.PNG)
