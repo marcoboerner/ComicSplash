@@ -21,9 +21,13 @@ fileprivate struct ToDo {
 
 	// FIXME: - When going really fast from page to page I'm ending up in limbo. have to figure out how to prevent that. maybe graying out the button or some sort of delay?
 
+	// FIXME: - Figure out why
+
 	// TODO: - Need to move the reducer that keeps checking for more comics to the workflows. And have the reducer only check a small amount before and after their number as there should not be more comics after a few numbers.
 
-	// TODO: - USE STORED IMAGES FOR FAVORITES.
+	// TODO: - USE DOWNLOADED AND STORED IMAGES FOR FAVORITES.
+
+	// TODO: - SAME AS ABOVE, USE LOCAL COMIC DATA FIRST.
 
 	// TODO: - Need to set up Realm migration in case the data changes through an app update.
 
