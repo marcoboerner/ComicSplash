@@ -21,7 +21,6 @@ protocol DataType {}
 
 struct ComicData: DataType, Decodable, Equatable {
 
-
 	// JSON Relevant values
 	let month: String
 	let num: Int
@@ -40,7 +39,7 @@ struct ComicData: DataType, Decodable, Equatable {
 		if let date = DateComponents(calendar: Calendar.current, year: Int(year), month: Int(month), day: Int(day)).date {
 			let formatter = DateFormatter()
 			formatter.locale = Locale.current
-			formatter.setLocalizedDateFormatFromTemplate("dd mm yyyy")
+			formatter.setLocalizedDateFormatFromTemplate("dd.MM.YYYY")
 			return formatter.string(from: date)
 		} else {
 			return ""
