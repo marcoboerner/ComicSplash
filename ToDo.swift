@@ -23,6 +23,8 @@ fileprivate struct ToDo {
 
 	// FIXME: - Figure out why
 
+	// FIXME: - When removing a comic from the favorites, it's not removed from the comic array and still visible when scrolling.
+
 	// TODO: - Need to move the reducer that keeps checking for more comics to the workflows. And have the reducer only check a small amount before and after their number as there should not be more comics after a few numbers.
 
 	// TODO: - USE DOWNLOADED AND STORED IMAGES FOR FAVORITES.

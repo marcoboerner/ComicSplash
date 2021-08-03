@@ -5,17 +5,19 @@
 Marco Boerner
 
 ### Description
-Still under development. An app that fetches comics from an api with simple drag and pinch gestures. A favorited manager and persinstant storage implemented with a local Realm.
+Still under development. An app that fetches comics from an api with simple drag and pinch gestures. A favorites manager and persistent storage implemented with a local Realm.
 
-The app follows a similar concept of unidirectional dataflow as does Redux/ReSwift. However there is no store, and there are two different kind of actions that either trigger a Workflow (Similar to Middleware with sideeffects) or a Reducer, which changes the state with pure functions.
+The app follows a similar concept of unidirectional data flow as does Redux/ReSwift.
+However there is no store, and there are two different kind of actions. Workflow Actions that either trigger a Workflow (Similar to Middleware with side effects) and Reducer Actions, which trigger a reducer that then changes the state with pure functions.
+Also besides the two actions I'm allowing the use of @Bindings to directly change the state. But only if it's a direct change like when changing a navigation or tab using a tags or id's. As soon as any logic is required it should be at least a Reducer Action.
 
-The store is an Observabale Object. The view is all SwiftUI and reacts to changes in the Observable Object. The Workflows and Reducers are their own Observable Objects. Store, Workflows, and Reducers are made available to the views as Environment Objects.
+The store is an Observable Object. The view is all SwiftUI and reacts to changes in the Observable Object. The Workflows and Reducers are their own Observable Objects. Store, Workflows, and Reducers are made available to the views as Environment Objects.
 
-This setup is my attempt to find an alternative to the Redux implementation as I always had issues debugging larger Redux apps as it was not always clear which middleware is triggered when and which action is intercepted by what middleware. The way my app works is, there is either a Workflow that has sideeffects and might trigger its own Reducer Action. Or there are Reducers which will directly change the state without any sideeffects.
+This setup is my attempt to find an alternative to the Redux implementation as I always had issues debugging larger Redux apps as it was not always clear which middleware is triggered when and which action is intercepted by what middleware. The way my app works is, there is either a Workflow that has side effects and might trigger its own Reducer Action. Or there are Reducers which will directly change the state without any side effects.
 
-It's still possible to intercept each of thsoe actions for debugging purposes.
+It's still possible to intercept each of those actions for debugging purposes.
 
-Feedback and suggestions re more than welcome!
+Feedback and suggestions are more than welcome!
 
 ### Notes
 The apps shows the latest comic first. When going to the next page what is shows is actually the previous comic. Throughout the code this is also handled like that.
@@ -67,6 +69,7 @@ https://swiftwithmajid.com/2021/05/12/combining-multiple-combine-publishers-in-s
 ### Discussions
 https://stackoverflow.com/q/68422128/12764795
 https://stackoverflow.com/a/68428787/12764795
+https://stackoverflow.com/q/68639286/12764795
 
 
 ### Screenshots
