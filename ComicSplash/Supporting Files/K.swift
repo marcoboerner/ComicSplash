@@ -23,4 +23,9 @@ struct K {
 		static let launchScreenLogo = "LaunchScreenLogo"
 	}
 
+	struct Tags {
+		static let comicNavigationView = "ComicNavigationView"
+		static let favoritesNavigationView = "FavoritesNavigationView"
+	}
+
 }

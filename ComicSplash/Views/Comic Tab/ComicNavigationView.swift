@@ -12,6 +12,7 @@ struct ComicNavigationView: View {
 	@EnvironmentObject var reducer: Reducers
 	@EnvironmentObject var workflows: Workflows
 	@EnvironmentObject var state: AppState
+	@State var capturedValue: Int = 0
 
 	var body: some View {
 		NavigationView {
@@ -54,18 +55,14 @@ struct ComicNavigationView: View {
 						}
 				)
 		}
-		.onReceive(state.$currentComic) { [unowned state] currentComic in
+		.onChange(of: state.currentComic) { capturedValue = $0 } // Workaround to capture the previous value of the published value.
+		.onChange(of: capturedValue) { [capturedValue] newCurrentComicNum in
 
-			print("state: \(state.currentComic)")
-			print("new: \(currentComic)")
+			guard state.tabViewSelection == K.Tags.comicNavigationView else { return }
 
-		}
-		.onChange(of: state.currentComic) { [unowned state] newCurrentComicNum in
-			if newCurrentComicNum > state.currentComic && newCurrentComicNum <= state.latestComicNum {
-				print("gere?")
+			if newCurrentComicNum > capturedValue && newCurrentComicNum <= state.latestComicNum {
 				workflows.run(.getNewerComic)
 			} else if newCurrentComicNum > 1 {
-				print("gereff?")
 				workflows.run(.getPreviousComic)
 			}
 		}

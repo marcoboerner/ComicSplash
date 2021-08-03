@@ -9,18 +9,18 @@ import SwiftUI
 
 struct MainTabView: View {
 
-	@State var tabViewSelection: String = "ComicNavigationView"
+	@EnvironmentObject var state: AppState
 
 	var body: some View {
 
-		TabView(selection: $tabViewSelection) {
+		TabView(selection: $state.tabViewSelection) {
 			ComicNavigationView()
-				.id("ComicNavigationView")
+				.tag(K.Tags.comicNavigationView)
 				.tabItem {
 					Image(systemName: "book.fill")
 				}
 			FavoritesNavigationView()
-				.id("FavoritesNavigationView")
+				.tag(K.Tags.favoritesNavigationView)
 				.tabItem {
 					Image(systemName: "heart.fill")
 				}
