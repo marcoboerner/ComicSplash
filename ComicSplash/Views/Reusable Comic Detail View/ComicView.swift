@@ -24,7 +24,7 @@ struct ComicView: View {
 					Text("\"\(state.comicsData[comicNum]?.title ?? "Untitled")\"")
 					HStack {
 						Text("Issue #\(state.comicsData[comicNum]?.num ?? 0)")
-						Text("\(state.comicsData[comicNum]?.day ?? "29").\(state.comicsData[comicNum]?.month ?? "08").\(state.comicsData[comicNum]?.year ?? "1997")")
+						Text(state.comicsData[comicNum]?.dateString ?? "")
 					}
 				}
 				.foregroundColor(Color.black)
