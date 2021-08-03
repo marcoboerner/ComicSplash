@@ -33,8 +33,7 @@ extension ComicModel {
 			return
 		}
 
-		// Creating a dispatchGroup and Semaphore to run each task asynchronous but finishing in order on the background thread.
-		let dispatchGroup = DispatchGroup()
+		// Creating a Semaphore to run each task asynchronous but finishing in order on the background thread.
 		let dispatchQueue = DispatchQueue.global(qos: .background)
 		let dispatchSemaphore = DispatchSemaphore(value: 0)
 
@@ -45,15 +44,12 @@ extension ComicModel {
 				currentNum = nextNumFrom(currentNum)
 				urlStringComponents[1] = currentNum
 
-				dispatchGroup.enter()
-
 				self.log.info("Attempting to fetch \(selection.label) from \(urlStringComponents.map { $0.description }.joined())")
 
 				// Getting the comic.
 				comicAPI.fetchData(from: urlStringComponents) { error in
 					self.log.error("\(error.localizedDescription)")
 					dispatchSemaphore.signal()
-					dispatchGroup.leave()
 				} success: { comicData in
 					// Updating the store with the comic.
 					completion(comicData)
@@ -62,7 +58,6 @@ extension ComicModel {
 
 					// Async task has finished. Informing the group and semaphore.
 					dispatchSemaphore.signal()
-					dispatchGroup.leave()
 				}
 				// The loop waits here until it receives the signal.
 				dispatchSemaphore.wait()
