@@ -61,6 +61,9 @@ https://medium.com/@WilliamJones/text-to-speech-in-swift-in-5-lines-e6f6c6139086
 ToDo's as warnings:
 https://bendodson.com/weblog/2014/10/02/showing-todo-as-warning-in-swift-xcode-project/
 
+Combining Combine publishers:
+https://swiftwithmajid.com/2021/05/12/combining-multiple-combine-publishers-in-swift/
+
 ### Discussions
 https://stackoverflow.com/q/68422128/12764795
 https://stackoverflow.com/a/68428787/12764795

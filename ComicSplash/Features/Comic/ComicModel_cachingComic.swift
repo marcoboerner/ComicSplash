@@ -66,6 +66,7 @@ extension ComicModel {
 				}
 				// The loop waits here until it receives the signal.
 				dispatchSemaphore.wait()
+
 			}
 		}
 	}

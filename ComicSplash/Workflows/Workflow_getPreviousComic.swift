@@ -11,7 +11,7 @@ extension Workflows {
 
 	func getPreviousComic() {
 
-		reducer.run(.turnToPreviousComic)
+	//	reducer.run(.turnToPreviousComic)
 		comicModel.cacheComic(.previous, state: state) { comicData in
 			self.reducer.run(.storeComic(comicData))
 		}

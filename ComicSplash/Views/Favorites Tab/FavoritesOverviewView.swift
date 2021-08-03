@@ -11,7 +11,6 @@ import SDWebImageSwiftUI
 struct FavoritesOverviewView: View {
 
 	@EnvironmentObject var state: AppState
-	@Binding var favoriteToShow: Int
 	@Binding var showPages: Bool
 
 	@EnvironmentObject var reducers: Reducers
@@ -41,7 +40,6 @@ struct FavoritesOverviewView: View {
 								reducers.run(.clearComics)
 								reducers.run(.overwriteComicsWithFavorites)
 								reducers.run(.gotoComic(comicData.key))
-								favoriteToShow = comicData.key
 								showPages = true
 							}
 						)

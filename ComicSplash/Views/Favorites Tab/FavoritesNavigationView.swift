@@ -13,16 +13,15 @@ struct FavoritesNavigationView: View {
 	@EnvironmentObject var reducers: Reducers
 	@EnvironmentObject var workflows: Workflows
 
-	@State var favoriteToShow: Int = 0
 	@State var showPages: Bool = false
 
 	var body: some View {
 		NavigationView {
 			VStack {
-				FavoritesOverviewView(favoriteToShow: $favoriteToShow, showPages: $showPages)
+				FavoritesOverviewView(showPages: $showPages)
 
 				NavigationLink(destination:
-								ComicPagesView(currentComicNum: $favoriteToShow)
+								ComicPagesView()
 								.onDisappear {
 									workflows.run(.getComicsNear(state.currentComic))
 									showPages = false

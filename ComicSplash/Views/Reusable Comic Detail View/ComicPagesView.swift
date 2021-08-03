@@ -10,10 +10,8 @@ import SwiftUI
 struct ComicPagesView: View {
 
 	@EnvironmentObject var state: AppState
-	@Binding var currentComicNum: Int
-
 	var body: some View {
-		TabView(selection: $currentComicNum) {
+		TabView(selection: $state.currentComic) {
 			LogoAndLoadingView(scale: 0.4, animated: false, light: true)
 				.id(0)
 			ForEach(state.comicsData.sorted(by: { $0.key > $1.key }), id: \.key) { key, _ in
@@ -23,10 +21,10 @@ struct ComicPagesView: View {
 		.background(Color.white)
 		.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
 		.id(state.comicsData.count)
-		.onAppear {
-			if currentComicNum == 0 {
-				currentComicNum = state.currentComic
-			}
-		}
+//		.onAppear {
+//			if currentComicNum == 0 {
+//				currentComicNum = state.currentComic
+//			}
+//		}
 	}
 }

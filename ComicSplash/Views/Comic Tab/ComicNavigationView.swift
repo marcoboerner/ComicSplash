@@ -9,23 +9,13 @@ import SwiftUI
 
 struct ComicNavigationView: View {
 
+	@EnvironmentObject var reducer: Reducers
 	@EnvironmentObject var workflows: Workflows
 	@EnvironmentObject var state: AppState
-	@State var currentComicNum = 0
 
 	var body: some View {
 		NavigationView {
-			ComicPagesView(currentComicNum: $currentComicNum)
-				.onChange(of: currentComicNum) { [currentComicNum] newCurrentComicNum in
-					if newCurrentComicNum > currentComicNum && newCurrentComicNum <= state.latestComicNum {
-						workflows.run(.getNewerComic)
-					} else if newCurrentComicNum > 1 {
-						workflows.run(.getPreviousComic)
-					}
-				}
-				.onAppear {
-					currentComicNum = state.currentComic
-				}
+			ComicPagesView()
 				.navigationBarTitleDisplayMode(.inline)
 				.navigationBarItems(
 					leading:
@@ -41,28 +31,43 @@ struct ComicNavigationView: View {
 						HStack {
 							Button(
 								action: {
-									if currentComicNum < state.latestComicNum {
-										currentComicNum += 1
+									if state.currentComic < state.latestComicNum {
+										reducer.run(.turnToNewerComic)
 									}
 								},
 								label: {
 									Image(systemName: "arrowtriangle.left.fill")
-										.foregroundColor(currentComicNum < state.latestComicNum ? .accentColor : .clear)
+										.foregroundColor(state.currentComic < state.latestComicNum ? .accentColor : .clear)
 								}
 							)
 							Button(
 								action: {
-									if currentComicNum > 1 {
-										currentComicNum -= 1
+									if state.currentComic > 1 {
+										reducer.run(.turnToPreviousComic)
 									}
 								},
 								label: {
 									Image(systemName: "arrowtriangle.right.fill")
-										.foregroundColor(currentComicNum > 1 ? .accentColor : .clear)
+										.foregroundColor(state.currentComic > 1 ? .accentColor : .clear)
 								}
 							)
 						}
 				)
+		}
+		.onReceive(state.$currentComic) { [unowned state] currentComic in
+
+			print("state: \(state.currentComic)")
+			print("new: \(currentComic)")
+
+		}
+		.onChange(of: state.currentComic) { [unowned state] newCurrentComicNum in
+			if newCurrentComicNum > state.currentComic && newCurrentComicNum <= state.latestComicNum {
+				print("gere?")
+				workflows.run(.getNewerComic)
+			} else if newCurrentComicNum > 1 {
+				print("gereff?")
+				workflows.run(.getPreviousComic)
+			}
 		}
 	}
 }
