@@ -7,7 +7,7 @@ Marco Boerner
 ### Description
 Still under development. An app that fetches comics from an api with simple drag and pinch gestures. A favorites manager and persistent storage implemented with a local Realm.
 
-The app follows a similar concept of unidirectional data flow as does Redux/ReSwift.
+The app follows a similar concept of unidirectional data flow as does Redux/ReSwift. See image of concept further down. 
 However there is no store, and there are two different kind of actions. Workflow Actions that either trigger a Workflow (Similar to Middleware with side effects) and Reducer Actions, which trigger a reducer that then changes the state with pure functions.
 Also besides the two actions I'm allowing the use of @Bindings to directly change the state. But only if it's a direct change like when changing a navigation or tab using a tags or id's. As soon as any logic is required it should be at least a Reducer Action.
 
@@ -71,6 +71,9 @@ https://stackoverflow.com/q/68422128/12764795
 https://stackoverflow.com/a/68428787/12764795
 https://stackoverflow.com/q/68639286/12764795
 
+### Data Flow Concept
+
+![Tri-(2-Uni-1-Bi)-Directional Data Flow Simple](https://user-images.githubusercontent.com/55633868/128173428-8b94c437-fa8e-4278-bd17-d04ba5b8805d.jpg)
 
 ### Screenshots
 
