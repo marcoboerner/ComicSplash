@@ -34,11 +34,15 @@ extension ComicModel {
 		log.info("Attempting to fetch \(selection.label) from \(urlStringComponents.map {$0.description}.joined())")
 
 		// Getting the comic.
-		comicAPIModel.fetchData(from: urlStringComponents) { error in
-			self.log.error("\(error.localizedDescription)")
-		} success: { comicData in
-			// Will trigger the reducers in the workflow router.
-			completion(comicData)
+		comicAPIModel.fetchData(from: urlStringComponents) { result in
+
+			switch result {
+			case .success(let comicData):
+				// Will trigger the reducers in the workflow router.
+				completion(comicData)
+			case .failure(let error):
+				self.log.error("\(error.localizedDescription)")
+			}
 		}
 	}
 }

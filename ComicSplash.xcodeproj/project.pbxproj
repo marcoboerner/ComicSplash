@@ -289,13 +289,13 @@
 			path = TextToSpeach;
 			sourceTree = "<group>";
 		};
-		207CBB4226A42C5A00F59A9E /* Extensions */ = {
+		207CBB4226A42C5A00F59A9E /* Extensions and Types */ = {
 			isa = PBXGroup;
 			children = (
 				2049C58126A4BAB9002C3AF9 /* LoggerExtension.swift */,
 				207CBB4326A42C7C00F59A9E /* ArrayExtension.swift */,
 			);
-			path = Extensions;
+			path = "Extensions and Types";
 			sourceTree = "<group>";
 		};
 		20800CA026A1E70F00521FFA = {
@@ -326,7 +326,7 @@
 			children = (
 				20800CB526A1E71A00521FFA /* Info.plist */,
 				20800CF126A233C000521FFA /* Supporting Files */,
-				207CBB4226A42C5A00F59A9E /* Extensions */,
+				207CBB4226A42C5A00F59A9E /* Extensions and Types */,
 				2049C58B26A65078002C3AF9 /* Features */,
 				20800CE326A1FBED00521FFA /* Actions */,
 				20800CE626A1FCE200521FFA /* Workflows */,

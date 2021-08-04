@@ -11,7 +11,6 @@ The object type required by realm.
 
 */
 
-
 import Foundation
 import RealmSwift
 

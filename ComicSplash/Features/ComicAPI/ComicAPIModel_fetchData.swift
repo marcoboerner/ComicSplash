@@ -21,10 +21,10 @@ extension ComicAPIModel {
 	# Notes: #
 	1. Data will be received on the main thread.
 	*/
-	func fetchData(from urlString: String, errorCompletion: @escaping (Error) -> Void, success: @escaping (ComicData) -> Void) {
+	func fetchData(from urlString: String, completion: @escaping (Result<ComicData, Error>) -> Void) {
 
 		guard let url = URL(string: urlString) else {
-			errorCompletion(ComicAPIModelError.invalidURLString)
+			completion(.failure(ComicAPIModelError.invalidURLString))
 			return
 		}
 
@@ -40,10 +40,10 @@ extension ComicAPIModel {
 				case .finished:
 					self.log.info("URLSession subscriber successfully terminated.")
 				case .failure(let error):
-					errorCompletion(error)
+					completion(.failure(error))
 				}
 			}, receiveValue: { comicData in
-				success(comicData)
+				completion(.success(comicData))
 			})
 	}
 
@@ -57,8 +57,9 @@ extension ComicAPIModel {
 	# Notes: #
 	1. Data will be received on the main thread.
 	*/
-	func fetchData(from urlStringComponents: [LosslessStringConvertible], errorCompletion: @escaping (Error) -> Void, success: @escaping (ComicData) -> Void) {
+	func fetchData(from urlStringComponents: [LosslessStringConvertible], completion: @escaping (Result<ComicData, Error>) -> Void) {
 		let urlString = urlStringComponents.map { $0.description }.joined()
-		fetchData(from: urlString, errorCompletion: errorCompletion, success: success)
+
+		fetchData(from: urlString, completion: completion)
 	}
 }

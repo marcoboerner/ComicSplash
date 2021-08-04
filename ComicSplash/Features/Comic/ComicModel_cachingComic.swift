@@ -45,21 +45,24 @@ extension ComicModel {
 				self.log.info("Attempting to fetch \(selection.label) from \(urlStringComponents.map { $0.description }.joined())")
 
 				// Getting the comic.
-				self.comicAPIModel.fetchData(from: urlStringComponents) { error in
-					self.log.error("\(error.localizedDescription)")
-					dispatchSemaphore.signal()
-				} success: { comicData in
-					// Updating the store with the comic.
-					completion(comicData)
+				self.comicAPIModel.fetchData(from: urlStringComponents) { result in
 
-					successCount += 1
+					switch result {
+					case .success(let comicData):
+						completion(comicData)
 
-					// Async task has finished. Informing the group and semaphore.
-					dispatchSemaphore.signal()
+						successCount += 1
+
+						// Async task has finished. Informing the semaphore.
+						dispatchSemaphore.signal()
+
+					case .failure(let error):
+						self.log.error("\(error.localizedDescription)")
+						dispatchSemaphore.signal()
+					}
 				}
 				// The loop waits here until it receives the signal.
 				dispatchSemaphore.wait()
-
 			}
 		}
 	}
