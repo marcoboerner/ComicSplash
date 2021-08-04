@@ -11,7 +11,6 @@ extension FavoritesModel {
 
 	func deleteFavoriteComicImage(_ num: Int, state: AppState) {
 
-		let imageStorageModel = ImageStorageModel()
 		guard let comicData = state.comicsData[num] else { return }
 
 		do {

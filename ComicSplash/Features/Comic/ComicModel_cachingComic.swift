@@ -12,8 +12,6 @@ extension ComicModel {
 	// Getting a defined amount of previous comics.
 	func cachingComics(_ selection: ComicSelector, from num: Int? = nil, state: AppState, completion: @escaping (ComicData) -> Void) {
 
-		let comicAPI = ComicAPIModel()
-
 		// Starting from the latest or an individual comic number.
 		var currentNum = num ?? state.latestComicNum
 		var urlStringComponents = AppState.Settings.previousComicURLComponents
@@ -47,7 +45,7 @@ extension ComicModel {
 				self.log.info("Attempting to fetch \(selection.label) from \(urlStringComponents.map { $0.description }.joined())")
 
 				// Getting the comic.
-				comicAPI.fetchData(from: urlStringComponents) { error in
+				self.comicAPIModel.fetchData(from: urlStringComponents) { error in
 					self.log.error("\(error.localizedDescription)")
 					dispatchSemaphore.signal()
 				} success: { comicData in

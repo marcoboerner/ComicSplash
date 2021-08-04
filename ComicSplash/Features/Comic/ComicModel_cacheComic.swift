@@ -11,7 +11,6 @@ extension ComicModel {
 
 	func cacheComic(_ selection: ComicSelector, state: AppState, completion: @escaping (ComicData) -> Void) {
 
-		let comicAPIModel = ComicAPIModel()
 		var urlStringComponents = AppState.Settings.previousComicURLComponents
 
 		// Getting the number of the next comic to be fetched.

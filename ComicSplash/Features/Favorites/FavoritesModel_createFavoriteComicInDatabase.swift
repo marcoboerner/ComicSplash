@@ -11,7 +11,6 @@ extension FavoritesModel {
 
 	func createFavoriteComicInDatabase(_ num: Int, state: AppState, completion: @escaping (ComicData) -> Void ) {
 
-		let realmModel = RealmModel()
 		guard let comicData = state.comicsData[num] else { return }
 
 		realmModel.writeToRealm(comicData) { error in

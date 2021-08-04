@@ -11,7 +11,6 @@ import Combine
 extension FavoritesModel {
 
 	func readFavoriteComicsFromDatabase(state: AppState, completion: @escaping (ComicData) -> Void) -> AnyCancellable {
-		let realmModel = RealmModel()
 
 		let publisher = realmModel.openLocal(read: [ComicData.self])
 

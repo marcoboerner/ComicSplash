@@ -9,7 +9,7 @@ import Foundation
 
 extension Workflows {
 
-	func removeComicFromFavorite(_ num: (Int)) {
+	func removeComicFromFavorite(_ num: Int) {
 		favoritesModel.deleteFavoriteComicInDatabase(num, state: state)
 		favoritesModel.deleteFavoriteComicImage(num, state: state)
 		self.reducer.run(.removeFavoriteComic(num))

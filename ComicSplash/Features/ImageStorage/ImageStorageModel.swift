@@ -5,7 +5,6 @@
 //  Created by Marco Boerner on 19.07.21.
 //
 
-
 /*
 
 The image storage model used by the favorites workflows to either download and save or delete images.
@@ -27,7 +26,7 @@ enum ImageStorageError: Error {
 }
 
 class ImageStorageModel {
-	
+
 	let log = Logger(category: "ImageStorageModel")
 
 }

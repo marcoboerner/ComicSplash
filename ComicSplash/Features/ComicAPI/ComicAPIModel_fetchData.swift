@@ -47,8 +47,6 @@ extension ComicAPIModel {
 			})
 	}
 
-
-
 	/**
 	Downloads the json comicData from the given url string components and decodes it to a ComicData object.
 
@@ -63,5 +61,4 @@ extension ComicAPIModel {
 		let urlString = urlStringComponents.map { $0.description }.joined()
 		fetchData(from: urlString, errorCompletion: errorCompletion, success: success)
 	}
-	
 }

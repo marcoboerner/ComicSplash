@@ -9,7 +9,7 @@ import Foundation
 
 extension Workflows {
 
-	func startSpeaking(_ transcript: (String)) {
+	func startSpeaking(_ transcript: String) {
 		TextToSpeechModel.speak(transcript)
 	}
 }

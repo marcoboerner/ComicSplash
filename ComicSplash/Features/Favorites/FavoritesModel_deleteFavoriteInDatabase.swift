@@ -11,8 +11,6 @@ extension FavoritesModel {
 
 	func deleteFavoriteComicInDatabase(_ num: Int, state: AppState) {
 
-		let realmModel = RealmModel()
-
 		realmModel.deleteFromRealm(dataType: ComicData.self, primaryKey: num) { error in
 			if let error = error {
 				self.log.error("\(error.localizedDescription)")

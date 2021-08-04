@@ -12,7 +12,6 @@ extension FavoritesModel {
 
 	func downloadFavoriteComicImage(_ num: Int, state: AppState, completion: @escaping (Int) -> Void ) {
 
-		let imageStorageModel = ImageStorageModel()
 		guard let comicData = state.comicsData[num] else { return }
 
 		imageStorageModel.downloadImageFor(comicData) { error in

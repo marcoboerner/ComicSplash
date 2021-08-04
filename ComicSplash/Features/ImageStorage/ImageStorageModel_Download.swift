@@ -8,7 +8,6 @@
 import Foundation
 import SDWebImageSwiftUI
 
-
 extension ImageStorageModel {
 
 	/**
@@ -43,6 +42,4 @@ extension ImageStorageModel {
 			}
 		}.resume()
 	}
-
-
 }

@@ -12,4 +12,6 @@ class ComicModel {
 
 	let log = Logger(category: "ComicModel")
 
+	let comicAPIModel = ComicAPIModel()
+
 }

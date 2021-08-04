@@ -9,7 +9,7 @@ import Foundation
 
 extension Workflows {
 
-	func addComicAsFavorite(_ num: (Int)) {
+	func addComicAsFavorite(_ num: Int) {
 		favoritesModel.createFavoriteComicInDatabase(num, state: state) { comicData in
 			self.reducer.run(.storeFavoriteComic(comicData))
 		}
