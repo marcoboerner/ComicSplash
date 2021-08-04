@@ -126,6 +126,9 @@ class Reducers: ObservableObject {
 	}
 
 	private func removeFavoriteComic(_ num: Int) {
+//		if state.favoriteComicsData == state.comicsData {
+//			state.comicsData.removeValue(forKey: num)
+//		}
 		state.favoriteComicsData.removeValue(forKey: num)
 	}
 }

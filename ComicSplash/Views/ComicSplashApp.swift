@@ -13,10 +13,12 @@ struct ComicSplashApp: App {
 	let state: AppState = AppState()
 	let workflows: Workflows
 	let reducers: Reducers
+	let reactors: Reactors
 
 	init() {
 		workflows = Workflows(state: state)
 		reducers = Reducers(state: state)
+		reactors = Reactors(state: state)
 
 		// Downloading the initial comics...
 		workflows.run(.getLatestComics)

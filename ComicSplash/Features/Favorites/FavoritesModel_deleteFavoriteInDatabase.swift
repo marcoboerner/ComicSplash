@@ -9,13 +9,13 @@ import Foundation
 
 extension FavoritesModel {
 
-	func deleteFavoriteComicInDatabase(_ num: Int, state: AppState) {
+	func deleteFavoriteComicInDatabase(_ num: Int, state: AppState, completion: @escaping () -> Void) {
 
 		realmModel.deleteFromRealm(dataType: ComicData.self, primaryKey: num) { error in
 			if let error = error {
 				self.log.error("\(error.localizedDescription)")
 			} else {
-				Reducers(state: state).run(.removeFavoriteComic(num))
+				completion()
 			}
 		}
 	}

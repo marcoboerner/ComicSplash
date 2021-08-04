@@ -21,10 +21,5 @@ struct ComicPagesView: View {
 		.background(Color.white)
 		.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
 		.id(state.comicsData.count)
-//		.onAppear {
-//			if currentComicNum == 0 {
-//				currentComicNum = state.currentComic
-//			}
-//		}
 	}
 }

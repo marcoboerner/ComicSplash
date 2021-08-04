@@ -45,3 +45,33 @@ class AppState: ObservableObject, Equatable {
 		static let previousComicURLComponents: [LosslessStringConvertible] = ["https://xkcd.com/", 1, "/info.0.json"]
 	}
 }
+
+class Reactors: ObservableObject {
+
+	init(state: AppState) {
+		self.state = state
+		self.workflow = Workflows(state: state)
+
+		subscribers.append(
+			state.$currentComic
+				.scan( (previous: 0, new: 0) ) { ($0.1, $1) }
+				.sink { num in
+					print("Received new: \(num)")
+
+					guard state.tabViewSelection == K.Tags.comicNavigationView, abs(num.previous - num.new) == 1 else { return }
+
+					if num.new > num.previous && num.new <= state.latestComicNum {
+						self.workflow.run(.getNewerComic)
+					} else if num.new > 1 {
+						self.workflow.run(.getPreviousComic)
+					}
+
+				}
+		)
+	}
+
+	private let state: AppState
+	private let workflow: Workflows
+	private var subscribers: [AnyCancellable] = []
+
+}

@@ -10,9 +10,9 @@ import SwiftUI
 struct ComicNavigationView: View {
 
 	@EnvironmentObject var reducer: Reducers
-	@EnvironmentObject var workflows: Workflows
+	@EnvironmentObject var workflow: Workflows
 	@EnvironmentObject var state: AppState
-	@State var capturedValue: Int = 0
+	@State var capturedCurrentComicNum: Int = 0
 
 	var body: some View {
 		NavigationView {
@@ -22,7 +22,7 @@ struct ComicNavigationView: View {
 					leading:
 						Button(
 							action: {
-								workflows.run(.getRandomComics)
+								workflow.run(.getRandomComics)
 							},
 							label: {
 								Image(systemName: "shuffle")
@@ -55,16 +55,16 @@ struct ComicNavigationView: View {
 						}
 				)
 		}
-		.onChange(of: state.currentComic) { capturedValue = $0 } // Workaround to capture the previous value of the published value.
-		.onChange(of: capturedValue) { [capturedValue] newCurrentComicNum in
-
-			guard state.tabViewSelection == K.Tags.comicNavigationView else { return }
-
-			if newCurrentComicNum > capturedValue && newCurrentComicNum <= state.latestComicNum {
-				workflows.run(.getNewerComic)
-			} else if newCurrentComicNum > 1 {
-				workflows.run(.getPreviousComic)
-			}
-		}
+//		.onChange(of: state.currentComic) { capturedCurrentComicNum = $0 } // Workaround to capture the previous value of the published value.
+//		.onChange(of: capturedCurrentComicNum) { [capturedCurrentComicNum] newCurrentComicNum in
+//
+//			guard state.tabViewSelection == K.Tags.comicNavigationView else { return }
+//
+//			if newCurrentComicNum > capturedCurrentComicNum && newCurrentComicNum <= state.latestComicNum {
+//				workflows.run(.getNewerComic)
+//			} else if newCurrentComicNum > 1 {
+//				workflows.run(.getPreviousComic)
+//			}
+//		}
 	}
 }
