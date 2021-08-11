@@ -16,6 +16,7 @@ struct ComicPagesView: View {
 				.id(0)
 			ForEach(state.comicsData.sorted(by: { $0.key > $1.key }), id: \.key) { key, _ in
 				ComicView(comicNum: key)
+					.accessibility(identifier: "ComicView")
 			}
 		}
 		.background(Color.white)

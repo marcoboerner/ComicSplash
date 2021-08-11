@@ -55,6 +55,7 @@ struct ComicImageView: View {
 			.placeholder {
 				LogoAndLoadingView(scale: 0.4, animated: true, light: true)
 			}
+			.accessibility(identifier: "\(comicNum)")
 			.transition(.fade(duration: 0.5))
 			.scaledToFit()
 			.frame(alignment: .center)

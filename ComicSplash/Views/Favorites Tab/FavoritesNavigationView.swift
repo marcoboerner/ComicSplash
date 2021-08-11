@@ -35,6 +35,7 @@ struct FavoritesNavigationView: View {
 												},
 												label: {
 													Image(systemName: "arrowtriangle.left.fill")
+														.accessibility(identifier: "arrowtriangle.left.fill")
 												}
 											)
 											Button(
@@ -43,6 +44,7 @@ struct FavoritesNavigationView: View {
 												},
 												label: {
 													Image(systemName: "arrowtriangle.right.fill")
+														.accessibility(identifier: "arrowtriangle.right.fill")
 												}
 											)
 										}

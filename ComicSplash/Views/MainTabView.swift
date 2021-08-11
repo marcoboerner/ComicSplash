@@ -18,11 +18,13 @@ struct MainTabView: View {
 				.tag(K.Tags.comicNavigationView)
 				.tabItem {
 					Image(systemName: "book.fill")
+						.accessibility(identifier: "book.fill")
 				}
 			FavoritesNavigationView()
 				.tag(K.Tags.favoritesNavigationView)
 				.tabItem {
 					Image(systemName: "heart.fill")
+						.accessibility(identifier: "heart.fill")
 				}
 		}
 	}

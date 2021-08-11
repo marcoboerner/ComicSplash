@@ -25,6 +25,7 @@ struct TalkAndLoveOverlayView: View {
 						.scaledToFit()
 						.accentColor(state.comicsData[comicNum]?.transcript?.isEmpty ?? true ? .clear : .blue)
 						.frame(minWidth: 15, idealWidth: 20, maxWidth: 30)
+						.accessibility(identifier: "waveform")
 				}
 			)
 			Button(
@@ -41,6 +42,7 @@ struct TalkAndLoveOverlayView: View {
 						.scaledToFit()
 						.accentColor(state.favoriteComicsData[comicNum] != nil ? .red.opacity(1.0) : .gray.opacity(0.5))
 						.frame(minWidth: 15, idealWidth: 20, maxWidth: 30)
+						.accessibility(identifier: "heart.fill")
 				}
 			)
 		}

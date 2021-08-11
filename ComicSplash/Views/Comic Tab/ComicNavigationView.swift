@@ -26,6 +26,7 @@ struct ComicNavigationView: View {
 							},
 							label: {
 								Image(systemName: "shuffle")
+								.accessibility(identifier: "shuffle")
 							}
 						),
 					trailing:
@@ -39,6 +40,7 @@ struct ComicNavigationView: View {
 								label: {
 									Image(systemName: "arrowtriangle.left.fill")
 										.foregroundColor(state.currentComic < state.latestComicNum ? .accentColor : .clear)
+										.accessibility(identifier: "arrowtriangle.left.fill")
 								}
 							)
 							Button(
@@ -50,6 +52,7 @@ struct ComicNavigationView: View {
 								label: {
 									Image(systemName: "arrowtriangle.right.fill")
 										.foregroundColor(state.currentComic > 1 ? .accentColor : .clear)
+										.accessibility(identifier: "arrowtriangle.right.fill")
 								}
 							)
 						}

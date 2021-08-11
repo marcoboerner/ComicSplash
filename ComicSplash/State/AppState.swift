@@ -65,7 +65,6 @@ class Reactors: ObservableObject {
 					} else if num.new > 1 {
 						self.workflow.run(.getPreviousComic)
 					}
-
 				}
 		)
 	}
