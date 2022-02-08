@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FavoritesNavigationView: View {
 
-	@EnvironmentObject var state: AppState
+	@EnvironmentObject var state: MainState
 	@EnvironmentObject var reducers: Reducers
 	@EnvironmentObject var workflows: Workflows
 

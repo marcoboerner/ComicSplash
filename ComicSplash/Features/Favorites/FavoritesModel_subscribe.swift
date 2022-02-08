@@ -10,7 +10,7 @@ import Combine
 
 extension FavoritesModel {
 
-	func subscribeToPublisher(_ publisher: DatabasePublisher, state: AppState, completion: @escaping (ComicData) -> Void) -> AnyCancellable {
+	func subscribeToPublisher(_ publisher: DatabasePublisher, state: MainState, completion: @escaping (ComicData) -> Void) -> AnyCancellable {
 
 		return publisher
 			.map { response in

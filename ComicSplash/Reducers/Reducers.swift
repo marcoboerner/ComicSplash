@@ -19,54 +19,49 @@ The go to or page turn reducer keep checking all available numbers if there is c
 import Foundation
 import Combine
 import os
+import R2DFlow
 
-class Reducers: ObservableObject {
+class Reducers: Reducer<MainState> {
 
 	let log = Logger(category: "Reducer")
 
-	init(state: AppState) {
-		self.state = state
-	}
-
-	let state: AppState
-
 	// MARK: - Reducers Router
 
-	func run(_ action: ReducerAction) {
+    override func run(_ action: ReducerAction) {
 
-		log.info("\(action.label)")
+        log.info("\(action.label)")
 
-		switch action {
+        switch action {
 
-		case .storeComic(let comicData):
-			storeComic(comicData)
+        case .storeComic(let comicData):
+            storeComic(comicData)
 
-		case .gotoComic(let num):
-			goToComic(num)
+        case .gotoComic(let num):
+            goToComic(num)
 
-		case .turnToPreviousComic:
-			turnToPreviousComic()
+        case .turnToPreviousComic:
+            turnToPreviousComic()
 
-		case .turnToNewerComic:
-			turnToNewerComic()
+        case .turnToNewerComic:
+            turnToNewerComic()
 
-		case .clearComics:
-			state.currentComic = 0
-			state.comicsData = [:]
+        case .clearComics:
+            state.currentComic = 0
+            state.comicsData = [:]
 
-		case .listenToFavoritesInDatabase(let subscriber):
-			listenToFavoritesInDatabase(subscriber)
+        case .listenToFavoritesInDatabase(let subscriber):
+            listenToFavoritesInDatabase(subscriber)
 
-		case .storeFavoriteComic(let comicData):
-			storeFavoriteComic(comicData)
+        case .storeFavoriteComic(let comicData):
+            storeFavoriteComic(comicData)
 
-		case .removeFavoriteComic(let num):
-			removeFavoriteComic(num)
+        case .removeFavoriteComic(let num):
+            removeFavoriteComic(num)
 
-		case .overwriteComicsWithFavorites:
-			state.comicsData = state.favoriteComicsData
-		}
-	}
+        case .overwriteComicsWithFavorites:
+            state.comicsData = state.favoriteComicsData
+        }
+    }
 
 // MARK: - Reducer methods
 

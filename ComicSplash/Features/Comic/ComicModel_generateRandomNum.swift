@@ -11,7 +11,7 @@ extension ComicModel {
 
 	func generateRandomNum(below maxNum: Int) -> Int {
 
-		let requiredComicAmount = AppState.Settings.requiredComicAmount
+		let requiredComicAmount = MainState.Settings.requiredComicAmount
 
 		// Offsetting the min and max value to not immediately hit an end or previously viewed comic
 		let range = (requiredComicAmount*2...maxNum-requiredComicAmount*5)

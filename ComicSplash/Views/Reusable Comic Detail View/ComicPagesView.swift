@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ComicPagesView: View {
 
-	@EnvironmentObject var state: AppState
+	@EnvironmentObject var state: MainState
 	var body: some View {
 		TabView(selection: $state.currentComic) {
 			LogoAndLoadingView(scale: 0.4, animated: false, light: true)

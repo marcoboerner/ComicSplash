@@ -10,12 +10,12 @@ import Foundation
 extension ComicModel {
 
 	// Getting a defined amount of previous comics.
-	func cachingComics(_ selection: ComicSelector, from num: Int? = nil, state: AppState, completion: @escaping (ComicData) -> Void) {
+	func cachingComics(_ selection: ComicSelector, from num: Int? = nil, state: MainState, completion: @escaping (ComicData) -> Void) {
 
 		// Starting from the latest or an individual comic number.
 		var currentNum = num ?? state.latestComicNum
-		var urlStringComponents = AppState.Settings.previousComicURLComponents
-		let requiredComicAmount = AppState.Settings.requiredComicAmount
+		var urlStringComponents = MainState.Settings.previousComicURLComponents
+		let requiredComicAmount = MainState.Settings.requiredComicAmount
 		var successCount = 0
 
 		var nextNumFrom: (Int) -> Int
@@ -26,7 +26,7 @@ extension ComicModel {
 			nextNumFrom = {$0 - 1}
 		case .newer:
 			nextNumFrom = {$0 + 1}
-		case .number(_):
+		case .number:
 			log.debug("ComicSelector.number(Int) not yet supported in gettingComics.")
 			return
 		}

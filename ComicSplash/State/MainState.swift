@@ -18,10 +18,14 @@ Newly added states need to be added to the == method.
 import Foundation
 import Combine
 import os
+import R2DFlow
 
-class AppState: ObservableObject, Equatable {
+class MainState: AppState {
 
-	static func == (lhs: AppState, rhs: AppState) -> Bool {
+    typealias ReducerActionType = ReducerAction
+    typealias WorkflowActionType = WorkflowAction
+
+	static func == (lhs: MainState, rhs: MainState) -> Bool {
 		lhs.databaseSubscriber == rhs.databaseSubscriber &&
 			lhs.latestComicNum == rhs.latestComicNum &&
 			lhs.comicsData == rhs.comicsData &&
@@ -48,7 +52,7 @@ class AppState: ObservableObject, Equatable {
 
 class Reactors: ObservableObject {
 
-	init(state: AppState) {
+	init(state: MainState) {
 		self.state = state
 		self.workflow = Workflows(state: state)
 
@@ -69,7 +73,7 @@ class Reactors: ObservableObject {
 		)
 	}
 
-	private let state: AppState
+	private let state: MainState
 	private let workflow: Workflows
 	private var subscribers: [AnyCancellable] = []
 

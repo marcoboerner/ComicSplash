@@ -11,7 +11,7 @@ struct ComicNavigationView: View {
 
 	@EnvironmentObject var reducer: Reducers
 	@EnvironmentObject var workflow: Workflows
-	@EnvironmentObject var state: AppState
+	@EnvironmentObject var state: MainState
 	@State var capturedCurrentComicNum: Int = 0
 
 	var body: some View {

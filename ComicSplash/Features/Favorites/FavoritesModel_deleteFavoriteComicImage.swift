@@ -9,7 +9,7 @@ import Foundation
 
 extension FavoritesModel {
 
-	func deleteFavoriteComicImage(_ num: Int, state: AppState) {
+	func deleteFavoriteComicImage(_ num: Int, state: MainState) {
 
 		guard let comicData = state.comicsData[num] else { return }
 

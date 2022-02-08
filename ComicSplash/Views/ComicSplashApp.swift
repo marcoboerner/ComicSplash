@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct ComicSplashApp: App {
 
-	let state: AppState = AppState()
+	let state: MainState = MainState()
 	let workflows: Workflows
 	let reducers: Reducers
 	let reactors: Reactors

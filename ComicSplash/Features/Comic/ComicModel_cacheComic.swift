@@ -9,9 +9,9 @@ import Foundation
 
 extension ComicModel {
 
-	func cacheComic(_ selection: ComicSelector, state: AppState, completion: @escaping (ComicData) -> Void) {
+	func cacheComic(_ selection: ComicSelector, state: MainState, completion: @escaping (ComicData) -> Void) {
 
-		var urlStringComponents = AppState.Settings.previousComicURLComponents
+		var urlStringComponents = MainState.Settings.previousComicURLComponents
 
 		// Getting the number of the next comic to be fetched.
 		switch selection {
@@ -26,7 +26,7 @@ extension ComicModel {
 			}
 			urlStringComponents[1] = newNum + 1
 		case .latest:
-			urlStringComponents = [AppState.Settings.latestComicURL]
+			urlStringComponents = [MainState.Settings.latestComicURL]
 		case .number(let num):
 			urlStringComponents[1] = num
 		}

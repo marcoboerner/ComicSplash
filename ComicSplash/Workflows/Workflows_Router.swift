@@ -7,65 +7,57 @@
 
 import Foundation
 import os
-import EnumKit
+import R2DFlow
 
-enum ComicSelector: CaseAccessible {
-	case previous
-	case newer
-	case latest
-	case number(Int)
+enum ComicSelector: LabelAccessible {
+    case previous
+    case newer
+    case latest
+    case number(Int)
 }
 
-class Workflows: ObservableObject {
+class Workflows: Workflow<MainState> {
 
-	let log = Logger(category: "Workflows")
+    let log = Logger(category: "Workflows")
 
-	internal init(state: AppState) {
-		self.state = state
-		self.reducer = Reducers(state: state)
-	}
+    let comicModel = ComicModel()
+    let favoritesModel = FavoritesModel()
 
-	let state: AppState
-	let reducer: Reducers
+    // MARK: - Action receiver and workflow router.
 
-	let comicModel = ComicModel()
-	let favoritesModel = FavoritesModel()
+    override func run(_ action: WorkflowAction) {
 
-	// MARK: - Action receiver and workflow router.
+        log.info("\(action.label)")
 
-	func run(_ action: WorkflowAction) {
+        switch action {
 
-		log.info("\(action.label)")
+        case .getLatestComics:
+            getLatestComics()
 
-		switch action {
+        case .getPreviousComic:
+            getPreviousComic()
 
-		case .getLatestComics:
-			getLatestComics()
+        case .getNewerComic:
+            getNewerComic()
 
-		case .getPreviousComic:
-			getPreviousComic()
+        case .getRandomComics:
+            getRandomComics()
 
-		case .getNewerComic:
-			getNewerComic()
+        case .getComicsNear(let num):
+            getComicsNear(num)
 
-		case .getRandomComics:
-			getRandomComics()
+        case .addComicAsFavorite(let num):
+            addComicAsFavorite(num)
 
-		case .getComicsNear(let num):
-			getComicsNear(num)
+        case .removeComicFromFavorites(let num):
+            removeComicFromFavorite(num)
 
-		case .addComicAsFavorite(let num):
-			addComicAsFavorite(num)
+        case .getFavoriteComics:
+            getFavoriteComics()
 
-		case .removeComicFromFavorites(let num):
-			removeComicFromFavorite(num)
+        case .startSpeaking(let transcript):
+            startSpeaking(transcript)
 
-		case .getFavoriteComics:
-			getFavoriteComics()
-
-		case .startSpeaking(let transcript):
-			startSpeaking(transcript)
-
-		}
-	}
+        }
+    }
 }

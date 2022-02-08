@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct ComicView: View {
 
-	@EnvironmentObject var state: AppState
+	@EnvironmentObject var state: MainState
 	@State var comicNum: Int
 	@State var scale = 1.0
 

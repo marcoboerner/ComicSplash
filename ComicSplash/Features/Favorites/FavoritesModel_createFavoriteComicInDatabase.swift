@@ -9,7 +9,7 @@ import Foundation
 
 extension FavoritesModel {
 
-	func createFavoriteComicInDatabase(_ num: Int, state: AppState, completion: @escaping (ComicData) -> Void ) {
+	func createFavoriteComicInDatabase(_ num: Int, state: MainState, completion: @escaping (ComicData) -> Void ) {
 
 		guard let comicData = state.comicsData[num] else { return }
 

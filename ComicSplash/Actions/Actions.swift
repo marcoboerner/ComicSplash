@@ -23,11 +23,11 @@ The actions will trigger its appropriate Workflow or Reducer through their separ
 
 import Foundation
 import Combine
-import EnumKit
+import R2DFlow
 
 // MARK: - Workflow actions
 
-enum WorkflowAction: CaseAccessible {
+enum WorkflowAction: WorkflowActions {
 
 	/// Fetch the latest and a few earlier comics, depending on the comic cache setting in the settings state.
 	case getLatestComics
@@ -59,7 +59,7 @@ enum WorkflowAction: CaseAccessible {
 
 // MARK: - Reducer actions
 
-enum ReducerAction: CaseAccessible {
+enum ReducerAction: ReducerActions {
 
 	/// Clears the comics in the state. Usually triggered by the Comics workflow.
 	case clearComics

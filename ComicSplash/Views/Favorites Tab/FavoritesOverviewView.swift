@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct FavoritesOverviewView: View {
 
-	@EnvironmentObject var state: AppState
+	@EnvironmentObject var state: MainState
 	@Binding var showPages: Bool
 
 	@EnvironmentObject var reducers: Reducers

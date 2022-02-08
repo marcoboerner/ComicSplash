@@ -10,7 +10,7 @@ import Combine
 
 extension FavoritesModel {
 
-	func downloadFavoriteComicImage(_ num: Int, state: AppState, completion: @escaping (Int) -> Void ) {
+	func downloadFavoriteComicImage(_ num: Int, state: MainState, completion: @escaping (Int) -> Void ) {
 
 		guard let comicData = state.comicsData[num] else { return }
 

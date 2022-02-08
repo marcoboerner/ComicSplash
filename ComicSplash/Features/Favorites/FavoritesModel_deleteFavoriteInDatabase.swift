@@ -9,7 +9,7 @@ import Foundation
 
 extension FavoritesModel {
 
-	func deleteFavoriteComicInDatabase(_ num: Int, state: AppState, completion: @escaping () -> Void) {
+	func deleteFavoriteComicInDatabase(_ num: Int, state: MainState, completion: @escaping () -> Void) {
 
 		realmModel.deleteFromRealm(dataType: ComicData.self, primaryKey: num) { error in
 			if let error = error {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainTabView: View {
 
-	@EnvironmentObject var state: AppState
+	@EnvironmentObject var state: MainState
 
 	var body: some View {
 

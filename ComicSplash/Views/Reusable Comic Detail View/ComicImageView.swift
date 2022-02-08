@@ -12,7 +12,7 @@ struct ComicImageView: View {
 
 	@State var activateScaling = false
 
-	@EnvironmentObject var state: AppState
+	@EnvironmentObject var state: MainState
 	@State var showOverlay = false
 	var comicNum: Int
 	@State var lastScale: CGFloat = 1.5
